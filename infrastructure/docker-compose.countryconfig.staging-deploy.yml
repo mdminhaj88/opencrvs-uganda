@@ -44,7 +44,7 @@ services:
     environment:
       - LANGUAGES=en,fr
       - SENTRY_DSN=${SENTRY_DSN}
-      - COUNTRY=FAR
+      - COUNTRY=UGA
 
   workflow:
     environment:
