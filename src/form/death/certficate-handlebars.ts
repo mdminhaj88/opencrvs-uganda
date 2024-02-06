@@ -33,6 +33,7 @@ export const certificateHandlebars = {
   deceasedNationality: 'deceasedNationality',
   deceasedNID: 'deceasedNID',
   deceasedMaritalStatus: 'deceasedMaritalStatus',
+  deceasedOccupation: 'deceasedOccupation',
   countryPrimaryDeceased: 'countryPrimaryDeceased',
   statePrimaryDeceased: 'statePrimaryDeceased',
   districtPrimaryDeceased: 'districtPrimaryDeceased',
