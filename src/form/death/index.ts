@@ -75,6 +75,10 @@ import {
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
+import {
+  deceasedIdentityUnknown,
+  reasonWhyUnidentifiable
+} from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
 // import { createCustomFieldExample } from '../custom-fields'
@@ -170,6 +174,8 @@ export const deathForm = {
         {
           id: 'deceased-view-group',
           fields: [
+            deceasedIdentityUnknown(),
+            reasonWhyUnidentifiable(),
             getFirstNameField(
               'deceasedNameInEnglish',
               [],
