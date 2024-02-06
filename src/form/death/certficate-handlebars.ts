@@ -26,6 +26,7 @@ export const certificateHandlebars = {
   contactPhoneNumber: 'contactPhoneNumber',
   eventDate: 'eventDate',
   deceasedFirstName: 'deceasedFirstName',
+  deceasedMiddleName: 'deceasedMiddleName',
   deceasedFamilyName: 'deceasedFamilyName',
   deceasedGender: 'deceasedGender',
   deceasedBirthDate: 'deceasedBirthDate',

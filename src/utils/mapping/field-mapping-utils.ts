@@ -263,6 +263,7 @@ export function getFieldMapping(
       }
     case 'familyName':
     case 'firstNames':
+    case 'middleName':
     case 'marriedLastName':
       return {
         template: {

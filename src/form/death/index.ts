@@ -16,7 +16,6 @@ import {
   registrationEmail,
   registrationPhone,
   divider
-  // getOccupation
 } from '../common/common-optional-fields'
 import {
   getGender,
@@ -25,9 +24,8 @@ import {
   getFirstNameField,
   getNationality,
   otherInformantType,
-  getNationalID /*,
-  getDetailsExist,
-  getReasonNotExisting*/
+  getNationalID,
+  getMiddleNameField
 } from '../common/common-required-fields'
 import {
   deathInformantType,
@@ -181,6 +179,11 @@ export const deathForm = {
               [],
               certificateHandlebars.deceasedFirstName
             ), // Required field.  Names in Latin characters must be provided for international passport
+            getMiddleNameField(
+              'deceasedNameInEnglish',
+              [],
+              certificateHandlebars.deceasedMiddleName
+            ),
             getFamilyNameField(
               'deceasedNameInEnglish',
               [],

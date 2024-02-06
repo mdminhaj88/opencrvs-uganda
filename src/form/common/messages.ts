@@ -316,6 +316,11 @@ export const formMessageDescriptors = {
     description: 'Option for form field: Sex name',
     id: 'form.field.label.sexUnknown'
   },
+  middleName: {
+    defaultMessage: 'Middle name',
+    description: 'Label for middle name text input',
+    id: 'form.field.label.middleName'
+  },
   familyName: {
     defaultMessage: 'Last name',
     description: 'Label for family name text input',
