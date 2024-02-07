@@ -337,7 +337,7 @@ export const formMessageDescriptors = {
     id: 'form.field.label.placeOfBirthPreview'
   },
   placeOfBirth: {
-    defaultMessage: 'Location',
+    defaultMessage: 'Place of birth',
     description: 'Label for form field: Place of delivery',
     id: 'form.field.label.placeOfBirth'
   },

@@ -36,7 +36,7 @@ import {
   getMannerOfDeath
 } from './required-fields'
 import { formMessageDescriptors } from '../common/messages'
-import { Event, ISerializedForm, SerializedFormField } from '../types/types'
+import { Event, ISerializedForm } from '../types/types'
 import {
   getNationalIDValidators,
   hideIfNidIntegrationEnabled,
@@ -66,6 +66,7 @@ import {
 import { documentsSection, registrationSection } from './required-sections'
 import {
   deceasedNameInEnglish,
+  deceasedPlaceOfBirth as deceasedPlaceOfBirthPreviewGroup,
   informantNameInEnglish /*,
   fatherNameInEnglish,
   motherNameInEnglish,
@@ -74,6 +75,7 @@ import {
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getIDNumberFields, getIDType } from '../custom-fields'
+import { deceasedPlaceOfBirth } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
 // import { createCustomFieldExample } from '../custom-fields'
@@ -205,9 +207,15 @@ export const deathForm = {
               exactDateOfBirthUnknownConditional,
               ageOfDeceasedConditionals
             ),
-            getOccupation(certificateHandlebars.deceasedOccupation)
+            getOccupation(certificateHandlebars.deceasedOccupation),
+            ...deceasedPlaceOfBirth(),
+            divider('place-of-birth-seperator')
+            // PLACE OF BIRTH FIEDLS WILL RENDER HERE
           ],
-          previewGroups: [deceasedNameInEnglish]
+          previewGroups: [
+            deceasedNameInEnglish,
+            deceasedPlaceOfBirthPreviewGroup
+          ]
         }
       ]
     },
