@@ -73,10 +73,6 @@ import {
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
-import {
-  deceasedIdentityUnknown,
-  reasonWhyUnidentifiable
-} from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
 // import { createCustomFieldExample } from '../custom-fields'
@@ -96,50 +92,6 @@ import {
 // OPTIONAL FIELDS CAN BE COMMENTED OUT OR REMOVED IF NOT REQUIRED
 
 // DUPLICATE & FOLLOW THE INSTRUCTIONS IN THE createCustomFieldExample FUNCTION WHEN REQUIRED FOR ADDING NEW CUSTOM FIELDS
-
-const deceasedFields: SerializedFormField[] = [
-  getFirstNameField(
-    'deceasedNameInEnglish',
-    [],
-    certificateHandlebars.deceasedFirstName
-  ), // Required field.  Names in Latin characters must be provided for international passport
-  getMiddleNameField(
-    'deceasedNameInEnglish',
-    [],
-    certificateHandlebars.deceasedMiddleName
-  ),
-  getFamilyNameField(
-    'deceasedNameInEnglish',
-    [],
-    certificateHandlebars.deceasedFamilyName
-  ), // Required field.  Names in Latin characters must be provided for international passport
-  getNationality(certificateHandlebars.deceasedNationality, []),
-  getNationalID(
-    'deceasedID',
-    [],
-    getNationalIDValidators('deceased'),
-    certificateHandlebars.deceasedNID
-  ),
-  getGender(certificateHandlebars.deceasedGender), // Required field.
-  getBirthDate(
-    'deceasedBirthDate',
-    [
-      {
-        action: 'hide',
-        expression: 'values.exactDateOfBirthUnknown'
-      }
-    ],
-    isValidBirthDate,
-    certificateHandlebars.deceasedBirthDate
-  ), // Required field.,
-  exactDateOfBirthUnknown([]),
-  getAgeOfIndividualInYears(
-    formMessageDescriptors.ageOfDeceased,
-    exactDateOfBirthUnknownConditional,
-    ageOfDeceasedConditionals
-  ),
-  getOccupation(certificateHandlebars.deceasedOccupation)
-]
 
 export const deathForm = {
   sections: [
@@ -216,9 +168,47 @@ export const deathForm = {
         {
           id: 'deceased-view-group',
           fields: [
-            deceasedIdentityUnknown(),
-            reasonWhyUnidentifiable(),
-            ...deceasedFields
+            getFirstNameField(
+              'deceasedNameInEnglish',
+              [],
+              certificateHandlebars.deceasedFirstName
+            ), // Required field.  Names in Latin characters must be provided for international passport
+            getMiddleNameField(
+              'deceasedNameInEnglish',
+              [],
+              certificateHandlebars.deceasedMiddleName
+            ),
+            getFamilyNameField(
+              'deceasedNameInEnglish',
+              [],
+              certificateHandlebars.deceasedFamilyName
+            ), // Required field.  Names in Latin characters must be provided for international passport
+            getNationality(certificateHandlebars.deceasedNationality, []),
+            getNationalID(
+              'deceasedID',
+              [],
+              getNationalIDValidators('deceased'),
+              certificateHandlebars.deceasedNID
+            ),
+            getGender(certificateHandlebars.deceasedGender), // Required field.
+            getBirthDate(
+              'deceasedBirthDate',
+              [
+                {
+                  action: 'hide',
+                  expression: 'values.exactDateOfBirthUnknown'
+                }
+              ],
+              isValidBirthDate,
+              certificateHandlebars.deceasedBirthDate
+            ), // Required field.,
+            exactDateOfBirthUnknown([]),
+            getAgeOfIndividualInYears(
+              formMessageDescriptors.ageOfDeceased,
+              exactDateOfBirthUnknownConditional,
+              ageOfDeceasedConditionals
+            ),
+            getOccupation(certificateHandlebars.deceasedOccupation)
           ],
           previewGroups: [deceasedNameInEnglish]
         }
