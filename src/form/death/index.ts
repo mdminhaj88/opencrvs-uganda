@@ -73,6 +73,7 @@ import {
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
+import { getIDNumberFields, getIDType } from '../custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
 // import { createCustomFieldExample } from '../custom-fields'
@@ -184,12 +185,8 @@ export const deathForm = {
               certificateHandlebars.deceasedFamilyName
             ), // Required field.  Names in Latin characters must be provided for international passport
             getNationality(certificateHandlebars.deceasedNationality, []),
-            getNationalID(
-              'deceasedID',
-              [],
-              getNationalIDValidators('deceased'),
-              certificateHandlebars.deceasedNID
-            ),
+            getIDType('death', 'deceased', [], true),
+            ...getIDNumberFields('deceased', [], true),
             getGender(certificateHandlebars.deceasedGender), // Required field.
             getBirthDate(
               'deceasedBirthDate',
