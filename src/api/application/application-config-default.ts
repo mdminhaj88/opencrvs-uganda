@@ -29,7 +29,7 @@ export const defaultApplicationConfig = {
     },
     PRINT_IN_ADVANCE: true
   },
-  DATE_OF_BIRTH_UNKNOWN: false,
+  DATE_OF_BIRTH_UNKNOWN: true,
   CURRENCY: {
     languagesAndCountry: ['en-US'],
     isoCode: 'USD'
