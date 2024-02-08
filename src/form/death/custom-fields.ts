@@ -177,3 +177,31 @@ export function individualWhoFoundTheBody(): SerializedFormField[] {
     divider('individualDivier', bodyFoundConditional)
   ]
 }
+
+export function icd11code(): SerializedFormField {
+  const fieldName: string = 'icdCode'
+  const fieldId: string = `death.deathEvent.death-event-details.${fieldName}`
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'TEXT',
+    label: {
+      id: 'form.customField.label.icdCode',
+      description: 'A form field that asks for the ICD11 code & description',
+      defaultMessage: 'ICD11 code and description'
+    },
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals: [
+      {
+        action: 'hide',
+        expression: 'values.causeOfDeathEstablished === "false"'
+      }
+    ],
+    maxLength: 250
+  }
+}

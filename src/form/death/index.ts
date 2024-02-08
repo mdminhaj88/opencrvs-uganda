@@ -30,9 +30,7 @@ import {
 import {
   deathInformantType,
   getCauseOfDeath,
-  getCauseOfDeathMethod,
   getDeathDate,
-  getDeathDescription,
   getMannerOfDeath
 } from './required-fields'
 import { formMessageDescriptors } from '../common/messages'
@@ -77,6 +75,7 @@ import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapp
 import { getIDNumberFields, getIDType } from '../custom-fields'
 import {
   deceasedPlaceOfBirth,
+  icd11code,
   individualWhoFoundTheBody,
   reasonForLateRegistration
 } from './custom-fields'
@@ -245,7 +244,8 @@ export const deathForm = {
             // PLACE OF DEATH FIELDS WILL RENDER HERE
             getMannerOfDeath,
             ...individualWhoFoundTheBody(),
-            getCauseOfDeath
+            getCauseOfDeath,
+            icd11code()
           ]
         }
       ]
