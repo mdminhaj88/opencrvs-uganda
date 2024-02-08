@@ -309,6 +309,10 @@ export const mannerOfDeathOptions: ISelectOption[] = [
   {
     value: 'MANNER_UNDETERMINED',
     label: formMessageDescriptors.mannerUndetermined
+  },
+  {
+    value: 'BODY_FOUND',
+    label: formMessageDescriptors.mannerBodyFound
   }
 ]
 

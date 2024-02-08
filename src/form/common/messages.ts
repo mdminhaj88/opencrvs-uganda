@@ -593,6 +593,11 @@ export const formMessageDescriptors = {
     description: 'Option for form field: Manner of death',
     id: 'form.field.label.mannerOfDeathAccident'
   },
+  mannerBodyFound: {
+    defaultMessage: 'Body found',
+    description: 'Option for form field: Body found',
+    id: 'form.field.label.mannerOfDeathBodyFound'
+  },
   mannerSuicide: {
     defaultMessage: 'Suicide',
     description: 'Option for form field: Manner of death',
