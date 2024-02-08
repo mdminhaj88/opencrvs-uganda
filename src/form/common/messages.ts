@@ -553,10 +553,10 @@ export const formMessageDescriptors = {
     description: 'Label for form field: Age of deceased',
     id: 'form.field.label.ageOfDeceased'
   },
-  firstName: {
-    defaultMessage: 'First name',
-    description: "Input label for certificate collector's first name",
-    id: 'form.field.label.firstName'
+  firstNames: {
+    defaultMessage: 'First name(s)',
+    description: 'Label for form field: First names',
+    id: 'form.field.label.firstNames'
   },
   maritalStatus: {
     defaultMessage: 'Marital status',

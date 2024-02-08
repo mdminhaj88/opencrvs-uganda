@@ -77,6 +77,7 @@ import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapp
 import { getIDNumberFields, getIDType } from '../custom-fields'
 import {
   deceasedPlaceOfBirth,
+  individualWhoFoundTheBody,
   reasonForLateRegistration
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
@@ -242,7 +243,8 @@ export const deathForm = {
             ),
             reasonForLateRegistration(),
             // PLACE OF DEATH FIELDS WILL RENDER HERE
-            getMannerOfDeath
+            getMannerOfDeath,
+            ...individualWhoFoundTheBody()
           ]
         }
       ]

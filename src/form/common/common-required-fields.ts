@@ -76,11 +76,7 @@ export const getFirstNameField = (
     name: 'firstNamesEng', // A field with this name MUST exist
     previewGroup,
     type: 'TEXT',
-    label: {
-      defaultMessage: 'First name(s)',
-      description: 'Label for form field: First names',
-      id: 'form.field.label.firstNames'
-    },
+    label: formMessageDescriptors.firstNames,
     conditionals,
     maxLength: 32,
     required: true,
