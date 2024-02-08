@@ -912,7 +912,7 @@
         "form.field.label.caregiver.parents": "Mother and father",
         "form.field.label.causeOfDeathProof": "Proof of cause of death",
         "form.field.label.causeOfDeathMethod": "Source of cause of death",
-        "form.field.label.causeOfDeathEstablished": "Cause of death has been established",
+        "form.field.label.causeOfDeathEstablished": "Medically certified cause of death has been established",
         "form.field.label.certificatePrintInAdvance": "Print in advance",
         "form.field.label.dateOfBirth": "Date of birth",
         "form.field.label.childFamilyName": "Last name",

@@ -244,7 +244,8 @@ export const deathForm = {
             reasonForLateRegistration(),
             // PLACE OF DEATH FIELDS WILL RENDER HERE
             getMannerOfDeath,
-            ...individualWhoFoundTheBody()
+            ...individualWhoFoundTheBody(),
+            getCauseOfDeath
           ]
         }
       ]
