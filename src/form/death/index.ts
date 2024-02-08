@@ -75,7 +75,10 @@ import {
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getIDNumberFields, getIDType } from '../custom-fields'
-import { deceasedPlaceOfBirth } from './custom-fields'
+import {
+  deceasedPlaceOfBirth,
+  reasonForLateRegistration
+} from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
 // import { createCustomFieldExample } from '../custom-fields'
@@ -237,11 +240,9 @@ export const deathForm = {
                 }
               ]
             ),
-            getMannerOfDeath,
-            getCauseOfDeath,
-            getCauseOfDeathMethod,
-            getDeathDescription
+            reasonForLateRegistration(),
             // PLACE OF DEATH FIELDS WILL RENDER HERE
+            getMannerOfDeath
           ]
         }
       ]

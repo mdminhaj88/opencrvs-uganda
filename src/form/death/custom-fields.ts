@@ -43,3 +43,33 @@ export function deceasedPlaceOfBirth(): SerializedFormField[] {
       }))
   ]
 }
+
+export function reasonForLateRegistration(): SerializedFormField {
+  const fieldName: string = 'lateRegistrationReason'
+  const fieldId: string = `death.deathEvent.death-event-details.${fieldName}`
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'TEXT',
+    label: {
+      id: 'form.customField.label.lateRegistrationReason',
+      description:
+        'A form field that asks for the reason for late registration',
+      defaultMessage: 'Reason for late registration (after 90 days)'
+    },
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals: [
+      {
+        action: 'hide',
+        expression:
+          '!values.deathDate || (Math.ceil((new Date() - new Date(values.deathDate)) / (1000 * 60 * 60 * 24)) <= 90)'
+      }
+    ],
+    maxLength: 250
+  }
+}

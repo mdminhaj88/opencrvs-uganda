@@ -144,7 +144,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   },
   {
     // PLACE OF DEATH ADDRESS FIELDS
-    precedingFieldId: 'death.deathEvent.death-event-details.deathDescription',
+    precedingFieldId: 'death.deathEvent.death-event-details.deathDate',
     configurations: [{ config: EventLocationAddressCases.PLACE_OF_DEATH }]
   },
   {
