@@ -251,15 +251,11 @@ export const placeOfBirthOptions: ISelectOption[] = [
 export const placeOfDeathOptions: ISelectOption[] = [
   {
     value: 'HEALTH_FACILITY',
-    label: formMessageDescriptors.healthInstitution
-  },
-  {
-    value: 'DECEASED_USUAL_RESIDENCE',
-    label: formMessageDescriptors.placeOfDeathSameAsPrimary
+    label: formMessageDescriptors.healthFacility
   },
   {
     value: 'OTHER',
-    label: formMessageDescriptors.otherInstitution
+    label: formMessageDescriptors.community
   }
 ]
 

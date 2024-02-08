@@ -155,7 +155,7 @@ export const getPlaceOfDeathFields = () =>
     {
       name: 'deathLocation',
       type: 'LOCATION_SEARCH_INPUT',
-      label: formMessageDescriptors.healthInstitution,
+      label: formMessageDescriptors.healthFacility,
       previewGroup: 'placeOfDeath',
       required: true,
       initialValue: '',

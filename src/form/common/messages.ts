@@ -341,6 +341,16 @@ export const formMessageDescriptors = {
     description: 'Label for form field: Place of delivery',
     id: 'form.field.label.placeOfBirth'
   },
+  healthFacility: {
+    defaultMessage: 'Health Facility',
+    description: 'Select item for Health Facility',
+    id: 'form.field.label.healthFacility'
+  },
+  community: {
+    defaultMessage: 'Community',
+    description: 'Select item for Community',
+    id: 'form.field.label.community'
+  },
   healthInstitution: {
     defaultMessage: 'Health Institution',
     description: 'Select item for Health Institution',
