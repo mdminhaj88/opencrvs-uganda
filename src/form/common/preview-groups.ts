@@ -25,6 +25,12 @@ export const deceasedPlaceOfBirth: IPreviewGroup = {
   fieldToRedirect: 'countryPlaceofbirth'
 }
 
+export const witnessPlaceOfResidence: IPreviewGroup = {
+  id: 'placeOfResidence',
+  label: formMessageDescriptors.primaryAddress,
+  fieldToRedirect: 'countryPrimaryWitness'
+}
+
 export const childNameInEnglish: IPreviewGroup = {
   id: 'childNameInEnglish',
   label: formMessageDescriptors.nameInEnglishPreviewGroup,

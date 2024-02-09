@@ -9,6 +9,7 @@
  * Copyright (C) The OpenCRVS Authors located at https://github.com/opencrvs/opencrvs-core/blob/master/AUTHORS.
  */
 import {
+  AddressCases,
   Conditional,
   EventLocationAddressCases,
   SerializedFormField
@@ -213,6 +214,7 @@ export function pointOfContactHeader(): SerializedFormField {
   return {
     name: 'pointOfContactTitle',
     type: 'HEADING3',
+    readonly: true,
     label: {
       id: 'form.customField.label.pointOfContact',
       description: 'A form field header with label Point of contact',
@@ -351,6 +353,26 @@ export function declarationWitness(): SerializedFormField[] {
           ],
           maxLength: 250
         }
+      }),
+    {
+      name: 'placeOfResidenceTitle',
+      type: 'HEADING3',
+      label: formMessageDescriptors.primaryAddress,
+      previewGroup: 'placeOfResidence',
+      initialValue: '',
+      validator: [],
+      conditionals: []
+    },
+    ...getAddressFields('witness', AddressCases.PRIMARY_ADDRESS).map(
+      (field) => ({
+        ...field,
+        custom: true,
+        customQuestionMappingId: `death.informant.informant-view-group.${field.name}`,
+        previewGroup: 'placeOfResidence',
+        mapping: getCustomFieldMapping(
+          `death.informant.informant-view-group.${field.name}`
+        )
       })
+    )
   ]
 }

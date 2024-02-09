@@ -62,10 +62,8 @@ import { documentsSection, registrationSection } from './required-sections'
 import {
   deceasedNameInEnglish,
   deceasedPlaceOfBirth as deceasedPlaceOfBirthPreviewGroup,
-  informantNameInEnglish /*,
-  fatherNameInEnglish,
-  motherNameInEnglish,
-  spouseNameInEnglish*/
+  informantNameInEnglish,
+  witnessPlaceOfResidence
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
@@ -307,7 +305,7 @@ export const deathForm = {
             registrationPhone,
             registrationEmail
           ],
-          previewGroups: [informantNameInEnglish]
+          previewGroups: [informantNameInEnglish, witnessPlaceOfResidence]
         }
       ],
       mapping: getCommonSectionMapping('informant')
