@@ -168,7 +168,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   },
   {
     // INFORMANT ADDRESS FIELDS
-    precedingFieldId: 'death.informant.informant-view-group.informantID',
+    precedingFieldId: 'death.informant.informant-view-group.informantRefugeeId',
     configurations: [
       {
         config: AddressCopyConfigCases.PRIMARY_ADDRESS_SAME_AS_OTHER_PRIMARY,

@@ -78,6 +78,7 @@ export const certificateHandlebars = {
   internationalPostalCodePlaceofdeath: 'internationalPostalCodePlaceofdeath',
   informantType: 'informantType',
   informantFirstName: 'informantFirstName',
+  informantMiddleName: 'informantMiddleName',
   informantFamilyName: 'informantFamilyName',
   informantBirthDate: 'informantBirthDate',
   informantNationality: 'informantNationality',

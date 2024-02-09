@@ -24,7 +24,6 @@ import {
   getFirstNameField,
   getNationality,
   otherInformantType,
-  getNationalID,
   getMiddleNameField
 } from '../common/common-required-fields'
 import {
@@ -36,8 +35,6 @@ import {
 import { formMessageDescriptors } from '../common/messages'
 import { Event, ISerializedForm } from '../types/types'
 import {
-  getNationalIDValidators,
-  hideIfNidIntegrationEnabled,
   informantBirthDateConditionals,
   informantFamilyNameConditionals,
   ageOfIndividualConditionals,
@@ -77,6 +74,7 @@ import {
   deceasedPlaceOfBirth,
   icd11code,
   individualWhoFoundTheBody,
+  pointOfContactHeader,
   reasonForLateRegistration
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
@@ -266,6 +264,11 @@ export const deathForm = {
               informantFirstNameConditionals,
               certificateHandlebars.informantFirstName
             ), // Required field.
+            getMiddleNameField(
+              'informantNameInEnglish',
+              [],
+              certificateHandlebars.informantMiddleName
+            ),
             getFamilyNameField(
               'informantNameInEnglish',
               informantFamilyNameConditionals,
@@ -293,14 +296,11 @@ export const deathForm = {
               ageOfIndividualConditionals
             ),
             getNationality(certificateHandlebars.informantNationality, []),
-            getNationalID(
-              'informantID',
-              hideIfNidIntegrationEnabled,
-              getNationalIDValidators('informant'),
-              certificateHandlebars.informantNID
-            ),
+            getIDType('death', 'informant', [], true),
+            ...getIDNumberFields('informant', [], true),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
+            pointOfContactHeader(),
             registrationPhone,
             registrationEmail
           ],
