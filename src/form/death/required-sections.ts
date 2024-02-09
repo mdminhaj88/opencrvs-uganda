@@ -30,6 +30,8 @@ export const deathDocumentType = {
   MEDICALLY_CERTIFIED_CAUSE_OF_DEATH: 'MEDICALLY_CERTIFIED_CAUSE_OF_DEATH',
   VERBAL_AUTOPSY_REPORT: 'VERBAL_AUTOPSY_REPORT',
   CORONERS_REPORT: 'CORONERS_REPORT',
+  ALIEN_ID: 'ALIEN_ID',
+  REFUGEE_ID: 'REFUGEE_ID',
   BIRTH_CERTIFICATE: 'BIRTH_CERTIFICATE',
   NATIONAL_ID: 'NATIONAL_ID',
   PASSPORT: 'PASSPORT',
@@ -52,62 +54,6 @@ export const documentsSection = {
           validator: []
         },
         {
-          name: 'uploadDocForDeceased',
-          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.deceasedIDProof,
-          initialValue: '',
-          extraValue: deathDocumentExtraValue.DECEASED_ID_PROOF,
-          hideAsterisk: true,
-          validator: [],
-          options: [
-            {
-              value: deathDocumentType.NATIONAL_ID,
-              label: formMessageDescriptors.docTypeNID
-            },
-            {
-              value: deathDocumentType.PASSPORT,
-              label: formMessageDescriptors.docTypePassport
-            },
-            {
-              value: deathDocumentType.BIRTH_CERTIFICATE,
-              label: formMessageDescriptors.docTypeBirthCert
-            },
-            {
-              value: deathDocumentType.OTHER,
-              label: formMessageDescriptors.docTypeOther
-            }
-          ],
-          mapping: getFieldMapping('documents')
-        },
-        {
-          name: 'uploadDocForInformant',
-          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.proofOfInformantsID,
-          initialValue: '',
-          extraValue: deathDocumentExtraValue.INFORMANT_ID_PROOF,
-          hideAsterisk: true,
-          validator: [],
-          options: [
-            {
-              value: deathDocumentType.NATIONAL_ID,
-              label: formMessageDescriptors.docTypeNID
-            },
-            {
-              value: deathDocumentType.PASSPORT,
-              label: formMessageDescriptors.docTypePassport
-            },
-            {
-              value: deathDocumentType.BIRTH_CERTIFICATE,
-              label: formMessageDescriptors.docTypeBirthCert
-            },
-            {
-              value: deathDocumentType.OTHER,
-              label: formMessageDescriptors.docTypeOther
-            }
-          ],
-          mapping: getFieldMapping('documents')
-        },
-        {
           name: 'uploadDocForDeceasedDeath',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
           label: formMessageDescriptors.deceasedDeathProof,
@@ -119,26 +65,6 @@ export const documentsSection = {
             {
               value: deathDocumentType.ATTESTED_LETTER_OF_DEATH,
               label: formMessageDescriptors.docTypeLetterOfDeath
-            },
-            {
-              value: deathDocumentType.POLICE_CERTIFICATE_OF_DEATH,
-              label: formMessageDescriptors.docTypePoliceCertificate
-            },
-            {
-              value: deathDocumentType.HOSPITAL_CERTIFICATE_OF_DEATH,
-              label: formMessageDescriptors.docTypeHospitalDeathCertificate
-            },
-            {
-              value: deathDocumentType.CORONERS_REPORT,
-              label: formMessageDescriptors.docTypeCoronersReport
-            },
-            {
-              value: deathDocumentType.BURIAL_RECEIPT,
-              label: formMessageDescriptors.docTypeCopyOfBurialReceipt
-            },
-            {
-              value: deathDocumentType.OTHER,
-              label: formMessageDescriptors.docTypeOther
             }
           ],
           mapping: getFieldMapping('documents')
@@ -162,14 +88,62 @@ export const documentsSection = {
             {
               value: deathDocumentType.MEDICALLY_CERTIFIED_CAUSE_OF_DEATH,
               label: formMessageDescriptors.medicallyCertified
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
+          name: 'uploadDocForDeceased',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.deceasedIDProof,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_ID_PROOF,
+          hideAsterisk: true,
+          validator: [],
+          options: [
+            {
+              value: deathDocumentType.NATIONAL_ID,
+              label: formMessageDescriptors.docTypeNID
             },
             {
-              value: deathDocumentType.VERBAL_AUTOPSY_REPORT,
-              label: formMessageDescriptors.verbalAutopsyReport
+              value: deathDocumentType.PASSPORT,
+              label: formMessageDescriptors.docTypePassport
             },
             {
-              value: deathDocumentType.OTHER,
-              label: formMessageDescriptors.docTypeOther
+              value: deathDocumentType.ALIEN_ID,
+              label: formMessageDescriptors.iDTypeAlienNumber
+            },
+            {
+              value: deathDocumentType.REFUGEE_ID,
+              label: formMessageDescriptors.iDTypeRefugeeNumber
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
+          name: 'uploadDocForInformant',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.proofOfInformantsID,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.INFORMANT_ID_PROOF,
+          hideAsterisk: true,
+          validator: [],
+          options: [
+            {
+              value: deathDocumentType.NATIONAL_ID,
+              label: formMessageDescriptors.docTypeNID
+            },
+            {
+              value: deathDocumentType.PASSPORT,
+              label: formMessageDescriptors.docTypePassport
+            },
+            {
+              value: deathDocumentType.ALIEN_ID,
+              label: formMessageDescriptors.iDTypeAlienNumber
+            },
+            {
+              value: deathDocumentType.REFUGEE_ID,
+              label: formMessageDescriptors.iDTypeRefugeeNumber
             }
           ],
           mapping: getFieldMapping('documents')
