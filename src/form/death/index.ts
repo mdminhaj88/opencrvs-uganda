@@ -63,6 +63,7 @@ import {
   deceasedNameInEnglish,
   deceasedPlaceOfBirth as deceasedPlaceOfBirthPreviewGroup,
   informantNameInEnglish,
+  witnessNameInEnglish,
   witnessPlaceOfResidence
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certficate-handlebars'
@@ -305,7 +306,11 @@ export const deathForm = {
             registrationPhone,
             registrationEmail
           ],
-          previewGroups: [informantNameInEnglish, witnessPlaceOfResidence]
+          previewGroups: [
+            informantNameInEnglish,
+            witnessNameInEnglish,
+            witnessPlaceOfResidence
+          ]
         }
       ],
       mapping: getCommonSectionMapping('informant')

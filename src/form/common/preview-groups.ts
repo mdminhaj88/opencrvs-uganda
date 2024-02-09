@@ -31,6 +31,17 @@ export const witnessPlaceOfResidence: IPreviewGroup = {
   fieldToRedirect: 'countryPrimaryWitness'
 }
 
+export const witnessNameInEnglish: IPreviewGroup = {
+  id: 'witnessNameInEnglish',
+  label: {
+    defaultMessage: 'Full name',
+    description: "Label for informant's name in english",
+    id: 'form.preview.group.label.informant.english.name'
+  },
+  fieldToRedirect: 'witnessSurname',
+  delimiter: ' '
+}
+
 export const childNameInEnglish: IPreviewGroup = {
   id: 'childNameInEnglish',
   label: formMessageDescriptors.nameInEnglishPreviewGroup,
