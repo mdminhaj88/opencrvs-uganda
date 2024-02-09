@@ -67,6 +67,11 @@ export const informantMessageDescriptors = {
     description: 'Who is applying for death registration',
     id: 'register.selectInformant.deathInformantTitle'
   },
+  HEALTH_FACILITY_AGENT: {
+    defaultMessage: 'Health Facility Agent',
+    description: 'Label for option Health Facility Agent',
+    id: 'form.field.label.informantRelation.healthFacilityAgent'
+  },
   SPOUSE: {
     defaultMessage: 'Spouse',
     description: 'Label for option Spouse',
