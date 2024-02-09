@@ -340,6 +340,17 @@ export function getNationalIDValidators(configCase: string): Validator[] {
         parameters: ['groom.iD']
       }
     ]
+  } else if (configCase === 'witness') {
+    return [
+      {
+        operation: 'validIDNumber',
+        parameters: ['NATIONAL_ID']
+      },
+      {
+        operation: 'duplicateIDNumber',
+        parameters: ['informant.iD']
+      }
+    ]
   } else {
     // informant id
     return [

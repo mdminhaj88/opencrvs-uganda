@@ -72,6 +72,7 @@ import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapp
 import { getIDNumberFields, getIDType } from '../custom-fields'
 import {
   deceasedPlaceOfBirth,
+  declarationWitness,
   icd11code,
   individualWhoFoundTheBody,
   pointOfContactHeader,
@@ -300,6 +301,8 @@ export const deathForm = {
             ...getIDNumberFields('informant', [], true),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
+            ...declarationWitness(),
+            divider('point-of-contact-separator'),
             pointOfContactHeader(),
             registrationPhone,
             registrationEmail

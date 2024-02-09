@@ -25,7 +25,7 @@ type ArrayElement<ArrayType> = ArrayType extends readonly (infer ElementType)[]
   ? ElementType
   : never
 
-const idTypeOptions = [
+export const idTypeOptions = [
   {
     value: 'NATIONAL_ID' as const,
     label: {

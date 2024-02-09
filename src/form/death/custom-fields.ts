@@ -17,6 +17,9 @@ import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mappin
 import { formMessageDescriptors } from '../common/messages'
 import { getAddressFields } from '../addresses/address-fields'
 import { divider } from '../common/common-optional-fields'
+import { idTypeOptions } from '../custom-fields'
+import { uppercaseFirstLetter } from '@countryconfig/utils'
+import { camelCase } from 'lodash'
 
 export function deceasedPlaceOfBirth(): SerializedFormField[] {
   return [
@@ -220,4 +223,134 @@ export function pointOfContactHeader(): SerializedFormField {
     validator: [],
     conditionals: []
   }
+}
+
+export function declarationWitness(): SerializedFormField[] {
+  return [
+    {
+      name: 'declarationWitnessHeading',
+      customQuestionMappingId:
+        'death.deathEvent.death-event-details.declarationWitnessHeading',
+      custom: true,
+      readonly: true,
+      type: 'HEADING3',
+      label: {
+        id: 'form.customField.label.declarationWitnessHeading',
+        description:
+          'A form field heading for the details of the declaration witness',
+        defaultMessage: 'Declaration witness'
+      },
+      validator: [],
+      conditionals: []
+    },
+    {
+      name: 'witnessSurname',
+      customQuestionMappingId:
+        'death.deathEvent.death-event-details.witnessSurname',
+      custom: true,
+      required: true,
+      type: 'TEXT',
+      label: formMessageDescriptors.firstNames,
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        'death.deathEvent.death-event-details.witnessSurname'
+      ),
+      conditionals: [],
+      maxLength: 250
+    },
+    {
+      name: 'witnessGivenName',
+      customQuestionMappingId:
+        'death.deathEvent.death-event-details.witnessGivenName',
+      custom: true,
+      required: true,
+      type: 'TEXT',
+      label: formMessageDescriptors.middleName,
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        'death.deathEvent.death-event-details.witnessGivenName'
+      ),
+      conditionals: [],
+      maxLength: 250
+    },
+    {
+      name: 'witnessOtherName',
+      customQuestionMappingId:
+        'death.deathEvent.death-event-details.witnessOtherName',
+      custom: true,
+      required: true,
+      type: 'TEXT',
+      label: formMessageDescriptors.familyName,
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        'death.deathEvent.death-event-details.witnessOtherName'
+      ),
+      conditionals: [],
+      maxLength: 250
+    },
+    {
+      name: 'witnessIdType',
+      customQuestionMappingId:
+        'death.deathEvent.death-event-details.witnessIdType',
+      custom: true,
+      required: true,
+      type: 'SELECT_WITH_OPTIONS',
+      label: {
+        id: 'form.field.label.iDType',
+        description: 'A form field that asks for the type of ID.',
+        defaultMessage: 'Type of ID'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        'death.deathEvent.death-event-details.witnessIdType'
+      ),
+      placeholder: formMessageDescriptors.formSelectPlaceholder,
+      conditionals: [],
+      options: idTypeOptions
+    },
+    ...idTypeOptions
+      .filter((opt) => opt.value !== 'NONE')
+      .map(({ value }): SerializedFormField => {
+        const fieldName = `witness${uppercaseFirstLetter(camelCase(value))}`
+        return {
+          name: fieldName,
+          required: true,
+          custom: true,
+          type: 'TEXT',
+          label: {
+            id: 'form.field.label.iD',
+            description: 'A form field that asks for the id number.',
+            defaultMessage: 'ID number'
+          },
+          initialValue: '',
+          validator: [],
+          mapping: {
+            template: {
+              fieldName,
+              operation: 'identityToFieldTransformer',
+              parameters: ['id', value]
+            },
+            mutation: {
+              operation: 'fieldToIdentityTransformer',
+              parameters: ['id', value]
+            },
+            query: {
+              operation: 'identityToFieldTransformer',
+              parameters: ['id', value]
+            }
+          },
+          conditionals: [
+            {
+              action: 'hide',
+              expression: `(values.witnessIdType!=="${value}") || (values.witnessIdType==="NONE")`
+            }
+          ],
+          maxLength: 250
+        }
+      })
+  ]
 }
