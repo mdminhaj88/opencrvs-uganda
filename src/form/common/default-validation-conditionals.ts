@@ -12,6 +12,22 @@ import { Conditional } from '../types/types'
 import { IntegratingSystemType } from '../types/types'
 import { Validator } from '../types/validators'
 
+export const birthLateRegistrationReason = [
+  {
+    action: 'hide',
+    expression:
+      '!values.childBirthDate || (Math.ceil((new Date() - new Date(values.childBirthDate)) / (1000 * 60 * 60 * 24)) <= 30)'
+  }
+]
+
+export const deathLateRegistrationReason = [
+  {
+    action: 'hide',
+    expression:
+      '!values.deathDate || (Math.ceil((new Date() - new Date(values.deathDate)) / (1000 * 60 * 60 * 24)) <= 90)'
+  }
+]
+
 export const isValidChildBirthDate = [
   {
     operation: 'isValidChildBirthDate'

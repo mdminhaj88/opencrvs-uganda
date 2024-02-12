@@ -15,6 +15,7 @@ import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mappin
 import { getNationalIDValidators } from './common/default-validation-conditionals'
 import { camelCase } from 'lodash'
 import { uppercaseFirstLetter } from '@countryconfig/utils'
+import { MessageDescriptor } from 'react-intl'
 
 // ======================= CUSTOM FIELD CONFIGURATION =======================
 
@@ -162,6 +163,26 @@ export function getIDNumberFields(
   return idTypeOptions
     .filter((opt) => opt.value !== 'NONE')
     .map((opt) => getIDNumber(section, opt.value, conditionals, required))
+}
+
+export function reasonForLateRegistration(
+  fieldId: string,
+  label: MessageDescriptor,
+  conditionals: Conditional[]
+): SerializedFormField {
+  return {
+    name: fieldId.split('.')[3],
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'TEXT',
+    label,
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals,
+    maxLength: 250
+  }
 }
 
 export function createCustomFieldExample(): SerializedFormField {

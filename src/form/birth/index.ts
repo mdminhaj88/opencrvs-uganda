@@ -62,7 +62,8 @@ import {
   informantNotMotherOrFather,
   detailsExistConditional,
   ageOfIndividualConditionals,
-  ageOfParentsConditionals
+  ageOfParentsConditionals,
+  birthLateRegistrationReason
 } from '../common/default-validation-conditionals'
 import {
   getNationalIDValidators,
@@ -76,6 +77,7 @@ import { documentsSection, registrationSection } from './required-sections'
 import { certificateHandlebars } from './certificate-handlebars'
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/mapping-utils'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
+import { reasonForLateRegistration } from '../custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
 
 // ======================= FORM CONFIGURATION =======================
@@ -195,6 +197,11 @@ export const birthForm: ISerializedForm = {
               isValidChildBirthDate,
               certificateHandlebars.eventDate
             ), // Required field.
+            reasonForLateRegistration(
+              'birth.child.child-view-group.lateRegistrationReason',
+              formMessageDescriptors.birthLateRegistrationReason,
+              birthLateRegistrationReason
+            ),
             // PLACE OF BIRTH FIELDS WILL RENDER HERE
             divider('place-of-birth-seperator'),
             attendantAtBirth,

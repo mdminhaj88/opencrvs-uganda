@@ -131,6 +131,16 @@ export const informantMessageDescriptors = {
 }
 
 export const formMessageDescriptors = {
+  birthLateRegistrationReason: {
+    id: 'form.customField.label.birthLateRegistrationReason',
+    description: 'A form field that asks for the reason for late registration',
+    defaultMessage: 'Reason for late registration (after 30 days)'
+  },
+  deathLateRegistrationReason: {
+    id: 'form.customField.label.deathLateRegistrationReason',
+    description: 'A form field that asks for the reason for late registration',
+    defaultMessage: 'Reason for late registration (after 90 days)'
+  },
   primaryAddress: {
     defaultMessage: 'Usual place of residence',
     description: 'Title of the primary adress ',
