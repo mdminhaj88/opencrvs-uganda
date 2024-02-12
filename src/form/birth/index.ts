@@ -34,12 +34,7 @@ import {
   getOccupation,
   divider
 } from '../common/common-optional-fields'
-import {
-  attendantAtBirth,
-  birthType,
-  multipleBirth,
-  weightAtBirth
-} from './optional-fields'
+import { birthType, multipleBirth, weightAtBirth } from './optional-fields'
 import {
   childNameInEnglish,
   fatherNameInEnglish,
@@ -204,11 +199,10 @@ export const birthForm: ISerializedForm = {
               birthLateRegistrationReason
             ),
             timeOfBirth(),
-            // PLACE OF BIRTH FIELDS WILL RENDER HERE
-            divider('place-of-birth-seperator'),
-            attendantAtBirth,
+            weightAtBirth,
             birthType,
-            weightAtBirth
+            // PLACE OF BIRTH FIELDS WILL RENDER HERE
+            divider('place-of-birth-seperator')
           ],
           previewGroups: [childNameInEnglish] // Preview groups are used to structure data nicely in Review Page UI
         }
