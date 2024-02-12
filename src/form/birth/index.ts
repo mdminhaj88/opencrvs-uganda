@@ -78,6 +78,7 @@ import { certificateHandlebars } from './certificate-handlebars'
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/mapping-utils'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { reasonForLateRegistration } from '../custom-fields'
+import { timeOfBirth } from './custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
 
 // ======================= FORM CONFIGURATION =======================
@@ -202,6 +203,7 @@ export const birthForm: ISerializedForm = {
               formMessageDescriptors.birthLateRegistrationReason,
               birthLateRegistrationReason
             ),
+            timeOfBirth(),
             // PLACE OF BIRTH FIELDS WILL RENDER HERE
             divider('place-of-birth-seperator'),
             attendantAtBirth,

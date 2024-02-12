@@ -141,6 +141,11 @@ export const formMessageDescriptors = {
     description: 'A form field that asks for the reason for late registration',
     defaultMessage: 'Reason for late registration (after 90 days)'
   },
+  timeOfBirth: {
+    id: 'form.customField.label.timeOfBirth',
+    description: 'A form field that asks for the time of birth',
+    defaultMessage: 'Time of birth'
+  },
   primaryAddress: {
     defaultMessage: 'Usual place of residence',
     description: 'Title of the primary adress ',
