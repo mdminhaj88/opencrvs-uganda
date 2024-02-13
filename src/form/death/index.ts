@@ -70,13 +70,13 @@ import {
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import {
+  declarationWitness,
   getIDNumberFields,
   getIDType,
   reasonForLateRegistration
 } from '../custom-fields'
 import {
   deceasedPlaceOfBirth,
-  declarationWitness,
   icd11code,
   individualWhoFoundTheBody,
   pointOfContactHeader
@@ -308,7 +308,7 @@ export const deathForm = {
             ...getIDNumberFields('informant', [], true),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
-            ...declarationWitness(),
+            ...declarationWitness('death'),
             divider('point-of-contact-separator'),
             pointOfContactHeader(),
             registrationPhone,

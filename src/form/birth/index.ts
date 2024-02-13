@@ -73,6 +73,7 @@ import { certificateHandlebars } from './certificate-handlebars'
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/mapping-utils'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import {
+  declarationWitness,
   getIDNumberFields,
   getIDType,
   reasonForLateRegistration
@@ -304,6 +305,8 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.informantOccupation,
               hideIfInformantMotherOrFather
             ),
+            ...declarationWitness('birth'),
+            divider('witness-seperator'),
             registrationPhone, // If you wish to enable automated SMS notifications to informants, include this
             registrationEmail // If you wish to enable automated Email notifications to informants, include this
           ],
