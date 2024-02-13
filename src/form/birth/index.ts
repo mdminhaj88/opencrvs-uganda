@@ -72,7 +72,11 @@ import { documentsSection, registrationSection } from './required-sections'
 import { certificateHandlebars } from './certificate-handlebars'
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/mapping-utils'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
-import { reasonForLateRegistration } from '../custom-fields'
+import {
+  getIDNumberFields,
+  getIDType,
+  reasonForLateRegistration
+} from '../custom-fields'
 import { timeOfBirth } from './custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
 
@@ -230,6 +234,11 @@ export const birthForm: ISerializedForm = {
               ),
               certificateHandlebars.informantFirstName
             ), // Required field.
+            getMiddleNameField(
+              'informantNameInEnglish',
+              hideIfInformantMotherOrFather,
+              certificateHandlebars.informantMiddleName
+            ),
             getFamilyNameField(
               'informantNameInEnglish',
               informantFamilyNameConditionals.concat(
@@ -266,11 +275,16 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.informantNationality,
               hideIfInformantMotherOrFather
             ), // Required field.
-            getNationalID(
-              'informantID',
-              hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
-              getNationalIDValidators('informant'),
-              certificateHandlebars.informantNID
+            getIDType(
+              'birth',
+              'informant',
+              hideIfInformantMotherOrFather,
+              true
+            ),
+            ...getIDNumberFields(
+              'informant',
+              hideIfInformantMotherOrFather,
+              true
             ),
             // preceding field of address fields
             divider('informant-nid-seperator', [
@@ -286,6 +300,10 @@ export const birthForm: ISerializedForm = {
                 expression: informantNotMotherOrFather
               }
             ]),
+            getOccupation(
+              certificateHandlebars.informantOccupation,
+              hideIfInformantMotherOrFather
+            ),
             registrationPhone, // If you wish to enable automated SMS notifications to informants, include this
             registrationEmail // If you wish to enable automated Email notifications to informants, include this
           ],
