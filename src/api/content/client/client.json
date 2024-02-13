@@ -1147,7 +1147,7 @@
         "form.field.label.registrationName": "Registration Name",
         "form.field.label.informantTitle": "Informant's details",
         "form.field.label.placeOfBirth": "Place of birth",
-        "form.field.label.placeOfBirthPreview": "Place of delivery",
+        "form.field.label.placeOfBirthPreview": "Place of birth",
         "form.field.label.postCode": "Number",
         "form.field.label.primaryAddress": "Usual place of residence",
         "form.field.label.primaryAddressSameAsOtherPrimary": "Same as mother's usual place of residence?",
