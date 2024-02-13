@@ -48,6 +48,7 @@ export const certificateHandlebars = {
   motherReasonNotApplying: 'motherReasonNotApplying',
   motherBirthDate: 'motherBirthDate',
   motherFirstName: 'motherFirstName',
+  motherMiddleName: 'motherMiddleName',
   motherFamilyName: 'motherFamilyName',
   motherNationality: 'motherNationality',
   motherNID: 'motherNID',

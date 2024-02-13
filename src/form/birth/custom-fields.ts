@@ -11,6 +11,7 @@
 import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { formMessageDescriptors } from '../common/messages'
 import { SerializedFormField } from '../types/types'
+import { detailsExistConditional } from '../common/default-validation-conditionals'
 
 export function timeOfBirth(): SerializedFormField {
   const fieldName = 'timeOfBirth'
@@ -27,5 +28,28 @@ export function timeOfBirth(): SerializedFormField {
     validator: [],
     mapping: getCustomFieldMapping(fieldId),
     conditionals: []
+  }
+}
+
+export function motherMaidenName(): SerializedFormField {
+  const fieldName: string = 'motherMaidenName'
+  const fieldId: string = `birth.mother.mother-view-group.${fieldName}`
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'TEXT',
+    label: {
+      id: 'form.customField.label.mother',
+      description: "A form field that asks for the mother's maiden name",
+      defaultMessage: 'Maiden name'
+    },
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals: detailsExistConditional,
+    maxLength: 250
   }
 }

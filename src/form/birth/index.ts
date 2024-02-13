@@ -78,7 +78,7 @@ import {
   getIDType,
   reasonForLateRegistration
 } from '../custom-fields'
-import { timeOfBirth } from './custom-fields'
+import { motherMaidenName, timeOfBirth } from './custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
 
 // ======================= FORM CONFIGURATION =======================
@@ -338,11 +338,17 @@ export const birthForm: ISerializedForm = {
               motherFirstNameConditionals,
               certificateHandlebars.motherFirstName
             ), // Required field.
+            getMiddleNameField(
+              'motherNameInEnglish',
+              detailsExistConditional,
+              certificateHandlebars.motherMiddleName
+            ),
             getFamilyNameField(
               'motherNameInEnglish',
               motherFamilyNameConditionals,
               certificateHandlebars.motherFamilyName
             ), // Required field.
+            motherMaidenName(),
             getBirthDate(
               'motherBirthDate',
               mothersBirthDateConditionals,
@@ -361,29 +367,16 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.motherNationality,
               detailsExist
             ), // Required field.
-            getNationalID(
-              'iD',
-              hideIfNidIntegrationEnabled.concat(detailsExist),
-              getNationalIDValidators('mother'),
-              certificateHandlebars.motherNID
-            ),
+            getIDType('birth', 'mother', detailsExistConditional, true),
+            ...getIDNumberFields('mother', detailsExistConditional, true),
             // preceding field of address fields
             divider('mother-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('mother-address-seperator', detailsExist),
-            getMaritalStatus(certificateHandlebars.motherMaritalStatus, [
-              {
-                action: 'hide',
-                expression: '!values.detailsExist'
-              }
-            ]),
-            getEducation(certificateHandlebars.motherEducationalAttainment),
-            getOccupation(certificateHandlebars.motherOccupation, [
-              {
-                action: 'hide',
-                expression: '!values.detailsExist'
-              }
-            ]),
+            getOccupation(
+              certificateHandlebars.motherOccupation,
+              detailsExistConditional
+            ),
             multipleBirth
           ],
           previewGroups: [motherNameInEnglish]
