@@ -57,6 +57,7 @@ export const certificateHandlebars = {
   motherEducationalAttainment: 'motherEducationalAttainment',
   fatherBirthDate: 'fatherBirthDate',
   fatherFirstName: 'fatherFirstName',
+  fatherMiddleName: 'fatherMiddleName',
   fatherFamilyName: 'fatherFamilyName',
   fatherNationality: 'fatherNationality',
   fatherNID: 'fatherNID',

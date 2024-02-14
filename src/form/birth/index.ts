@@ -19,7 +19,6 @@ import {
   getFirstNameField,
   getNationality,
   otherInformantType,
-  getNationalID,
   getDetailsExist,
   getReasonNotExisting,
   getMiddleNameField
@@ -27,10 +26,8 @@ import {
 import {
   exactDateOfBirthUnknown,
   getAgeOfIndividualInYears,
-  getMaritalStatus,
   registrationEmail,
   registrationPhone,
-  getEducation,
   getOccupation,
   divider
 } from '../common/common-optional-fields'
@@ -61,12 +58,10 @@ import {
   birthLateRegistrationReason
 } from '../common/default-validation-conditionals'
 import {
-  getNationalIDValidators,
   informantFirstNameConditionals,
   informantFamilyNameConditionals,
   informantBirthDateConditionals,
-  exactDateOfBirthUnknownConditional,
-  hideIfNidIntegrationEnabled
+  exactDateOfBirthUnknownConditional
 } from '../common/default-validation-conditionals'
 import { documentsSection, registrationSection } from './required-sections'
 import { certificateHandlebars } from './certificate-handlebars'
@@ -415,6 +410,11 @@ export const birthForm: ISerializedForm = {
               fatherFirstNameConditionals,
               certificateHandlebars.fatherFirstName
             ), // Required field.
+            getMiddleNameField(
+              'fatherNameInEnglish',
+              detailsExistConditional,
+              certificateHandlebars.fatherMiddleName
+            ),
             getFamilyNameField(
               'fatherNameInEnglish',
               fatherFamilyNameConditionals,
@@ -438,29 +438,16 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.fatherNationality,
               detailsExist
             ), // Required field.
-            getNationalID(
-              'iD',
-              hideIfNidIntegrationEnabled.concat(detailsExist),
-              getNationalIDValidators('father'),
-              certificateHandlebars.fatherNID
-            ),
+            getIDType('birth', 'father', detailsExistConditional, true),
+            ...getIDNumberFields('father', detailsExistConditional, true),
             // preceding field of address fields
             divider('father-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('father-address-seperator', detailsExist),
-            getMaritalStatus(certificateHandlebars.fatherMaritalStatus, [
-              {
-                action: 'hide',
-                expression: '!values.detailsExist'
-              }
-            ]),
-            getEducation(certificateHandlebars.fatherEducationalAttainment),
-            getOccupation(certificateHandlebars.fatherOccupation, [
-              {
-                action: 'hide',
-                expression: '!values.detailsExist'
-              }
-            ])
+            getOccupation(
+              certificateHandlebars.fatherOccupation,
+              detailsExistConditional
+            )
           ],
           previewGroups: [fatherNameInEnglish]
         }
