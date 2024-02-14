@@ -57,7 +57,7 @@ export const getFamilyNameField = (
     type: 'TEXT',
     label: formMessageDescriptors.familyName,
     maxLength: 32,
-    required: true,
+    required: false,
     initialValue: '',
     validator: [
       {
