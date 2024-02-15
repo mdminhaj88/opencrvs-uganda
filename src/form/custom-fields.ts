@@ -186,6 +186,23 @@ export function reasonForLateRegistration(
   }
 }
 
+export function pointOfContactHeader(): SerializedFormField {
+  return {
+    name: 'pointOfContactTitle',
+    type: 'HEADING3',
+    readonly: true,
+    label: {
+      id: 'form.customField.label.pointOfContact',
+      description: 'A form field header with label Point of contact',
+      defaultMessage: 'Point of contact'
+    },
+    previewGroup: 'placeOfBirth',
+    initialValue: '',
+    validator: [],
+    conditionals: []
+  }
+}
+
 export function declarationWitness(
   event: 'birth' | 'death',
   required: boolean

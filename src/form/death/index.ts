@@ -73,13 +73,13 @@ import {
   declarationWitness,
   getIDNumberFields,
   getIDType,
+  pointOfContactHeader,
   reasonForLateRegistration
 } from '../custom-fields'
 import {
   deceasedPlaceOfBirth,
   icd11code,
-  individualWhoFoundTheBody,
-  pointOfContactHeader
+  individualWhoFoundTheBody
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 

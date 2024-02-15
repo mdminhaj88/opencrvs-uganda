@@ -71,6 +71,7 @@ import {
   declarationWitness,
   getIDNumberFields,
   getIDType,
+  pointOfContactHeader,
   reasonForLateRegistration
 } from '../custom-fields'
 import { motherMaidenName, timeOfBirth } from './custom-fields'
@@ -302,6 +303,7 @@ export const birthForm: ISerializedForm = {
             ),
             ...declarationWitness('birth', false),
             divider('witness-seperator'),
+            pointOfContactHeader(),
             registrationPhone, // If you wish to enable automated SMS notifications to informants, include this
             registrationEmail // If you wish to enable automated Email notifications to informants, include this
           ],

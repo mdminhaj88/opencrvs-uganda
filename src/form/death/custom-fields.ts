@@ -175,20 +175,3 @@ export function icd11code(): SerializedFormField {
     maxLength: 250
   }
 }
-
-export function pointOfContactHeader(): SerializedFormField {
-  return {
-    name: 'pointOfContactTitle',
-    type: 'HEADING3',
-    readonly: true,
-    label: {
-      id: 'form.customField.label.pointOfContact',
-      description: 'A form field header with label Point of contact',
-      defaultMessage: 'Point of contact'
-    },
-    previewGroup: 'placeOfBirth',
-    initialValue: '',
-    validator: [],
-    conditionals: []
-  }
-}
