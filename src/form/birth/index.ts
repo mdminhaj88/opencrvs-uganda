@@ -300,7 +300,7 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.informantOccupation,
               hideIfInformantMotherOrFather
             ),
-            ...declarationWitness('birth'),
+            ...declarationWitness('birth', false),
             divider('witness-seperator'),
             registrationPhone, // If you wish to enable automated SMS notifications to informants, include this
             registrationEmail // If you wish to enable automated Email notifications to informants, include this

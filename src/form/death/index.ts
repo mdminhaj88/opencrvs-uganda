@@ -308,7 +308,7 @@ export const deathForm = {
             ...getIDNumberFields('informant', [], true),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
-            ...declarationWitness('death'),
+            ...declarationWitness('death', true),
             divider('point-of-contact-separator'),
             pointOfContactHeader(),
             registrationPhone,

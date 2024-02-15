@@ -187,7 +187,8 @@ export function reasonForLateRegistration(
 }
 
 export function declarationWitness(
-  event: 'birth' | 'death'
+  event: 'birth' | 'death',
+  required: boolean
 ): SerializedFormField[] {
   return [
     {
@@ -209,7 +210,7 @@ export function declarationWitness(
       name: 'witnessSurname',
       customQuestionMappingId: `${event}.informant.informant-view-group.witnessSurname`,
       custom: true,
-      required: true,
+      required,
       previewGroup: 'witnessNameInEnglish',
       type: 'TEXT',
       label: formMessageDescriptors.firstNames,
@@ -225,7 +226,7 @@ export function declarationWitness(
       name: 'witnessGivenName',
       customQuestionMappingId: `${event}.informant.informant-view-group.witnessGivenName`,
       custom: true,
-      required: true,
+      required,
       previewGroup: 'witnessNameInEnglish',
       type: 'TEXT',
       label: formMessageDescriptors.middleName,
@@ -241,7 +242,7 @@ export function declarationWitness(
       name: 'witnessOtherName',
       customQuestionMappingId: `${event}.informant.informant-view-group.witnessOtherName`,
       custom: true,
-      required: true,
+      required,
       previewGroup: 'witnessNameInEnglish',
       type: 'TEXT',
       label: formMessageDescriptors.familyName,
@@ -257,7 +258,7 @@ export function declarationWitness(
       name: 'witnessIdType',
       customQuestionMappingId: `${event}.informant.informant-view-group.witnessIdType`,
       custom: true,
-      required: true,
+      required,
       type: 'SELECT_WITH_OPTIONS',
       label: {
         id: 'form.field.label.iDType',
@@ -279,7 +280,7 @@ export function declarationWitness(
         const fieldName = `witness${uppercaseFirstLetter(camelCase(value))}`
         return {
           name: fieldName,
-          required: true,
+          required,
           custom: true,
           type: 'TEXT',
           label: {
