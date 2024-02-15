@@ -40,7 +40,7 @@ export const birthType: SerializedFormField = {
     description: 'Label for form field: Type of birth',
     id: 'form.field.label.birthType'
   },
-  required: false,
+  required: true,
   initialValue: '',
   validator: [],
   placeholder: formMessageDescriptors.formSelectPlaceholder,
