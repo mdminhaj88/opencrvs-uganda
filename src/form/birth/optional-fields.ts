@@ -83,7 +83,7 @@ export const multipleBirth: SerializedFormField = {
       expression: '!values.detailsExist'
     }
   ],
-  required: false,
+  required: true,
   initialValue: '',
   validator: [
     {
