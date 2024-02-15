@@ -21,7 +21,7 @@ export function timeOfBirth(): SerializedFormField {
     name: fieldName,
     customQuestionMappingId: fieldId,
     custom: true,
-    required: true,
+    required: false,
     type: 'TIME',
     label: formMessageDescriptors.timeOfBirth,
     initialValue: '',
