@@ -26,11 +26,15 @@ export const birthDocumentExtraValue = {
 }
 
 export const birthDocumentType = {
+  AFFIDAVIT: 'AFFIDAVIT',
   BIRTH_CERTIFICATE: 'BIRTH_CERTIFICATE',
   NATIONAL_ID: 'NATIONAL_ID',
   PASSPORT: 'PASSPORT',
+  ALIEN_ID: 'ALIEN_ID',
+  REFUGEE_ID: 'REFUGEE_ID',
   OTHER: 'OTHER',
   NOTIFICATION_OF_BIRTH: 'NOTIFICATION_OF_BIRTH',
+  POLICE_REPORT: 'POLICE_REPORT',
   PROOF_OF_LEGAL_GUARDIANSHIP: 'PROOF_OF_LEGAL_GUARDIANSHIP',
   PROOF_OF_ASSIGNED_RESPONSIBILITY: 'PROOF_OF_ASSIGNED_RESPONSIBILITY'
 }
@@ -89,12 +93,12 @@ export const documentsSection = {
               label: formMessageDescriptors.docTypePassport
             },
             {
-              value: birthDocumentType.BIRTH_CERTIFICATE,
-              label: formMessageDescriptors.docTypeBirthCert
+              value: birthDocumentType.ALIEN_ID,
+              label: formMessageDescriptors.iDTypeAlienNumber
             },
             {
-              value: birthDocumentType.OTHER,
-              label: formMessageDescriptors.docTypeOther
+              value: birthDocumentType.REFUGEE_ID,
+              label: formMessageDescriptors.iDTypeRefugeeNumber
             }
           ],
           conditionals: [
@@ -125,12 +129,12 @@ export const documentsSection = {
               label: formMessageDescriptors.docTypePassport
             },
             {
-              value: birthDocumentType.BIRTH_CERTIFICATE,
-              label: formMessageDescriptors.docTypeBirthCert
+              value: birthDocumentType.ALIEN_ID,
+              label: formMessageDescriptors.iDTypeAlienNumber
             },
             {
-              value: birthDocumentType.OTHER,
-              label: formMessageDescriptors.docTypeOther
+              value: birthDocumentType.REFUGEE_ID,
+              label: formMessageDescriptors.iDTypeRefugeeNumber
             }
           ],
           conditionals: [
@@ -161,12 +165,12 @@ export const documentsSection = {
               label: formMessageDescriptors.docTypePassport
             },
             {
-              value: birthDocumentType.BIRTH_CERTIFICATE,
-              label: formMessageDescriptors.docTypeBirthCert
+              value: birthDocumentType.ALIEN_ID,
+              label: formMessageDescriptors.iDTypeAlienNumber
             },
             {
-              value: birthDocumentType.OTHER,
-              label: formMessageDescriptors.docTypeOther
+              value: birthDocumentType.REFUGEE_ID,
+              label: formMessageDescriptors.iDTypeRefugeeNumber
             }
           ],
           conditionals: [
@@ -188,21 +192,19 @@ export const documentsSection = {
           validator: [],
           options: [
             {
-              value: birthDocumentType.PROOF_OF_LEGAL_GUARDIANSHIP,
-              label: formMessageDescriptors.legalGuardianProof
+              value: birthDocumentType.AFFIDAVIT,
+              label: formMessageDescriptors.affidavit
             },
             {
-              value: birthDocumentType.PROOF_OF_ASSIGNED_RESPONSIBILITY,
-              label: formMessageDescriptors.assignedResponsibilityProof
-            }
-          ],
-          conditionals: [
+              value: birthDocumentType.POLICE_REPORT,
+              label: formMessageDescriptors.policeReport
+            },
             {
-              action: 'hide',
-              expression:
-                "(draftData && draftData.registration && draftData.registration.informantType && selectedInformantAndContactType.selectedInformantType && (selectedInformantAndContactType.selectedInformantType === 'MOTHER' || selectedInformantAndContactType.selectedInformantType === 'FATHER'))"
+              value: birthDocumentType.OTHER,
+              label: formMessageDescriptors.other
             }
           ],
+          conditionals: [],
           mapping: getFieldMapping('documents')
         }
       ]
