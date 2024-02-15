@@ -16,7 +16,7 @@ export const birthLateRegistrationReason = [
   {
     action: 'hide',
     expression:
-      '!values.childBirthDate || (Math.ceil((new Date() - new Date(values.childBirthDate)) / (1000 * 60 * 60 * 24)) <= 30)'
+      'const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; const today = new Date(); const eventDatePlusLateRegistrationTarget = new Date(values.childBirthDate); const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.LATE_REGISTRATION_TARGET; eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget); !pattern.test(values.childBirthDate) || today < eventDatePlusLateRegistrationTarget;'
   }
 ]
 
@@ -24,7 +24,7 @@ export const deathLateRegistrationReason = [
   {
     action: 'hide',
     expression:
-      '!values.deathDate || (Math.ceil((new Date() - new Date(values.deathDate)) / (1000 * 60 * 60 * 24)) <= 90)'
+      'const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; const today = new Date(); const eventDatePlusLateRegistrationTarget = new Date(values.deathDate); const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.DEATH.REGISTRATION_TARGET; eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget); !pattern.test(values.deathDate) || today < eventDatePlusLateRegistrationTarget;'
   }
 ]
 
