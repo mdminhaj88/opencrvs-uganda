@@ -34,7 +34,7 @@ export const defaultApplicationConfig = {
     languagesAndCountry: ['en-US'],
     isoCode: 'UGX'
   },
-  PHONE_NUMBER_PATTERN: '^0(7|9)[0-9]{8}$',
+  PHONE_NUMBER_PATTERN: '^(03|07)[0-9]{8}$',
   NID_NUMBER_PATTERN: '^[0-9]{10}$',
   COUNTRY_LOGO: countryLogo,
   LOGIN_BACKGROUND: {
