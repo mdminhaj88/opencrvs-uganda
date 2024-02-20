@@ -284,7 +284,7 @@ export function getFieldMapping(
       return {
         template: {
           fieldName: certificateHandlebar,
-          operation: 'nationalityTransformer'
+          operation: 'arrayToFieldTransformer'
         },
         mutation: {
           operation: 'fieldToArrayTransformer'
