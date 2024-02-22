@@ -33,7 +33,7 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="418.055">{{intl 'countries' motherNationality}}</tspan></text>
 <line x1="51" y1="427.5" x2="556" y2="427.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="446.055">Mother&#x2019;s ID</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="446.055">{{#if birthMotherMotherIdType}}{{#ifCond birthMotherMotherIdType '!==' None}}{{birthMotherMotherIdType}}: {{motherNationalId}}{{motherPassport}}{{motherAliedId}}{{motherRefugeeId}}{{/ifCond}}{{/if}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="446.055">{{#if birthMotherMotherIdType}}{{#ifCond birthMotherMotherIdType '!==' 'None'}}{{birthMotherMotherIdType}}: {{motherNationalId}}{{motherPassport}}{{motherAliedId}}{{motherRefugeeId}}{{/ifCond}}{{/if}}</tspan></text>
 <line x1="51" y1="455.5" x2="556" y2="455.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="474.055">Date of registration</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="474.055">{{registrationDate}}</tspan></text>
