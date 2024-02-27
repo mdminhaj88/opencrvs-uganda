@@ -156,6 +156,11 @@ export const formMessageDescriptors = {
     description: 'A form field that asks for the time of birth',
     defaultMessage: 'Time of birth'
   },
+  timeOfDeath: {
+    id: 'form.customField.label.timeOfDeath',
+    description: 'A form field that asks for the time of death',
+    defaultMessage: 'Time of death'
+  },
   primaryAddress: {
     defaultMessage: 'Usual place of residence',
     description: 'Title of the primary adress ',

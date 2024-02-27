@@ -18,6 +18,24 @@ import { formMessageDescriptors } from '../common/messages'
 import { getAddressFields } from '../addresses/address-fields'
 import { divider } from '../common/common-optional-fields'
 
+export function timeOfDeath(): SerializedFormField {
+  const fieldName = 'timeOfDeath'
+  const fieldId = `death.deathEvent.death-event-details.${fieldName}`
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: true,
+    type: 'TIME',
+    label: formMessageDescriptors.timeOfBirth,
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals: []
+  }
+}
+
 export function deceasedPlaceOfBirth(): SerializedFormField[] {
   return [
     {
