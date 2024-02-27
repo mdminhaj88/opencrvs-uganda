@@ -131,6 +131,31 @@ export const informantMessageDescriptors = {
 }
 
 export const formMessageDescriptors = {
+  affidavit: {
+    defaultMessage: 'Affidavit',
+    description: 'Label for document option affidavit',
+    id: 'form.field.label.affidavit'
+  },
+  policeReport: {
+    defaultMessage: 'Police Report',
+    description: 'Label for document option police report',
+    id: 'form.field.label.policeReport'
+  },
+  birthLateRegistrationReason: {
+    id: 'form.customField.label.birthLateRegistrationReason',
+    description: 'A form field that asks for the reason for late registration',
+    defaultMessage: 'Reason for late registration (after 30 days)'
+  },
+  deathLateRegistrationReason: {
+    id: 'form.customField.label.deathLateRegistrationReason',
+    description: 'A form field that asks for the reason for late registration',
+    defaultMessage: 'Reason for late registration (after 90 days)'
+  },
+  timeOfBirth: {
+    id: 'form.customField.label.timeOfBirth',
+    description: 'A form field that asks for the time of birth',
+    defaultMessage: 'Time of birth'
+  },
   primaryAddress: {
     defaultMessage: 'Usual place of residence',
     description: 'Title of the primary adress ',

@@ -1,40 +1,40 @@
 import { countryLogo } from '@countryconfig/api/application/country-logo'
 
 export const defaultApplicationConfig = {
-  APPLICATION_NAME: 'Farajaland CRS',
+  APPLICATION_NAME: 'NSIS-CRVS',
   BIRTH: {
     REGISTRATION_TARGET: 30,
     LATE_REGISTRATION_TARGET: 365,
     FEE: {
-      ON_TIME: 0,
-      LATE: 5.5,
-      DELAYED: 15
+      ON_TIME: 5000,
+      LATE: 5000,
+      DELAYED: 5000
     },
     PRINT_IN_ADVANCE: true
   },
   DEATH: {
     REGISTRATION_TARGET: 45,
     FEE: {
-      ON_TIME: 0,
-      DELAYED: 0
+      ON_TIME: 5000,
+      DELAYED: 5000
     },
     PRINT_IN_ADVANCE: true
   },
   MARRIAGE_REGISTRATION: false,
   MARRIAGE: {
-    REGISTRATION_TARGET: 45,
+    REGISTRATION_TARGET: 90,
     FEE: {
-      ON_TIME: 10,
-      DELAYED: 45
+      ON_TIME: 0,
+      DELAYED: 0
     },
     PRINT_IN_ADVANCE: true
   },
   DATE_OF_BIRTH_UNKNOWN: true,
   CURRENCY: {
     languagesAndCountry: ['en-US'],
-    isoCode: 'USD'
+    isoCode: 'UGX'
   },
-  PHONE_NUMBER_PATTERN: '^0(7|9)[0-9]{8}$',
+  PHONE_NUMBER_PATTERN: '^(03|07)[0-9]{8}$',
   NID_NUMBER_PATTERN: '^[0-9]{10}$',
   COUNTRY_LOGO: countryLogo,
   LOGIN_BACKGROUND: {

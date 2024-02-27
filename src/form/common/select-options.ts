@@ -237,15 +237,11 @@ export const genderOptions: ISelectOption[] = [
 export const placeOfBirthOptions: ISelectOption[] = [
   {
     value: 'HEALTH_FACILITY',
-    label: formMessageDescriptors.healthInstitution
-  },
-  {
-    value: 'PRIVATE_HOME',
-    label: formMessageDescriptors.privateHome
+    label: formMessageDescriptors.healthFacility
   },
   {
     value: 'OTHER',
-    label: formMessageDescriptors.otherInstitution
+    label: formMessageDescriptors.community
   }
 ]
 

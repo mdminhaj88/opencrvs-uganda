@@ -41,6 +41,7 @@ import {
   ageOfDeceasedConditionals,
   informantFirstNameConditionals,
   exactDateOfBirthUnknownConditional,
+  deathLateRegistrationReason,
   isValidBirthDate /*,
   spouseFirstNameConditionals,
   spouseFamilyNameConditionals,
@@ -68,14 +69,17 @@ import {
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
-import { getIDNumberFields, getIDType } from '../custom-fields'
 import {
-  deceasedPlaceOfBirth,
   declarationWitness,
-  icd11code,
-  individualWhoFoundTheBody,
+  getIDNumberFields,
+  getIDType,
   pointOfContactHeader,
   reasonForLateRegistration
+} from '../custom-fields'
+import {
+  deceasedPlaceOfBirth,
+  icd11code,
+  individualWhoFoundTheBody
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
@@ -238,7 +242,11 @@ export const deathForm = {
                 }
               ]
             ),
-            reasonForLateRegistration(),
+            reasonForLateRegistration(
+              'death.deathEvent.death-event-details.lateRegistrationReason',
+              formMessageDescriptors.deathLateRegistrationReason,
+              deathLateRegistrationReason
+            ),
             // PLACE OF DEATH FIELDS WILL RENDER HERE
             getMannerOfDeath,
             ...individualWhoFoundTheBody(),
@@ -300,7 +308,7 @@ export const deathForm = {
             ...getIDNumberFields('informant', [], true),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
-            ...declarationWitness(),
+            ...declarationWitness('death', true),
             divider('point-of-contact-separator'),
             pointOfContactHeader(),
             registrationPhone,

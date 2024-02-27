@@ -10,11 +10,13 @@
  */
 
 import { formMessageDescriptors } from './common/messages'
-import { Conditional, SerializedFormField } from './types/types'
+import { AddressCases, Conditional, SerializedFormField } from './types/types'
 import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getNationalIDValidators } from './common/default-validation-conditionals'
 import { camelCase } from 'lodash'
 import { uppercaseFirstLetter } from '@countryconfig/utils'
+import { MessageDescriptor } from 'react-intl'
+import { getAddressFields } from './addresses/address-fields'
 
 // ======================= CUSTOM FIELD CONFIGURATION =======================
 
@@ -164,6 +166,193 @@ export function getIDNumberFields(
     .map((opt) => getIDNumber(section, opt.value, conditionals, required))
 }
 
+export function reasonForLateRegistration(
+  fieldId: string,
+  label: MessageDescriptor,
+  conditionals: Conditional[]
+): SerializedFormField {
+  return {
+    name: fieldId.split('.')[3],
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'TEXT',
+    label,
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals,
+    maxLength: 250
+  }
+}
+
+export function pointOfContactHeader(): SerializedFormField {
+  return {
+    name: 'pointOfContactTitle',
+    type: 'HEADING3',
+    readonly: true,
+    label: {
+      id: 'form.customField.label.pointOfContact',
+      description: 'A form field header with label Point of contact',
+      defaultMessage: 'Point of contact'
+    },
+    previewGroup: 'placeOfBirth',
+    initialValue: '',
+    validator: [],
+    conditionals: []
+  }
+}
+
+export function declarationWitness(
+  event: 'birth' | 'death',
+  required: boolean
+): SerializedFormField[] {
+  return [
+    {
+      name: 'declarationWitnessHeading',
+      customQuestionMappingId: `${event}.informant.informant-view-group.declarationWitnessHeading`,
+      custom: true,
+      readonly: true,
+      type: 'HEADING3',
+      label: {
+        id: 'form.customField.label.declarationWitnessHeading',
+        description:
+          'A form field heading for the details of the declaration witness',
+        defaultMessage: 'Declaration witness'
+      },
+      validator: [],
+      conditionals: []
+    },
+    {
+      name: 'witnessSurname',
+      customQuestionMappingId: `${event}.informant.informant-view-group.witnessSurname`,
+      custom: true,
+      required,
+      previewGroup: 'witnessNameInEnglish',
+      type: 'TEXT',
+      label: formMessageDescriptors.firstNames,
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        `${event}.informant.informant-view-group.witnessSurname`
+      ),
+      conditionals: [],
+      maxLength: 250
+    },
+    {
+      name: 'witnessGivenName',
+      customQuestionMappingId: `${event}.informant.informant-view-group.witnessGivenName`,
+      custom: true,
+      required,
+      previewGroup: 'witnessNameInEnglish',
+      type: 'TEXT',
+      label: formMessageDescriptors.middleName,
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        `${event}.informant.informant-view-group.witnessGivenName`
+      ),
+      conditionals: [],
+      maxLength: 250
+    },
+    {
+      name: 'witnessOtherName',
+      customQuestionMappingId: `${event}.informant.informant-view-group.witnessOtherName`,
+      custom: true,
+      required,
+      previewGroup: 'witnessNameInEnglish',
+      type: 'TEXT',
+      label: formMessageDescriptors.familyName,
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        `${event}.informant.informant-view-group.witnessOtherName`
+      ),
+      conditionals: [],
+      maxLength: 250
+    },
+    {
+      name: 'witnessIdType',
+      customQuestionMappingId: `${event}.informant.informant-view-group.witnessIdType`,
+      custom: true,
+      required,
+      type: 'SELECT_WITH_OPTIONS',
+      label: {
+        id: 'form.field.label.iDType',
+        description: 'A form field that asks for the type of ID.',
+        defaultMessage: 'Type of ID'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: getCustomFieldMapping(
+        `${event}.informant.informant-view-group.witnessIdType`
+      ),
+      placeholder: formMessageDescriptors.formSelectPlaceholder,
+      conditionals: [],
+      options: idTypeOptions
+    },
+    ...idTypeOptions
+      .filter((opt) => opt.value !== 'NONE')
+      .map(({ value }): SerializedFormField => {
+        const fieldName = `witness${uppercaseFirstLetter(camelCase(value))}`
+        return {
+          name: fieldName,
+          required,
+          custom: true,
+          type: 'TEXT',
+          label: {
+            id: 'form.field.label.iD',
+            description: 'A form field that asks for the id number.',
+            defaultMessage: 'ID number'
+          },
+          initialValue: '',
+          validator: [],
+          mapping: {
+            template: {
+              fieldName,
+              operation: 'identityToFieldTransformer',
+              parameters: ['id', value]
+            },
+            mutation: {
+              operation: 'fieldToIdentityTransformer',
+              parameters: ['id', value]
+            },
+            query: {
+              operation: 'identityToFieldTransformer',
+              parameters: ['id', value]
+            }
+          },
+          conditionals: [
+            {
+              action: 'hide',
+              expression: `(values.witnessIdType!=="${value}") || (values.witnessIdType==="NONE")`
+            }
+          ],
+          maxLength: 250
+        }
+      }),
+    {
+      name: 'placeOfResidenceTitle',
+      type: 'HEADING3',
+      label: formMessageDescriptors.primaryAddress,
+      previewGroup: 'placeOfResidence',
+      initialValue: '',
+      validator: [],
+      conditionals: []
+    },
+    ...getAddressFields('witness', AddressCases.PRIMARY_ADDRESS).map(
+      (field) => ({
+        ...field,
+        custom: true,
+        customQuestionMappingId: `${event}.informant.informant-view-group.${field.name}`,
+        previewGroup: 'placeOfResidence',
+        mapping: getCustomFieldMapping(
+          `${event}.informant.informant-view-group.${field.name}`
+        )
+      })
+    )
+  ]
+}
 export function createCustomFieldExample(): SerializedFormField {
   // GIVE THE FIELD A UNIQUE NAME.  IF THE NAME IS ALREADY IN USE, YOU WILL NOTICE AN ERROR ON PAGE LOAD IN DEVELOPMENT
   const fieldName: string = 'favoriteColor'
