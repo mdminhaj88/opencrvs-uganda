@@ -18,7 +18,7 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="248.055">{{placeOfDeathFacility}}</tspan><tspan x="228" y="263.055">{{statePlaceofdeath}}</tspan><tspan x="228" y="278.055">{{districtPlaceofdeath}}, {{countryPlaceofdeath}}</tspan></text>
 <line x1="51" y1="287.5" x2="556" y2="287.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="306.055">Nationality</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="306.055">{{deceasedNationality}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="306.055">{{intl 'countries' deceasedNationality}}</tspan></text>
 <line x1="51" y1="315.5" x2="556" y2="315.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="334.055">ID number</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="334.055">{{#if deathDeceasedDeceasedIdType}}{{#ifCond deathDeceasedDeceasedIdType '!==' 'None'}}{{deathDeceasedDeceasedIdType}}: {{deceasedNationalId}}{{deceasedPassport}}{{deceasedAlienId}}{{deceasedRefugeeId}}{{/ifCond}}{{/if}}</tspan></text>
