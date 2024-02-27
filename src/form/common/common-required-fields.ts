@@ -57,7 +57,7 @@ export const getFamilyNameField = (
     type: 'TEXT',
     label: formMessageDescriptors.familyName,
     maxLength: 32,
-    required: true,
+    required: false,
     initialValue: '',
     validator: [
       {
@@ -76,11 +76,7 @@ export const getFirstNameField = (
     name: 'firstNamesEng', // A field with this name MUST exist
     previewGroup,
     type: 'TEXT',
-    label: {
-      defaultMessage: 'First name(s)',
-      description: 'Label for form field: First names',
-      id: 'form.field.label.firstNames'
-    },
+    label: formMessageDescriptors.firstNames,
     conditionals,
     maxLength: 32,
     required: true,
@@ -91,6 +87,28 @@ export const getFirstNameField = (
       }
     ],
     mapping: getFieldMapping('firstNames', certificateHandlebar)
+  } satisfies SerializedFormField)
+
+export const getMiddleNameField = (
+  previewGroup: string,
+  conditionals: Conditional[],
+  certificateHandlebar: string
+) =>
+  ({
+    name: 'middleNameEng', // A field with this name MUST exist
+    previewGroup,
+    type: 'TEXT',
+    label: formMessageDescriptors.middleName,
+    conditionals,
+    maxLength: 32,
+    required: true,
+    initialValue: '',
+    validator: [
+      {
+        operation: 'englishOnlyNameFormat'
+      }
+    ],
+    mapping: getFieldMapping('middleName', certificateHandlebar)
   } satisfies SerializedFormField)
 
 export const getNationality = (

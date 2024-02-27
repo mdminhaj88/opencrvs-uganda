@@ -12,11 +12,10 @@
 import {
   exactDateOfBirthUnknown,
   getAgeOfIndividualInYears,
-  getMaritalStatus,
   registrationEmail,
   registrationPhone,
-  divider
-  // getOccupation
+  divider,
+  getOccupation
 } from '../common/common-optional-fields'
 import {
   getGender,
@@ -25,29 +24,24 @@ import {
   getFirstNameField,
   getNationality,
   otherInformantType,
-  getNationalID /*,
-  getDetailsExist,
-  getReasonNotExisting*/
+  getMiddleNameField
 } from '../common/common-required-fields'
 import {
   deathInformantType,
   getCauseOfDeath,
-  getCauseOfDeathMethod,
   getDeathDate,
-  getDeathDescription,
   getMannerOfDeath
 } from './required-fields'
 import { formMessageDescriptors } from '../common/messages'
 import { Event, ISerializedForm } from '../types/types'
 import {
-  getNationalIDValidators,
-  hideIfNidIntegrationEnabled,
   informantBirthDateConditionals,
   informantFamilyNameConditionals,
   ageOfIndividualConditionals,
   ageOfDeceasedConditionals,
   informantFirstNameConditionals,
   exactDateOfBirthUnknownConditional,
+  deathLateRegistrationReason,
   isValidBirthDate /*,
   spouseFirstNameConditionals,
   spouseFamilyNameConditionals,
@@ -68,13 +62,25 @@ import {
 import { documentsSection, registrationSection } from './required-sections'
 import {
   deceasedNameInEnglish,
-  informantNameInEnglish /*,
-  fatherNameInEnglish,
-  motherNameInEnglish,
-  spouseNameInEnglish*/
+  deceasedPlaceOfBirth as deceasedPlaceOfBirthPreviewGroup,
+  informantNameInEnglish,
+  witnessNameInEnglish,
+  witnessPlaceOfResidence
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
+import {
+  declarationWitness,
+  getIDNumberFields,
+  getIDType,
+  pointOfContactHeader,
+  reasonForLateRegistration
+} from '../custom-fields'
+import {
+  deceasedPlaceOfBirth,
+  icd11code,
+  individualWhoFoundTheBody
+} from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
 // import { createCustomFieldExample } from '../custom-fields'
@@ -175,11 +181,19 @@ export const deathForm = {
               [],
               certificateHandlebars.deceasedFirstName
             ), // Required field.  Names in Latin characters must be provided for international passport
+            getMiddleNameField(
+              'deceasedNameInEnglish',
+              [],
+              certificateHandlebars.deceasedMiddleName
+            ),
             getFamilyNameField(
               'deceasedNameInEnglish',
               [],
               certificateHandlebars.deceasedFamilyName
             ), // Required field.  Names in Latin characters must be provided for international passport
+            getNationality(certificateHandlebars.deceasedNationality, []),
+            getIDType('death', 'deceased', [], true),
+            ...getIDNumberFields('deceased', [], true),
             getGender(certificateHandlebars.deceasedGender), // Required field.
             getBirthDate(
               'deceasedBirthDate',
@@ -198,16 +212,15 @@ export const deathForm = {
               exactDateOfBirthUnknownConditional,
               ageOfDeceasedConditionals
             ),
-            getNationality(certificateHandlebars.deceasedNationality, []),
-            getNationalID(
-              'deceasedID',
-              [],
-              getNationalIDValidators('deceased'),
-              certificateHandlebars.deceasedNID
-            ),
-            getMaritalStatus(certificateHandlebars.deceasedMaritalStatus, [])
+            getOccupation(certificateHandlebars.deceasedOccupation),
+            ...deceasedPlaceOfBirth(),
+            divider('place-of-birth-seperator')
+            // PLACE OF BIRTH FIEDLS WILL RENDER HERE
           ],
-          previewGroups: [deceasedNameInEnglish]
+          previewGroups: [
+            deceasedNameInEnglish,
+            deceasedPlaceOfBirthPreviewGroup
+          ]
         }
       ]
     },
@@ -229,11 +242,16 @@ export const deathForm = {
                 }
               ]
             ),
-            getMannerOfDeath,
-            getCauseOfDeath,
-            getCauseOfDeathMethod,
-            getDeathDescription
+            reasonForLateRegistration(
+              'death.deathEvent.death-event-details.lateRegistrationReason',
+              formMessageDescriptors.deathLateRegistrationReason,
+              deathLateRegistrationReason
+            ),
             // PLACE OF DEATH FIELDS WILL RENDER HERE
+            getMannerOfDeath,
+            ...individualWhoFoundTheBody(),
+            getCauseOfDeath,
+            icd11code()
           ]
         }
       ]
@@ -254,6 +272,11 @@ export const deathForm = {
               informantFirstNameConditionals,
               certificateHandlebars.informantFirstName
             ), // Required field.
+            getMiddleNameField(
+              'informantNameInEnglish',
+              [],
+              certificateHandlebars.informantMiddleName
+            ),
             getFamilyNameField(
               'informantNameInEnglish',
               informantFamilyNameConditionals,
@@ -281,18 +304,21 @@ export const deathForm = {
               ageOfIndividualConditionals
             ),
             getNationality(certificateHandlebars.informantNationality, []),
-            getNationalID(
-              'informantID',
-              hideIfNidIntegrationEnabled,
-              getNationalIDValidators('informant'),
-              certificateHandlebars.informantNID
-            ),
+            getIDType('death', 'informant', [], true),
+            ...getIDNumberFields('informant', [], true),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
+            ...declarationWitness('death', true),
+            divider('point-of-contact-separator'),
+            pointOfContactHeader(),
             registrationPhone,
             registrationEmail
           ],
-          previewGroups: [informantNameInEnglish]
+          previewGroups: [
+            informantNameInEnglish,
+            witnessNameInEnglish,
+            witnessPlaceOfResidence
+          ]
         }
       ],
       mapping: getCommonSectionMapping('informant')
@@ -418,7 +444,12 @@ export const deathForm = {
             divider('mother-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('mother-address-seperator', detailsExist),
-            getOccupation(certificateHandlebars.motherOccupation)
+            getOccupation(certificateHandlebars.motherOccupation, [
+              {
+                action: 'hide',
+                expression: '!values.detailsExist'
+              }
+            ])
           ],
           previewGroups: [motherNameInEnglish]
         }
@@ -486,7 +517,12 @@ export const deathForm = {
             divider('father-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('father-address-seperator', detailsExist),
-            getOccupation(certificateHandlebars.fatherOccupation)
+            getOccupation(certificateHandlebars.fatherOccupation, [
+              {
+                action: 'hide',
+                expression: '!values.detailsExist'
+              }
+            ])
           ],
           previewGroups: [fatherNameInEnglish]
         }

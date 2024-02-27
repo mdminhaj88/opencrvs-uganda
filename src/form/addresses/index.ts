@@ -52,7 +52,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
     // OPTIONS ARE THE FULL PLACE OF EVENT FIELDS, STANDARD ADDRESS FIELDS, ADDRESS SUBSECTION DIVIDERS, OR RADIO BUTTONS TO SIMPLIFY FORM ENTRY
 
     // PLACE OF BIRTH ADDRESS FIELDS
-    precedingFieldId: 'birth.child.child-view-group.childBirthDate',
+    precedingFieldId: 'birth.child.child-view-group.birthType',
     configurations: [{ config: EventLocationAddressCases.PLACE_OF_BIRTH }]
   },
   {
@@ -144,12 +144,14 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   },
   {
     // PLACE OF DEATH ADDRESS FIELDS
-    precedingFieldId: 'death.deathEvent.death-event-details.deathDescription',
+    precedingFieldId:
+      'death.deathEvent.death-event-details.lateRegistrationReason',
     configurations: [{ config: EventLocationAddressCases.PLACE_OF_DEATH }]
   },
   {
     // DECEASED ADDRESS FIELDS
-    precedingFieldId: 'death.deceased.deceased-view-group.maritalStatus',
+    precedingFieldId:
+      'death.deceased.deceased-view-group.place-of-birth-seperator',
     configurations: [
       {
         config: AddressSubsections.PRIMARY_ADDRESS_SUBSECTION,
@@ -167,7 +169,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   },
   {
     // INFORMANT ADDRESS FIELDS
-    precedingFieldId: 'death.informant.informant-view-group.informantID',
+    precedingFieldId: 'death.informant.informant-view-group.informantRefugeeId',
     configurations: [
       {
         config: AddressCopyConfigCases.PRIMARY_ADDRESS_SAME_AS_OTHER_PRIMARY,

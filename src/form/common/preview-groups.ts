@@ -19,6 +19,29 @@ import {
 
 // Preview groups are used to group data nicely in Review Page UI
 
+export const deceasedPlaceOfBirth: IPreviewGroup = {
+  id: 'placeOfBirth',
+  label: formMessageDescriptors.placeOfBirth,
+  fieldToRedirect: 'countryPlaceofbirth'
+}
+
+export const witnessPlaceOfResidence: IPreviewGroup = {
+  id: 'placeOfResidence',
+  label: formMessageDescriptors.primaryAddress,
+  fieldToRedirect: 'countryPrimaryWitness'
+}
+
+export const witnessNameInEnglish: IPreviewGroup = {
+  id: 'witnessNameInEnglish',
+  label: {
+    defaultMessage: 'Full name',
+    description: "Label for informant's name in english",
+    id: 'form.preview.group.label.informant.english.name'
+  },
+  fieldToRedirect: 'witnessSurname',
+  delimiter: ' '
+}
+
 export const childNameInEnglish: IPreviewGroup = {
   id: 'childNameInEnglish',
   label: formMessageDescriptors.nameInEnglishPreviewGroup,

@@ -67,6 +67,11 @@ export const informantMessageDescriptors = {
     description: 'Who is applying for death registration',
     id: 'register.selectInformant.deathInformantTitle'
   },
+  HEALTH_FACILITY_AGENT: {
+    defaultMessage: 'Health Facility Agent',
+    description: 'Label for option Health Facility Agent',
+    id: 'form.field.label.informantRelation.healthFacilityAgent'
+  },
   SPOUSE: {
     defaultMessage: 'Spouse',
     description: 'Label for option Spouse',
@@ -126,6 +131,31 @@ export const informantMessageDescriptors = {
 }
 
 export const formMessageDescriptors = {
+  affidavit: {
+    defaultMessage: 'Affidavit',
+    description: 'Label for document option affidavit',
+    id: 'form.field.label.affidavit'
+  },
+  policeReport: {
+    defaultMessage: 'Police Report',
+    description: 'Label for document option police report',
+    id: 'form.field.label.policeReport'
+  },
+  birthLateRegistrationReason: {
+    id: 'form.customField.label.birthLateRegistrationReason',
+    description: 'A form field that asks for the reason for late registration',
+    defaultMessage: 'Reason for late registration (after 30 days)'
+  },
+  deathLateRegistrationReason: {
+    id: 'form.customField.label.deathLateRegistrationReason',
+    description: 'A form field that asks for the reason for late registration',
+    defaultMessage: 'Reason for late registration (after 90 days)'
+  },
+  timeOfBirth: {
+    id: 'form.customField.label.timeOfBirth',
+    description: 'A form field that asks for the time of birth',
+    defaultMessage: 'Time of birth'
+  },
   primaryAddress: {
     defaultMessage: 'Usual place of residence',
     description: 'Title of the primary adress ',
@@ -316,6 +346,11 @@ export const formMessageDescriptors = {
     description: 'Option for form field: Sex name',
     id: 'form.field.label.sexUnknown'
   },
+  middleName: {
+    defaultMessage: 'Middle name',
+    description: 'Label for middle name text input',
+    id: 'form.field.label.middleName'
+  },
   familyName: {
     defaultMessage: 'Last name',
     description: 'Label for family name text input',
@@ -332,9 +367,19 @@ export const formMessageDescriptors = {
     id: 'form.field.label.placeOfBirthPreview'
   },
   placeOfBirth: {
-    defaultMessage: 'Location',
+    defaultMessage: 'Place of birth',
     description: 'Label for form field: Place of delivery',
     id: 'form.field.label.placeOfBirth'
+  },
+  healthFacility: {
+    defaultMessage: 'Health Facility',
+    description: 'Select item for Health Facility',
+    id: 'form.field.label.healthFacility'
+  },
+  community: {
+    defaultMessage: 'Community',
+    description: 'Select item for Community',
+    id: 'form.field.label.community'
   },
   healthInstitution: {
     defaultMessage: 'Health Institution',
@@ -538,10 +583,10 @@ export const formMessageDescriptors = {
     description: 'Label for form field: Age of deceased',
     id: 'form.field.label.ageOfDeceased'
   },
-  firstName: {
-    defaultMessage: 'First name',
-    description: "Input label for certificate collector's first name",
-    id: 'form.field.label.firstName'
+  firstNames: {
+    defaultMessage: 'First name(s)',
+    description: 'Label for form field: First names',
+    id: 'form.field.label.firstNames'
   },
   maritalStatus: {
     defaultMessage: 'Marital status',
@@ -577,6 +622,11 @@ export const formMessageDescriptors = {
     defaultMessage: 'Accident',
     description: 'Option for form field: Manner of death',
     id: 'form.field.label.mannerOfDeathAccident'
+  },
+  mannerBodyFound: {
+    defaultMessage: 'Body found',
+    description: 'Option for form field: Body found',
+    id: 'form.field.label.mannerOfDeathBodyFound'
   },
   mannerSuicide: {
     defaultMessage: 'Suicide',

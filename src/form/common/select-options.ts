@@ -23,6 +23,7 @@ import {
 // THIS FILE ALLOWS YOU TO CUSTOMISE EVERY DEFAULT SELECT OPTION IN OPENCRVS WHETHER OR NOT THE FIELD IS REQUIRED OR CUSTOM
 
 export const informantTypes = {
+  HEALTH_FACILITY_AGENT: 'HEALTH_FACILITY_AGENT',
   SPOUSE: 'SPOUSE',
   SON: 'SON',
   DAUGHTER: 'DAUGHTER',
@@ -108,24 +109,12 @@ export const identityTypeMapper: IDynamicFieldTypeMapper = (key: string) => {
 
 export const deathInformantTypeOptions: ISelectOption[] = [
   {
+    value: informantTypes.HEALTH_FACILITY_AGENT,
+    label: informantMessageDescriptors.HEALTH_FACILITY_AGENT
+  },
+  {
     value: informantTypes.SPOUSE,
     label: informantMessageDescriptors.SPOUSE
-  },
-  {
-    value: informantTypes.SON,
-    label: informantMessageDescriptors.SON
-  },
-  {
-    value: informantTypes.DAUGHTER,
-    label: informantMessageDescriptors.DAUGHTER
-  },
-  {
-    value: informantTypes.SON_IN_LAW,
-    label: informantMessageDescriptors.SON_IN_LAW
-  },
-  {
-    value: informantTypes.DAUGHTER_IN_LAW,
-    label: informantMessageDescriptors.DAUGHTER_IN_LAW
   },
   {
     value: informantTypes.MOTHER,
@@ -136,12 +125,24 @@ export const deathInformantTypeOptions: ISelectOption[] = [
     label: informantMessageDescriptors.FATHER
   },
   {
-    value: informantTypes.GRANDSON,
-    label: informantMessageDescriptors.GRANDSON
+    value: informantTypes.GRANDFATHER,
+    label: informantMessageDescriptors.GRANDFATHER
   },
   {
-    value: informantTypes.GRANDDAUGHTER,
-    label: informantMessageDescriptors.GRANDDAUGHTER
+    value: informantTypes.GRANDMOTHER,
+    label: informantMessageDescriptors.GRANDMOTHER
+  },
+  {
+    value: informantTypes.BROTHER,
+    label: informantMessageDescriptors.BROTHER
+  },
+  {
+    value: informantTypes.SISTER,
+    label: informantMessageDescriptors.SISTER
+  },
+  {
+    value: informantTypes.LEGAL_GUARDIAN,
+    label: informantMessageDescriptors.LEGAL_GUARDIAN
   },
   {
     value: informantTypes.OTHER,
@@ -230,40 +231,28 @@ export const genderOptions: ISelectOption[] = [
   {
     value: 'female',
     label: formMessageDescriptors.sexFemale
-  },
-  {
-    value: 'unknown',
-    label: formMessageDescriptors.sexUnknown
   }
 ]
 
 export const placeOfBirthOptions: ISelectOption[] = [
   {
     value: 'HEALTH_FACILITY',
-    label: formMessageDescriptors.healthInstitution
-  },
-  {
-    value: 'PRIVATE_HOME',
-    label: formMessageDescriptors.privateHome
+    label: formMessageDescriptors.healthFacility
   },
   {
     value: 'OTHER',
-    label: formMessageDescriptors.otherInstitution
+    label: formMessageDescriptors.community
   }
 ]
 
 export const placeOfDeathOptions: ISelectOption[] = [
   {
     value: 'HEALTH_FACILITY',
-    label: formMessageDescriptors.healthInstitution
-  },
-  {
-    value: 'DECEASED_USUAL_RESIDENCE',
-    label: formMessageDescriptors.placeOfDeathSameAsPrimary
+    label: formMessageDescriptors.healthFacility
   },
   {
     value: 'OTHER',
-    label: formMessageDescriptors.otherInstitution
+    label: formMessageDescriptors.community
   }
 ]
 
@@ -317,6 +306,10 @@ export const mannerOfDeathOptions: ISelectOption[] = [
   {
     value: 'MANNER_UNDETERMINED',
     label: formMessageDescriptors.mannerUndetermined
+  },
+  {
+    value: 'BODY_FOUND',
+    label: formMessageDescriptors.mannerBodyFound
   }
 ]
 

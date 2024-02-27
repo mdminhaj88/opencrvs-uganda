@@ -43,7 +43,7 @@ export const getDeathDate = (
 export const deathInformantType: SerializedFormField = {
   name: 'informantType',
   type: 'SELECT_WITH_OPTIONS',
-  label: informantMessageDescriptors.birthInformantTitle,
+  label: informantMessageDescriptors.deathInformantTitle,
   required: true,
   previewGroup: 'contactPointGroup',
   hideInPreview: false,
@@ -155,7 +155,7 @@ export const getPlaceOfDeathFields = () =>
     {
       name: 'deathLocation',
       type: 'LOCATION_SEARCH_INPUT',
-      label: formMessageDescriptors.healthInstitution,
+      label: formMessageDescriptors.healthFacility,
       previewGroup: 'placeOfDeath',
       required: true,
       initialValue: '',

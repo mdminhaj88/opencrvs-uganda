@@ -263,6 +263,7 @@ export function getFieldMapping(
       }
     case 'familyName':
     case 'firstNames':
+    case 'middleName':
     case 'marriedLastName':
       return {
         template: {
@@ -283,7 +284,7 @@ export function getFieldMapping(
       return {
         template: {
           fieldName: certificateHandlebar,
-          operation: 'nationalityTransformer'
+          operation: 'arrayToFieldTransformer'
         },
         mutation: {
           operation: 'fieldToArrayTransformer'
