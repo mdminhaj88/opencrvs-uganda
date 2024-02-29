@@ -53,9 +53,10 @@ import {
   fatherFamilyNameConditionals,
   informantNotMotherOrFather,
   detailsExistConditional,
-  ageOfIndividualConditionals,
   ageOfParentsConditionals,
-  birthLateRegistrationReason
+  ageOfIndividualValidators,
+  birthLateRegistrationReason,
+  hideIfNidIntegrationEnabled
 } from '../common/default-validation-conditionals'
 import {
   informantFirstNameConditionals,
@@ -266,7 +267,7 @@ export const birthForm: ISerializedForm = {
               exactDateOfBirthUnknownConditional.concat(
                 hideIfInformantMotherOrFather
               ),
-              ageOfIndividualConditionals
+              ageOfIndividualValidators
             ),
             getNationality(
               certificateHandlebars.informantNationality,
@@ -275,12 +276,12 @@ export const birthForm: ISerializedForm = {
             getIDType(
               'birth',
               'informant',
-              hideIfInformantMotherOrFather,
+              hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
               true
             ),
             ...getIDNumberFields(
               'informant',
-              hideIfInformantMotherOrFather,
+              hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
               true
             ),
             // preceding field of address fields
@@ -364,8 +365,17 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.motherNationality,
               detailsExist
             ), // Required field.
-            getIDType('birth', 'mother', detailsExistConditional, true),
-            ...getIDNumberFields('mother', detailsExistConditional, true),
+            getIDType(
+              'birth',
+              'mother',
+              hideIfNidIntegrationEnabled.concat(detailsExistConditional),
+              true
+            ),
+            ...getIDNumberFields(
+              'mother',
+              hideIfNidIntegrationEnabled.concat(detailsExistConditional),
+              true
+            ),
             // preceding field of address fields
             divider('mother-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
@@ -440,8 +450,17 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.fatherNationality,
               detailsExist
             ), // Required field.
-            getIDType('birth', 'father', detailsExistConditional, true),
-            ...getIDNumberFields('father', detailsExistConditional, true),
+            getIDType(
+              'birth',
+              'father',
+              hideIfNidIntegrationEnabled.concat(detailsExistConditional),
+              true
+            ),
+            ...getIDNumberFields(
+              'father',
+              hideIfNidIntegrationEnabled.concat(detailsExistConditional),
+              true
+            ),
             // preceding field of address fields
             divider('father-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
