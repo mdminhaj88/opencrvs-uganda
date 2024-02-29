@@ -37,27 +37,29 @@ import { Event, ISerializedForm } from '../types/types'
 import {
   informantBirthDateConditionals,
   informantFamilyNameConditionals,
-  ageOfIndividualConditionals,
+  ageOfIndividualValidators,
   ageOfDeceasedConditionals,
   informantFirstNameConditionals,
   exactDateOfBirthUnknownConditional,
   deathLateRegistrationReason,
-  isValidBirthDate /*,
-  spouseFirstNameConditionals,
-  spouseFamilyNameConditionals,
-  spouseBirthDateConditionals,
-  fathersDetailsExistConditionals,
+  isValidBirthDate,
+  /*fathersDetailsExistConditionals,
   fatherFirstNameConditionals,
   fatherFamilyNameConditionals,
   fathersBirthDateConditionals,
   parentsBirthDateValidators,
   detailsExistConditional,
-  detailsExist,
   motherFirstNameConditionals,
   motherFamilyNameConditionals,
   mothersBirthDateConditionals,
   mothersDetailsExistConditionals,
-  spouseDetailsExistConditionals*/
+  spouseDetailsExistConditionals,
+  detailsExist,
+  spouseBirthDateConditionals,
+  spouseFamilyNameConditionals,
+  spouseFirstNameConditionals,*/
+  hideIfInformantSpouse,
+  hideIfNidIntegrationEnabled
 } from '../common/default-validation-conditionals'
 import { documentsSection, registrationSection } from './required-sections'
 import {
@@ -210,7 +212,8 @@ export const deathForm = {
             getAgeOfIndividualInYears(
               formMessageDescriptors.ageOfDeceased,
               exactDateOfBirthUnknownConditional,
-              ageOfDeceasedConditionals
+              ageOfDeceasedConditionals,
+              certificateHandlebars.ageOfDeceasedInYears
             ),
             getOccupation(certificateHandlebars.deceasedOccupation),
             ...deceasedPlaceOfBirth(),
@@ -269,7 +272,7 @@ export const deathForm = {
             otherInformantType(Event.Death),
             getFirstNameField(
               'informantNameInEnglish',
-              informantFirstNameConditionals,
+              informantFirstNameConditionals.concat(hideIfInformantSpouse),
               certificateHandlebars.informantFirstName
             ), // Required field.
             getMiddleNameField(
@@ -279,12 +282,12 @@ export const deathForm = {
             ),
             getFamilyNameField(
               'informantNameInEnglish',
-              informantFamilyNameConditionals,
+              informantFamilyNameConditionals.concat(hideIfInformantSpouse),
               certificateHandlebars.informantFamilyName
             ), // Required field.
             getBirthDate(
               'informantBirthDate',
-              informantBirthDateConditionals,
+              informantBirthDateConditionals.concat(hideIfInformantSpouse),
               [
                 {
                   operation: 'dateFormatIsCorrect',
@@ -297,15 +300,19 @@ export const deathForm = {
               ],
               certificateHandlebars.informantBirthDate
             ), // Required field.
-            exactDateOfBirthUnknown([]),
+            exactDateOfBirthUnknown(hideIfInformantSpouse),
             getAgeOfIndividualInYears(
               formMessageDescriptors.ageOfInformant,
-              exactDateOfBirthUnknownConditional,
-              ageOfIndividualConditionals
+              exactDateOfBirthUnknownConditional.concat(hideIfInformantSpouse),
+              ageOfIndividualValidators
             ),
             getNationality(certificateHandlebars.informantNationality, []),
-            getIDType('death', 'informant', [], true),
-            ...getIDNumberFields('informant', [], true),
+            getIDType('death', 'informant', hideIfNidIntegrationEnabled, true),
+            ...getIDNumberFields(
+              'informant',
+              hideIfNidIntegrationEnabled,
+              true
+            ),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
             ...declarationWitness('death', true),
@@ -325,7 +332,6 @@ export const deathForm = {
     },
     /*
     OTHER POSSIBLE SECTIONS FOR DEATH INCLUDE:
-    
     {
       id: 'spouse',
       viewType: 'form',
@@ -366,21 +372,18 @@ export const deathForm = {
               ],
               certificateHandlebars.spouseBirthDate
             ), // Required field.
-            exactDateOfBirthUnknown([]),
+            exactDateOfBirthUnknown(detailsExist),
             getAgeOfIndividualInYears(
               formMessageDescriptors.ageOfSpouse,
-              exactDateOfBirthUnknownConditional
+              exactDateOfBirthUnknownConditional.concat(detailsExist),
+              ageOfIndividualValidators
             ),
             getNationality(
               certificateHandlebars.spouseNationality,
               detailsExist
             ),
-            getNationalID(
-              'iD',
-              hideIfNidIntegrationEnabled.concat(detailsExist),
-              getNationalIDValidators('spouse'),
-              certificateHandlebars.spouseNID
-            ),
+            getIDType('death', 'spouse', detailsExist, true),
+            ...getIDNumberFields('spouse', detailsExist, true),
             // preceding field of address fields
             divider('spouse-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE

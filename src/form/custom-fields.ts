@@ -8,7 +8,6 @@
  *
  * Copyright (C) The OpenCRVS Authors located at https://github.com/opencrvs/opencrvs-core/blob/master/AUTHORS.
  */
-
 import { formMessageDescriptors } from './common/messages'
 import { AddressCases, Conditional, SerializedFormField } from './types/types'
 import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
