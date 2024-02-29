@@ -58,7 +58,6 @@ import {
   spouseBirthDateConditionals,
   spouseFamilyNameConditionals,
   spouseFirstNameConditionals,*/
-  hideIfInformantSpouse,
   hideIfNidIntegrationEnabled
 } from '../common/default-validation-conditionals'
 import { documentsSection, registrationSection } from './required-sections'
@@ -272,7 +271,7 @@ export const deathForm = {
             otherInformantType(Event.Death),
             getFirstNameField(
               'informantNameInEnglish',
-              informantFirstNameConditionals.concat(hideIfInformantSpouse),
+              informantFirstNameConditionals,
               certificateHandlebars.informantFirstName
             ), // Required field.
             getMiddleNameField(
@@ -282,12 +281,12 @@ export const deathForm = {
             ),
             getFamilyNameField(
               'informantNameInEnglish',
-              informantFamilyNameConditionals.concat(hideIfInformantSpouse),
+              informantFamilyNameConditionals,
               certificateHandlebars.informantFamilyName
             ), // Required field.
             getBirthDate(
               'informantBirthDate',
-              informantBirthDateConditionals.concat(hideIfInformantSpouse),
+              informantBirthDateConditionals,
               [
                 {
                   operation: 'dateFormatIsCorrect',
@@ -300,10 +299,10 @@ export const deathForm = {
               ],
               certificateHandlebars.informantBirthDate
             ), // Required field.
-            exactDateOfBirthUnknown(hideIfInformantSpouse),
+            exactDateOfBirthUnknown([]),
             getAgeOfIndividualInYears(
               formMessageDescriptors.ageOfInformant,
-              exactDateOfBirthUnknownConditional.concat(hideIfInformantSpouse),
+              exactDateOfBirthUnknownConditional,
               ageOfIndividualValidators
             ),
             getNationality(certificateHandlebars.informantNationality, []),

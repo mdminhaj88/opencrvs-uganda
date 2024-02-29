@@ -12,12 +12,9 @@
 import {
   FATHER_DETAILS_DONT_EXIST,
   MOTHER_DETAILS_DONT_EXIST,
-  SPOUSE_DETAILS_DONT_EXIST,
   detailsDontExist,
   hideIfInformantBrideOrGroom,
-  hideIfInformantSpouse,
   informantNotMotherOrFather,
-  isInformantSpouse,
   mothersDetailsDontExistOnOtherPage,
   primaryAddressSameAsOtherPrimaryAddress /*,
   SPOUSE_DETAILS_DONT_EXIST*/
@@ -177,18 +174,17 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
       {
         config: AddressCopyConfigCases.PRIMARY_ADDRESS_SAME_AS_OTHER_PRIMARY,
         label: formMessageDescriptors.primaryAddressSameAsDeceasedsPrimary,
-        conditionalCase: `${isInformantSpouse}`,
         xComparisonSection: 'informant',
         yComparisonSection: 'deceased'
       },
       {
         config: AddressSubsections.PRIMARY_ADDRESS_SUBSECTION,
         label: formMessageDescriptors.informantPrimaryAddress,
-        conditionalCase: `${primaryAddressSameAsOtherPrimaryAddress} || ${hideIfInformantSpouse[0].expression}`
+        conditionalCase: `${primaryAddressSameAsOtherPrimaryAddress}`
       },
       {
         config: AddressCases.PRIMARY_ADDRESS,
-        conditionalCase: `${primaryAddressSameAsOtherPrimaryAddress} || ${hideIfInformantSpouse[0].expression}`
+        conditionalCase: `${primaryAddressSameAsOtherPrimaryAddress}`
       } /*,
       {
         config: AddressSubsections.SECONDARY_ADDRESS_SUBSECTION,
@@ -235,7 +231,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
         conditionalCase: `((${FATHER_DETAILS_DONT_EXIST} || ${primaryAddressSameAsOtherPrimaryAddress}) && !(${mothersDetailsDontExistOnOtherPage}) || ((${detailsDontExist}) && (${mothersDetailsDontExistOnOtherPage})))`
       }
     ]
-  },*/
+  },
   {
     // SPOUSE ADDRESS FIELDS
     precedingFieldId: 'death.spouse.spouse-view-group.spouse-nid-seperator',
@@ -257,7 +253,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
         conditionalCase: `((${SPOUSE_DETAILS_DONT_EXIST} || ${primaryAddressSameAsOtherPrimaryAddress}) || (${detailsDontExist}))`
       }
     ]
-  },
+  },*/
   {
     // PLACE OF MARRIAGE ADDRESS FIELDS
     precedingFieldId:
