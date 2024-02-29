@@ -303,7 +303,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   {
     // INFORMANT ADDRESS FIELDS
     precedingFieldId:
-      'marriage.informant.who-is-applying-view-group.informantID',
+      'marriage.informant.who-is-applying-view-group.informantBirthRegistrationNumber',
     configurations: [
       {
         config: AddressSubsections.PRIMARY_ADDRESS_SUBSECTION,
