@@ -16,14 +16,14 @@
   {{#if placeOfBirthFacility}}
     {{placeOfBirthFacility}}
   {{else}}
-    {{locationLevel4Placeofbirth}
+    {{locationLevel4Placeofbirth}}
   {{/if}}
   </tspan>
   <tspan x="222" y="263.055">
-    {{locationLevel3Placeofbirth}, {{districtPlaceofbirth}}
+    {{locationLevel3Placeofbirth}}, {{districtPlaceofbirth}}
   </tspan>
   <tspan x="222" y="278.055">
-    {{statePlaceofbirth}}, {{countryPlaceofbirth}}
+    {{statePlaceofbirth}}, {{#if placeOfBirthFacility}}Uganda{{/if}}{{countryPlaceofbirth}}
   </tspan>
 </text>
 <line x1="45" y1="287.5" x2="550" y2="287.5" stroke="#EAEAEA"/>

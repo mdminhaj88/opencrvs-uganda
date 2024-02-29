@@ -26,7 +26,7 @@
   <tspan x="228" y="263.055">
     {{locationLevel3Placeofdeath}}, {{districtPlaceofdeath}}
   </tspan><tspan x="228" y="278.055">
-    {{statePlaceofdeath}}, {{countryPlaceofdeath}}
+    {{statePlaceofdeath}}, {{#if placeOfDeathFacility}}Uganda{{/if}}{{countryPlaceofdeath}}
   </tspan>
 </text>
 <line x1="51" y1="287.5" x2="556" y2="287.5" stroke="#EAEAEA"/>
@@ -43,7 +43,14 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="390.055">{{deceasedGender}}</tspan></text>
 <line x1="51" y1="399.5" x2="556" y2="399.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="418.055">Residence</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="418.055">{{location deathDeceasedDistrictPlaceofbirth 'name'}}</tspan><tspan x="228" y="433.055">{{location deathDeceasedStatePlaceofbirth 'name'}}, {{deathDeceasedCountryPlaceofbirth}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px">
+  <tspan x="228" y="418.055">
+    {{location deathDeceasedLocationLevel4Placeofbirth 'name'}}
+  </tspan>
+  <tspan x="228" y="433.055">
+    {{location deathDeceasedLocationLevel3Placeofbirth 'name'}}, {{deathDeceasedCountryPlaceofbirth}}
+  </tspan>
+</text>
 <line x1="51" y1="442.5" x2="535" y2="442.5" stroke="#EAEAEA"/>
 <line x1="51" y1="442.5" x2="556" y2="442.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="461.055">Occupation</tspan></text>
