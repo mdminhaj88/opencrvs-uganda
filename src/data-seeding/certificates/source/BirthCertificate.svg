@@ -11,7 +11,21 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="222" y="220.055">{{birthChildTimeOfBirth}}</tspan></text>
 <line x1="45" y1="229.5" x2="550" y2="229.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="45" y="248.055">Place of birth</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="222" y="248.055">{{placeOfBirthFacility}}</tspan><tspan x="222" y="263.055">{{districtPlaceofbirth}}</tspan><tspan x="222" y="278.055">{{statePlaceofbirth}}, {{countryPlaceofbirth}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px">
+  <tspan x="222" y="248.055">
+  {{#if placeOfBirthFacility}}
+    {{placeOfBirthFacility}}
+  {{else}}
+    {{locationLevel4Placeofbirth}
+  {{/if}}
+  </tspan>
+  <tspan x="222" y="263.055">
+    {{locationLevel3Placeofbirth}, {{districtPlaceofbirth}}
+  </tspan>
+  <tspan x="222" y="278.055">
+    {{statePlaceofbirth}}, {{countryPlaceofbirth}}
+  </tspan>
+</text>
 <line x1="45" y1="287.5" x2="550" y2="287.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="45" y="306.055">Sex</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="222" y="306.055">{{childGender}}</tspan></text>
