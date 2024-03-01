@@ -12,16 +12,29 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="192.055">{{eventDate}}</tspan></text>
 <line x1="51" y1="201.5" x2="556" y2="201.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="220.055">Time of death</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="220.055">10:12</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="220.055">{{deathDeathEventTimeOfDeath}}</tspan></text>
 <line x1="51" y1="229.5" x2="556" y2="229.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="248.055">Place of death</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="248.055">{{placeOfDeathFacility}}</tspan><tspan x="228" y="263.055">{{statePlaceofdeath}}</tspan><tspan x="228" y="278.055">{{districtPlaceofdeath}}, {{countryPlaceofdeath}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px">
+  <tspan x="228" y="248.055">
+  {{#if placeOfDeathFacility}}
+    {{placeOfDeathFacility}}
+  {{else}}
+    {{location locationLevel4PlaceofdeathId 'name'}}
+  {{/if}}
+  </tspan>
+  <tspan x="228" y="263.055">
+    {{location locationLevel3PlaceofdeathId 'name'}}, {{location districtPlaceofdeathId 'name'}}
+  </tspan><tspan x="228" y="278.055">
+    {{location statePlaceofdeathId 'name'}}, {{#if placeOfDeathFacility}}Uganda{{/if}}{{countryPlaceofdeath}}
+  </tspan>
+</text>
 <line x1="51" y1="287.5" x2="556" y2="287.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="306.055">Nationality</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="306.055">{{deceasedNationality}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="306.055">{{intl 'countries' deceasedNationality}}</tspan></text>
 <line x1="51" y1="315.5" x2="556" y2="315.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="334.055">ID number</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="334.055">{{#if deathDeceasedDeceasedIdType}}{{#ifCond deathDeceasedDeceasedIdType '!==' 'None'}}{{deathDeceasedDeceasedIdType}}: {{deceasedNationalId}}{{deceasedPassport}}{{deceasedAliedId}}{{deceasedRefugeeId}}{{/ifCond}}{{/if}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="334.055">{{#if deathDeceasedDeceasedIdType}}{{#ifCond deathDeceasedDeceasedIdType '!==' 'None'}}{{deathDeceasedDeceasedIdType}}: {{deceasedNationalId}}{{deceasedPassport}}{{deceasedAlienId}}{{deceasedRefugeeId}}{{/ifCond}}{{/if}}</tspan></text>
 <line x1="51" y1="343.5" x2="556" y2="343.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="362.055">Date of birth</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="362.055">{{deceasedBirthDate}}</tspan></text>
@@ -30,7 +43,14 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="390.055">{{deceasedGender}}</tspan></text>
 <line x1="51" y1="399.5" x2="556" y2="399.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="418.055">Residence</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="418.055">{{location deathDeceasedDistrictPlaceofbirth 'name'}}</tspan><tspan x="228" y="433.055">{{location deathDeceasedStatePlaceofbirth 'name'}}, {{deathDeceasedCountryPlaceofbirth}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px">
+  <tspan x="228" y="418.055">
+    {{location deathDeceasedLocationLevel4Placeofbirth 'name'}}
+  </tspan>
+  <tspan x="228" y="433.055">
+    {{location deathDeceasedLocationLevel3Placeofbirth 'name'}}, {{deathDeceasedCountryPlaceofbirth}}
+  </tspan>
+</text>
 <line x1="51" y1="442.5" x2="535" y2="442.5" stroke="#EAEAEA"/>
 <line x1="51" y1="442.5" x2="556" y2="442.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="461.055">Occupation</tspan></text>
@@ -47,7 +67,17 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="517.055">{{registrationDate}}</tspan></text>
 <line x1="51" y1="526.5" x2="556" y2="526.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="545.055">Place of registration</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="545.055">{{registrar.office.name}}</tspan><tspan x="228" y="560.055">{{registrar.state.name}}</tspan><tspan x="228" y="575.055">{{registrar.district.name}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px">
+  <tspan x="228" y="545.055">
+    {{location registrar.officeId 'name'}}
+  </tspan>
+  <tspan x="228" y="560.055">
+    {{location registrar.locationLevel3Id 'name'}}
+  </tspan>
+  <tspan x="228" y="575.055">
+    {{location registrar.districtId 'name'}}, {{registrar.country}}
+  </tspan>
+</text>
 <line x1="51" y1="584.5" x2="556" y2="584.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="603.055">Registered by</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="603.055">{{registrar.name}}</tspan></text>

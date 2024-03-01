@@ -80,7 +80,8 @@ import {
 import {
   deceasedPlaceOfBirth,
   icd11code,
-  individualWhoFoundTheBody
+  individualWhoFoundTheBody,
+  timeOfDeath
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
@@ -244,6 +245,7 @@ export const deathForm = {
                 }
               ]
             ),
+            timeOfDeath(),
             reasonForLateRegistration(
               'death.deathEvent.death-event-details.lateRegistrationReason',
               formMessageDescriptors.deathLateRegistrationReason,
