@@ -20,13 +20,13 @@
   {{#if placeOfDeathFacility}}
     {{placeOfDeathFacility}}
   {{else}}
-    {{locationLevel4Placeofdeath}}
+    {{location locationLevel4PlaceofdeathId 'name'}}
   {{/if}}
   </tspan>
   <tspan x="228" y="263.055">
-    {{locationLevel3Placeofdeath}}, {{districtPlaceofdeath}}
+    {{location locationLevel3PlaceofdeathId 'name'}}, {{location districtPlaceofdeathId 'name'}}
   </tspan><tspan x="228" y="278.055">
-    {{statePlaceofdeath}}, {{#if placeOfDeathFacility}}Uganda{{/if}}{{countryPlaceofdeath}}
+    {{location statePlaceofdeathId 'name'}}, {{#if placeOfDeathFacility}}Uganda{{/if}}{{countryPlaceofdeath}}
   </tspan>
 </text>
 <line x1="51" y1="287.5" x2="556" y2="287.5" stroke="#EAEAEA"/>
@@ -67,7 +67,17 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="517.055">{{registrationDate}}</tspan></text>
 <line x1="51" y1="526.5" x2="556" y2="526.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="545.055">Place of registration</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="545.055">{{registrar.office.name}}</tspan><tspan x="228" y="560.055">{{registrar.state.name}}</tspan><tspan x="228" y="575.055">{{registrar.district.name}}</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px">
+  <tspan x="228" y="545.055">
+    {{location registrar.officeId 'name'}}
+  </tspan>
+  <tspan x="228" y="560.055">
+    {{location registrar.locationLevel3Id 'name'}}
+  </tspan>
+  <tspan x="228" y="575.055">
+    {{location registrar.districtId 'name'}}, {{registrar.country}}
+  </tspan>
+</text>
 <line x1="51" y1="584.5" x2="556" y2="584.5" stroke="#EAEAEA"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" font-weight="900" letter-spacing="0px"><tspan x="51" y="603.055">Registered by</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Merriweather" font-size="10" letter-spacing="0px"><tspan x="228" y="603.055">{{registrar.name}}</tspan></text>
