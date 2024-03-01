@@ -28,7 +28,7 @@ export function timeOfDeath(): SerializedFormField {
     custom: true,
     required: true,
     type: 'TIME',
-    label: formMessageDescriptors.timeOfBirth,
+    label: formMessageDescriptors.timeOfDeath,
     initialValue: '',
     validator: [],
     mapping: getCustomFieldMapping(fieldId),
