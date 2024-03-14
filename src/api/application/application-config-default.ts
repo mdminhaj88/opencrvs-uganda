@@ -35,7 +35,7 @@ export const defaultApplicationConfig = {
     isoCode: 'UGX'
   },
   PHONE_NUMBER_PATTERN: '^(03|07)[0-9]{8}$',
-  NID_NUMBER_PATTERN: '^[0-9]{10}$',
+  NID_NUMBER_PATTERN: '^[a-zA-Z0-9]{14}$',
   COUNTRY_LOGO: countryLogo,
   LOGIN_BACKGROUND: {
     backgroundColor: '36304E'
