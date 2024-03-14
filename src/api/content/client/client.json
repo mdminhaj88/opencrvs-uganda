@@ -1395,7 +1395,7 @@
         "integrations.deleteSystemMsg": "System has been deleted successfully",
         "form.field.label.affidavit": "Affidavit",
         "form.field.label.locationLevel3": "County",
-        "form.field.label.locationLevel4": "Sub-County/City/Municipality/Township",
+        "form.field.label.locationLevel4": "Sub-County",
         "form.field.label.locationLevel5": "Location Level 5",
         "form.field.label.informantRelation.groomAndBride": "Groom & Bride",
         "form.field.label.informantRelation.groom": "Groom",
