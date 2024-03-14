@@ -174,7 +174,7 @@ export function reasonForLateRegistration(
     name: fieldId.split('.')[3],
     customQuestionMappingId: fieldId,
     custom: true,
-    required: false,
+    required: true,
     type: 'TEXT',
     label,
     initialValue: '',
