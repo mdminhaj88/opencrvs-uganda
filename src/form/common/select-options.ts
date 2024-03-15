@@ -152,6 +152,10 @@ export const deathInformantTypeOptions: ISelectOption[] = [
 
 export const birthInformantTypeOptions: ISelectOption[] = [
   {
+    value: informantTypes.HEALTH_FACILITY_AGENT,
+    label: informantMessageDescriptors.HEALTH_FACILITY_AGENT
+  },
+  {
     value: informantTypes.MOTHER,
     label: informantMessageDescriptors.MOTHER
   },
