@@ -2077,7 +2077,7 @@
         "validate.complete.declaration.action.title": "Declaration complete",
         "validate.declaration.action.modal.description": "This declaration will be sent for approval prior to registration.",
         "review.inputs.informantsSignature": "Signature of notifier",
-        "review.signature.description": "I, the undersigned, hereby declare that the particulars in this form are true and correct to the best of my knowledge.",
+        "review.signature.description": "I, solemnly declare under penalty of perjury that the information provided above given by me, is true, accurate, and complete to the best of my knowledge and belief.",
         "review.signature.input.description": "By signing this document with an electronic signature, I agree that such signature will be valid as handwritten signatures to the extent allowed by the laws of Uganda.",
         "review.inputs.brideSignature": "Signature of Bride",
         "review.inputs.groomSignature": "Signature of Groom",
