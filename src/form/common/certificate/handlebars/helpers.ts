@@ -34,6 +34,25 @@ export function shortenMonth(): Handlebars.HelperDelegate {
   }
 }
 
+const LINE_HEIGHT = 10
+
+function insertTspansIntoText(textLines: string[]) {
+  let svgString = ''
+  let y = 0
+  for (const line of textLines) {
+    svgString += `<tspan x="0" y="${y}">${line}</tspan>`
+    y += LINE_HEIGHT
+  }
+  return svgString
+}
+
+export function wrap(): Handlebars.HelperDelegate {
+  return function (this: any, value: string) {
+    const lines = value.split(' ')
+    return insertTspansIntoText(lines)
+  }
+}
+
 /** console.logs available handlebar variables with the handlebar: {{debug}} */
 export function debug(): Handlebars.HelperDelegate {
   return function (this: any, value: string) {

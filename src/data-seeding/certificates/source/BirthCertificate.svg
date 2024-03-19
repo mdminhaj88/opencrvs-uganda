@@ -5,10 +5,8 @@
 <rect x="566.687" y="200.861" width="131" height="44.0246" fill="url(#pattern_signature)"/>
 <text transform="translate(21.9499 177.682) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{registrationNumber}}</tspan></text>
 <text transform="translate(260.478 164.413) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{uppercase childGender}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="4.53106" font-weight="bold" letter-spacing="0em">
-	<tspan x="92.6873" y="131.014">
-		{{placeOfBirthFacility}}{{location locationLevel4PlaceofbirthId 'name'}}
-	</tspan>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em" transform="translate(92.6873 135.998)">
+	{{{wrap placeOfBirthFacility}}}{{{wrap (location locationLevel4PlaceofbirthId 'name')}}}
 </text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="148.762" y="135.998">{{uppercase childFirstName}}</tspan><tspan x="148.762" y="145.998">{{uppercase childMiddleName}}</tspan><tspan x="148.762" y="155.998">{{uppercase childFamilyName}}</tspan></text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="261.831" y="69.5537">{{location locationLevel4PlaceofbirthId 'name'}}</tspan></text>
