@@ -30,6 +30,12 @@ export function certificateConfigurationHandler(): Configuration {
         bold: `${COUNTRY_CONFIG_URL}/fonts/Merriweather-Black.ttf`,
         italics: `${COUNTRY_CONFIG_URL}/fonts/Merriweather-Regular.ttf`,
         bolditalics: `${COUNTRY_CONFIG_URL}/fonts/Merriweather-Regular.ttf`
+      },
+      ['Arimo']: {
+        normal: `${COUNTRY_CONFIG_URL}/fonts/Arimo-Bold.ttf`,
+        bold: `${COUNTRY_CONFIG_URL}/fonts/Arimo-Bold.ttf`,
+        italics: `${COUNTRY_CONFIG_URL}/fonts/Arimo-Bold.ttf`,
+        bolditalics: `${COUNTRY_CONFIG_URL}/fonts/Arimo-Bold.ttf`
       }
     }
   }
