@@ -1,6 +1,6 @@
 <svg width="757" height="268" viewBox="0 0 757 268" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_171_7)">
-<text transform="translate(53 174.943) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{uppercase eventDate}}</tspan></text>
+<text transform="translate(53 174.943) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{uppercase (shortenMonth eventDate)}}</tspan></text>
 <text transform="translate(63 163.943) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{birthChildTimeOfBirth}}</tspan></text>
 <rect x="566.687" y="200.861" width="131" height="44.0246" fill="url(#pattern_signature)"/>
 <text transform="translate(21.9499 177.682) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{registrationNumber}}</tspan></text>
@@ -15,7 +15,7 @@
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="28.8046" y="201.602">{{uppercase registrar.name}}</tspan></text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="266.685" y="214.871">{{location registrar.locationLevel4Id 'name'}}</tspan></text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="111.335" y="237.203">{{certificationOffice}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="337.564" y="237.203">{{uppercase certificateDate}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="337.564" y="237.203">{{uppercase (shortenMonth certificateDate)}}</tspan></text>
 <!--
 FEES
 -->

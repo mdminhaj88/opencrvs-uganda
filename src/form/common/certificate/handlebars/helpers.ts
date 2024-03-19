@@ -20,6 +20,20 @@ export function uppercase(): Handlebars.HelperDelegate {
   }
 }
 
+export function shortenMonth(): Handlebars.HelperDelegate {
+  return function (this: any, value: string) {
+    return value
+      .split(' ')
+      .map((str, i) => {
+        if (i != 1) {
+          return str
+        }
+        return str.substring(0, 3)
+      })
+      .join(' ')
+  }
+}
+
 /** console.logs available handlebar variables with the handlebar: {{debug}} */
 export function debug(): Handlebars.HelperDelegate {
   return function (this: any, value: string) {
