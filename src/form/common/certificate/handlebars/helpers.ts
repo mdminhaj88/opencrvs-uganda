@@ -14,6 +14,12 @@ export function noop(props: FactoryProps): Handlebars.HelperDelegate {
   }
 }
 
+export function uppercase(): Handlebars.HelperDelegate {
+  return function (this: any, value: string) {
+    return value.toUpperCase()
+  }
+}
+
 /** console.logs available handlebar variables with the handlebar: {{debug}} */
 export function debug(): Handlebars.HelperDelegate {
   return function (this: any, value: string) {
