@@ -53,6 +53,33 @@ export function wrap(): Handlebars.HelperDelegate {
   }
 }
 
+function parseDate(date: string): Date {
+  const [day, month, year] = date.split(' ')
+  return new Date(
+    `${day.substring(0, day.length - 2)} ${month.substring(0, 3)} ${year}`
+  )
+}
+
+function dateDiffInYears(dateold: Date, datenew: Date) {
+  const ynew = datenew.getFullYear()
+  const mnew = datenew.getMonth()
+  const dnew = datenew.getDate()
+  const yold = dateold.getFullYear()
+  const mold = dateold.getMonth()
+  const dold = dateold.getDate()
+  let diff = ynew - yold
+  if (mold > mnew || (mold == mnew && dold > dnew)) diff--
+  return diff
+}
+
+export function differenceInYears(): Handlebars.HelperDelegate {
+  return function (this: any, fromDateString: string, toDateString: string) {
+    const fromDate = parseDate(fromDateString)
+    const toDate = parseDate(toDateString)
+    return dateDiffInYears(fromDate, toDate)
+  }
+}
+
 /** console.logs available handlebar variables with the handlebar: {{debug}} */
 export function debug(): Handlebars.HelperDelegate {
   return function (this: any, value: string) {
