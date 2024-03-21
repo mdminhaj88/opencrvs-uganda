@@ -1,45 +1,47 @@
-<svg width="757" height="268" viewBox="0 0 757 268" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g clip-path="url(#clip0_171_7)">
-<text transform="translate(53 174.943) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{uppercase (shortenMonth eventDate)}}</tspan></text>
-<text transform="translate(63 163.943) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{birthChildTimeOfBirth}}</tspan></text>
-<rect x="566.687" y="200.861" width="131" height="44.0246" fill="url(#pattern_signature)"/>
-<text transform="translate(21.9499 177.682) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{registrationNumber}}</tspan></text>
-<text transform="translate(260.478 164.413) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="0" y="5.74404">{{uppercase childGender}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em" transform="translate(92.6873 135.998)">
-	{{{wrap placeOfBirthFacility}}}{{{wrap (location locationLevel4PlaceofbirthId 'name')}}}
+
+<svg width="841" height="298" viewBox="0 0 841 298" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0_264_90)">
+<text transform="translate(24.3956 199.861) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="0.164062" y="6.42676">{{registrationNumber}}</tspan></text>
+<text transform="translate(292.501 183.113) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7.19418" font-weight="bold" letter-spacing="0em"><tspan x="0" y="6.49408">{{uppercase childGender}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.5" font-weight="bold" letter-spacing="0em" transform="translate(105.015 149.263)">
+	{{#if placeOfBirthFacility}}
+		{{{wrap placeOfBirthFacility}}}
+	{{else}}
+		{{{wrap (location locationLevel4PlaceofbirthId 'name')}}}
+	{{/if}}
 </text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="148.762" y="135.998">{{uppercase childFirstName}}</tspan><tspan x="148.762" y="145.998">{{uppercase childMiddleName}}</tspan><tspan x="148.762" y="155.998">{{uppercase childFamilyName}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="261.831" y="69.5537">{{location locationLevel4PlaceofbirthId 'name'}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="28.8046" y="201.602">{{uppercase registrar.name}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="266.685" y="214.871">{{location registrar.locationLevel4Id 'name'}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="111.335" y="237.203">{{certificationOffice}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="337.564" y="237.203">{{uppercase (shortenMonth certificateDate)}}</tspan></text>
-<!--
-FEES
--->
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="56.9619" y="250.473"></tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="111.335" y="226.846">{{uppercase childFirstName}} {{uppercase childMiddleName}} {{uppercase childFamilyName}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="389.995" y="69.5537">{{location locationLevel3PlaceofbirthId 'name'}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="418.152" y="214.871">{{location registrar.locationLevel3Id 'name'}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="623.345" y="69.5537">{{location districtPlaceofbirthId 'name'}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.17836" font-weight="bold" letter-spacing="0em"><tspan x="586.772" y="214.871">{{location registrar.districtId 'name'}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="281.687" y="137.187">{{uppercase motherFirstName}}</tspan><tspan x="281.687" y="147.187">{{uppercase motherMiddleName}}</tspan><tspan x="281.687" y="157.187">{{uppercase motherFamilyName}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="370.687" y="138.187">{{uppercase fatherFirstName}}</tspan><tspan x="370.687" y="148.187">{{uppercase fatherMiddleName}}</tspan><tspan x="370.687" y="158.187">{{uppercase fatherFamilyName}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="476.733" y="147.998">{{uppercase (intl 'countries' fatherNationality)}}</tspan><tspan x="476.733" y="157.998">&#10;</tspan><tspan x="476.733" y="177.998">{{uppercase (intl 'countries' motherNationality)}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan text-decoration="underline" x="476.733" y="137.998">FATHER</tspan><tspan text-decoration="underline" x="476.733" y="167.998">MOTHER</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan x="557.968" y="147.998">{{fatherNationalId}}{{fatherPassport}}{{fatherAlienId}}{{fatherRefugeeId}}</tspan><tspan x="557.968" y="157.998">&#10;</tspan><tspan x="557.968" y="177.998">{{motherNationalId}}{{motherPassport}}{{motherAlienId}}{{motherRefugeeId}}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em"><tspan text-decoration="underline" x="557.968" y="137.998">FATHER</tspan><tspan text-decoration="underline" x="557.968" y="167.998">MOTHER</tspan></text>
-<rect x="623.021" y="10.6804" width="33.2306" height="33.2306" fill="url(#pattern_qrcode)"/>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="165.337" y="150.307">{{uppercase childFirstName}}</tspan><tspan x="165.337" y="161.307">{{uppercase childMiddleName}}</tspan><tspan x="165.337" y="172.307">{{uppercase childFamilyName}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="289.005" y="78.1697">{{location locationLevel4PlaceofbirthId 'name'}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="5.75535" font-weight="bold" letter-spacing="0em"><tspan x="32.0142" y="224.5">{{uppercase registrar.name}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="296.4" y="240.679">{{location registrar.locationLevel4Id 'name'}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="119.74" y="268.499">{{certificationOffice}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="376.177" y="268.499">{{certificateDate}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="61.3088" y="281.247"><!-- FEES --></tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="119.74" y="256.988">{{uppercase childFirstName}} {{uppercase childMiddleName}} {{uppercase childFamilyName}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="436.45" y="78.1697">{{location locationLevel3PlaceofbirthId 'name'}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="466.744" y="241.679">{{location registrar.locationLevel3Id 'name'}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="697.8" y="77.1697">{{location districtPlaceofbirthId 'name'}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="656.153" y="242.679">{{location registrar.districtId 'name'}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="313.074" y="150.307">{{uppercase motherFirstName}}</tspan><tspan x="313.074" y="161.307">{{uppercase motherMiddleName}}</tspan><tspan x="313.074" y="172.307">{{uppercase motherFamilyName}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="411.99" y="150.307">{{uppercase fatherFirstName}}</tspan><tspan x="411.99" y="161.307">{{uppercase fatherMiddleName}}</tspan><tspan x="411.99" y="172.307">{{uppercase fatherFamilyName}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="529.852" y="164.63">{{uppercase (intl 'countries' fatherNationality)}}</tspan><tspan x="529.852" y="175.63">&#10;</tspan><tspan x="529.852" y="197.63">{{uppercase (intl 'countries' motherNationality)}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="529.852" y="153.63" text-decoration="underline">FATHER</tspan><tspan x="529.852" y="186.63" text-decoration="underline">MOTHER</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="620.139" y="164.63">{{fatherNationalId}}{{fatherPassport}}{{fatherAlienId}}{{fatherRefugeeId}}</tspan><tspan x="620.139" y="175.63">&#10;</tspan><tspan x="620.139" y="197.63">{{motherNationalId}}{{motherPassport}}{{motherAlienId}}{{motherRefugeeId}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="620.139" y="153.63" text-decoration="underline">FATHER</tspan><tspan x="620.139" y="186.63" text-decoration="underline">MOTHER</tspan></text>
+<text transform="translate(58.9054 194.816) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="0.274414" y="6.42676">{{uppercase (shortenMonth eventDate)}}</tspan></text>
+<text transform="translate(70.0197 182.59) rotate(-90)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em"><tspan x="0.0415039" y="6.42676">23:12</tspan></text>
+<rect x="633" y="230" width="140" height="47" fill="url(#pattern_signature)"/>
+<rect x="707" y="10.7375" width="33.2306" height="33.2306" fill="url(#pattern_qrcode)"/>
 </g>
 <defs>
 <pattern id="pattern_signature" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image_signature" transform="matrix(0.000942507 0 0 0.00280453 0 -0.526459)"/>
+<use xlink:href="#image_signature" transform="matrix(0.000942507 0 0 0.00280747 0 -0.527533)"/>
 </pattern>
 <pattern id="pattern_qrcode" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image_qrcode" transform="translate(-0.05 -0.0727811) scale(0.00325444)"/>
 </pattern>
-<clipPath id="clip0_171_7">
-<rect width="267.333" height="756.688" fill="white" transform="translate(0 267.333) rotate(-90)"/>
+<clipPath id="clip0_264_90">
+<rect width="297.5" height="841" fill="white" transform="translate(0 297.5) rotate(-90)"/>
 </clipPath>
 {{#unless printInAdvance}}<image id="image_signature" width="1061" height="732" xlink:href="{{registrar.signature}}"/>{{/unless}}
 <image id="image_qrcode" width="338" height="352" xlink:href="{{qrCode}}"/>
