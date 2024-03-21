@@ -47,8 +47,26 @@ function insertTspansIntoText(textLines: string[]) {
 }
 
 export function wrap(): Handlebars.HelperDelegate {
-  return function (this: any, value: string) {
-    const lines = value.split(' ')
+  return function (this: any, value: string, maxCharacters = 0) {
+    const words = value
+      .split(/\b/)
+      .map((word) => word.trim())
+      .filter(Boolean)
+    let lines = words
+    if (maxCharacters) {
+      lines = words.reduce<string[]>(
+        (lines, word) => {
+          const lastIndex = lines.length - 1
+          if (lines[lastIndex].length + word.length < maxCharacters) {
+            lines[lastIndex] = lines[lastIndex].concat(` ${word}`)
+          } else {
+            lines.push(word)
+          }
+          return lines
+        },
+        ['']
+      )
+    }
     return insertTspansIntoText(lines)
   }
 }
