@@ -53,7 +53,7 @@ export const getPlaceOfBirthFields = (): SerializedFormField[] => [
   {
     name: 'birthLocation',
     type: 'LOCATION_SEARCH_INPUT',
-    label: formMessageDescriptors.healthInstitution,
+    label: formMessageDescriptors.medicalFacility,
     previewGroup: 'placeOfBirth',
     required: true,
     initialValue: '',

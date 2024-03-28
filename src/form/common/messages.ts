@@ -67,10 +67,10 @@ export const informantMessageDescriptors = {
     description: 'Who is applying for death registration',
     id: 'register.selectInformant.deathInformantTitle'
   },
-  HEALTH_FACILITY_AGENT: {
-    defaultMessage: 'Health Facility Agent',
-    description: 'Label for option Health Facility Agent',
-    id: 'form.field.label.informantRelation.healthFacilityAgent'
+  HEALTH_FACILITY_ADMINISTRATOR: {
+    defaultMessage: 'Health Facility Administrator',
+    description: 'Label for option Health Facility Administrator',
+    id: 'form.field.label.informantRelation.healthFacilityAdministrator'
   },
   SPOUSE: {
     defaultMessage: 'Spouse',
@@ -380,6 +380,11 @@ export const formMessageDescriptors = {
     defaultMessage: 'Health Facility',
     description: 'Select item for Health Facility',
     id: 'form.field.label.healthFacility'
+  },
+  medicalFacility: {
+    defaultMessage: 'Medical Facility',
+    description: 'Select item for Medical Facility',
+    id: 'form.field.label.medicalFacility'
   },
   community: {
     defaultMessage: 'Community',

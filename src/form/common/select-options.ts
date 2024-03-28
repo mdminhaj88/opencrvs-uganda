@@ -23,7 +23,7 @@ import {
 // THIS FILE ALLOWS YOU TO CUSTOMISE EVERY DEFAULT SELECT OPTION IN OPENCRVS WHETHER OR NOT THE FIELD IS REQUIRED OR CUSTOM
 
 export const informantTypes = {
-  HEALTH_FACILITY_AGENT: 'HEALTH_FACILITY_AGENT',
+  HEALTH_FACILITY_ADMINISTRATOR: 'HEALTH_FACILITY_ADMINISTRATOR',
   SPOUSE: 'SPOUSE',
   SON: 'SON',
   DAUGHTER: 'DAUGHTER',
@@ -109,8 +109,8 @@ export const identityTypeMapper: IDynamicFieldTypeMapper = (key: string) => {
 
 export const deathInformantTypeOptions: ISelectOption[] = [
   {
-    value: informantTypes.HEALTH_FACILITY_AGENT,
-    label: informantMessageDescriptors.HEALTH_FACILITY_AGENT
+    value: informantTypes.HEALTH_FACILITY_ADMINISTRATOR,
+    label: informantMessageDescriptors.HEALTH_FACILITY_ADMINISTRATOR
   },
   {
     value: informantTypes.SPOUSE,
@@ -152,8 +152,8 @@ export const deathInformantTypeOptions: ISelectOption[] = [
 
 export const birthInformantTypeOptions: ISelectOption[] = [
   {
-    value: informantTypes.HEALTH_FACILITY_AGENT,
-    label: informantMessageDescriptors.HEALTH_FACILITY_AGENT
+    value: informantTypes.HEALTH_FACILITY_ADMINISTRATOR,
+    label: informantMessageDescriptors.HEALTH_FACILITY_ADMINISTRATOR
   },
   {
     value: informantTypes.MOTHER,
@@ -241,7 +241,7 @@ export const genderOptions: ISelectOption[] = [
 export const placeOfBirthOptions: ISelectOption[] = [
   {
     value: 'HEALTH_FACILITY',
-    label: formMessageDescriptors.healthFacility
+    label: formMessageDescriptors.medicalFacility
   },
   {
     value: 'OTHER',
