@@ -258,7 +258,7 @@ export function declarationWitness(
       name: 'witnessOtherName',
       customQuestionMappingId: `${event}.informant.informant-view-group.witnessOtherName`,
       custom: true,
-      required,
+      required: false,
       previewGroup: 'witnessNameInEnglish',
       type: 'TEXT',
       label: formMessageDescriptors.familyName,

@@ -26,7 +26,7 @@ export function timeOfDeath(): SerializedFormField {
     name: fieldName,
     customQuestionMappingId: fieldId,
     custom: true,
-    required: true,
+    required: false,
     type: 'TIME',
     label: formMessageDescriptors.timeOfDeath,
     initialValue: '',
@@ -129,7 +129,7 @@ export function individualWhoFoundTheBody(): SerializedFormField[] {
       customQuestionMappingId:
         'death.deathEvent.death-event-details.individualOtherName',
       custom: true,
-      required: true,
+      required: false,
       type: 'TEXT',
       label: formMessageDescriptors.familyName,
       initialValue: '',
