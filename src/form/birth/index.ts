@@ -481,7 +481,13 @@ export const birthForm: ISerializedForm = {
       groups: [
         {
           id: 'witness-view-group',
-          fields: declarationWitnessFields('birth', false)
+          fields: declarationWitnessFields('birth', false),
+          conditionals: [
+            {
+              action: 'hide',
+              expression: "draftData?.child?.placeOfBirth === 'HEALTH_FACILITY'"
+            }
+          ]
         }
       ]
     },
