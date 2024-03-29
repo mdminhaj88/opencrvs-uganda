@@ -202,29 +202,14 @@ export function pointOfContactHeader(): SerializedFormField {
   }
 }
 
-export function declarationWitness(
+export function declarationWitnessFields(
   event: 'birth' | 'death',
   required: boolean
 ): SerializedFormField[] {
   return [
     {
-      name: 'declarationWitnessHeading',
-      customQuestionMappingId: `${event}.informant.informant-view-group.declarationWitnessHeading`,
-      custom: true,
-      readonly: true,
-      type: 'HEADING3',
-      label: {
-        id: 'form.customField.label.declarationWitnessHeading',
-        description:
-          'A form field heading for the details of the declaration witness',
-        defaultMessage: 'Declaration witness'
-      },
-      validator: [],
-      conditionals: []
-    },
-    {
       name: 'witnessSurname',
-      customQuestionMappingId: `${event}.informant.informant-view-group.witnessSurname`,
+      customQuestionMappingId: `${event}.witness.witness-view-group.witnessSurname`,
       custom: true,
       required,
       previewGroup: 'witnessNameInEnglish',
@@ -233,14 +218,14 @@ export function declarationWitness(
       initialValue: '',
       validator: [],
       mapping: getCustomFieldMapping(
-        `${event}.informant.informant-view-group.witnessSurname`
+        `${event}.witness.witness-view-group.witnessSurname`
       ),
       conditionals: [],
       maxLength: 250
     },
     {
       name: 'witnessGivenName',
-      customQuestionMappingId: `${event}.informant.informant-view-group.witnessGivenName`,
+      customQuestionMappingId: `${event}.witness.witness-view-group.witnessGivenName`,
       custom: true,
       required,
       previewGroup: 'witnessNameInEnglish',
@@ -249,14 +234,14 @@ export function declarationWitness(
       initialValue: '',
       validator: [],
       mapping: getCustomFieldMapping(
-        `${event}.informant.informant-view-group.witnessGivenName`
+        `${event}.witness.witness-view-group.witnessGivenName`
       ),
       conditionals: [],
       maxLength: 250
     },
     {
       name: 'witnessOtherName',
-      customQuestionMappingId: `${event}.informant.informant-view-group.witnessOtherName`,
+      customQuestionMappingId: `${event}.witness.witness-view-group.witnessOtherName`,
       custom: true,
       required: false,
       previewGroup: 'witnessNameInEnglish',
@@ -265,14 +250,14 @@ export function declarationWitness(
       initialValue: '',
       validator: [],
       mapping: getCustomFieldMapping(
-        `${event}.informant.informant-view-group.witnessOtherName`
+        `${event}.witness.witness-view-group.witnessOtherName`
       ),
       conditionals: [],
       maxLength: 250
     },
     {
       name: 'witnessIdType',
-      customQuestionMappingId: `${event}.informant.informant-view-group.witnessIdType`,
+      customQuestionMappingId: `${event}.witness.witness-view-group.witnessIdType`,
       custom: true,
       required,
       type: 'SELECT_WITH_OPTIONS',
@@ -284,7 +269,7 @@ export function declarationWitness(
       initialValue: '',
       validator: [],
       mapping: getCustomFieldMapping(
-        `${event}.informant.informant-view-group.witnessIdType`
+        `${event}.witness.witness-view-group.witnessIdType`
       ),
       placeholder: formMessageDescriptors.formSelectPlaceholder,
       conditionals: [],
@@ -343,10 +328,10 @@ export function declarationWitness(
       (field) => ({
         ...field,
         custom: true,
-        customQuestionMappingId: `${event}.informant.informant-view-group.${field.name}`,
+        customQuestionMappingId: `${event}.witness.witness-view-group.${field.name}`,
         previewGroup: 'placeOfResidence',
         mapping: getCustomFieldMapping(
-          `${event}.informant.informant-view-group.${field.name}`
+          `${event}.witness.witness-view-group.${field.name}`
         )
       })
     )

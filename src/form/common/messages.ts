@@ -161,6 +161,12 @@ export const formMessageDescriptors = {
     description: 'A form field that asks for the time of death',
     defaultMessage: 'Time of death'
   },
+  declarationWitness: {
+    id: 'form.customField.label.declarationWitness',
+    description:
+      'A form field heading for the details of the declaration witness',
+    defaultMessage: 'Declaration witness'
+  },
   primaryAddress: {
     defaultMessage: 'Usual place of residence',
     description: 'Title of the primary adress ',

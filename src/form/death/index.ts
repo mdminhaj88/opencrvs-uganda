@@ -71,7 +71,7 @@ import {
 import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import {
-  declarationWitness,
+  declarationWitnessFields,
   getIDNumberFields,
   getIDType,
   pointOfContactHeader,
@@ -315,8 +315,6 @@ export const deathForm = {
               true
             ),
             // ADDRESS FIELDS WILL RENDER HERE
-            divider('informant-address-separator'),
-            ...declarationWitness('death', true),
             divider('point-of-contact-separator'),
             pointOfContactHeader(),
             registrationPhone,
@@ -533,6 +531,18 @@ export const deathForm = {
       ],
       mapping: getSectionMapping('father')
     },*/
+    {
+      id: 'witness',
+      viewType: 'form',
+      name: formMessageDescriptors.declarationWitness,
+      title: formMessageDescriptors.declarationWitness,
+      groups: [
+        {
+          id: 'witness-view-group',
+          fields: declarationWitnessFields('death', true)
+        }
+      ]
+    },
     documentsSection
   ]
 } satisfies ISerializedForm
