@@ -11,9 +11,9 @@ all:
     users:
       # @todo this is where you define which development team members have access to the server.
       # If you need to remove access from someone, do not remove them from this list, but instead set their state: absent
-      - name: my-user
+      - name: tameem
         ssh_keys:
-          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABg...Z/rhU= user@example.com
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCrbdbyKHbEcd6JtVSZD7CcvoseysVNSY/yqRIoFTkcbXvAnAYhlJZACEIgvIVwhY6fJAJ2zTil8UDwk4NWEJ/wOqFeADBfXpdV5Gpz9dABw1mnjjqF/riZfO+efsGBtVbILaY8aMWmPulTdJI72iZDRdViSp5opUYxO646jWd9pBEj0x4MKnjJOMHM21rl9Lml4waeokuNtnnAEufdfaFmUCT9ybE6t3K5t9SxFmiaOoD6h15EygzzVTkp7xyy4asK24HA6xizADO/ef056mvHJjZfj/GTmurAN+QtYmAZMHIKqt8TFERBbq4sleRQuEKia/gEXV667vdPbw9w/vle84BuGT8wMVjzcijE5XDuXi2y2AeGGSDMrGusyyHhsQMhNL33jb/qPI4zVLnnD+NDTUsV24Mhn8VzuiUwv4fEu2M171auKAafuH43BU9IA3616e8YULIYjbgdHb9JrpMxCtGZG4bRocEEVHc/STp/Kpyj3TP5K4Wv3rDZXeyHcIxseH3RPTaJ0XweD2WbM58iAVjXjCM5WVSUoTC1y5nArdXDjgbw3xm44WZnzX2oQZQbakadkCUlGhPnayVKqgEQ3RnLORLs4FKj82YPqDL7S4qpK8/7iw5TDVOjnot1PiI7aTwliUHgMakQfrhaAiNE/leq6Mva7ptZctTFO5+fqw== haidertameem@gmail.com
         state: present
         sudoer: true
 
@@ -30,8 +30,8 @@ all:
 
 docker-manager-first:
   hosts:
-    qa: # @todo set this to be the hostname of your target server
-      ansible_host: '55.55.55.55' # @todo set this to be the IP address of your server
+    opencrvs-uganda: # @todo set this to be the hostname of your target server
+      ansible_host: '64.227.133.241' # @todo set this to be the IP address of your server
       data_label: data1 # for manager machines, this should always be "data1"
 
 # QA and staging servers are not configured to use workers.
