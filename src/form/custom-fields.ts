@@ -291,21 +291,9 @@ export function declarationWitnessFields(
           },
           initialValue: '',
           validator: [],
-          mapping: {
-            template: {
-              fieldName,
-              operation: 'identityToFieldTransformer',
-              parameters: ['id', value]
-            },
-            mutation: {
-              operation: 'fieldToIdentityTransformer',
-              parameters: ['id', value]
-            },
-            query: {
-              operation: 'identityToFieldTransformer',
-              parameters: ['id', value]
-            }
-          },
+          mapping: getCustomFieldMapping(
+            `${event}.witness.witness-view-group.${fieldName}`
+          ),
           conditionals: [
             {
               action: 'hide',
