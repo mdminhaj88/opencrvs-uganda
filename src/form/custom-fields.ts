@@ -365,3 +365,91 @@ export function createCustomFieldExample(): SerializedFormField {
     maxLength: 250
   }
 }
+
+export function getCertificateIsFree(
+  conditionals: Conditional[]
+): SerializedFormField {
+  /**/
+  // GIVE THE FIELD A UNIQUE NAME.  IF THE NAME IS ALREADY IN USE, YOU WILL NOTICE AN ERROR ON PAGE LOAD IN DEVELOPMENT
+  const fieldName: string = 'certificateCost'
+  // THE fieldId STRING IS A DOT SEPARATED STRING AND IS IMPORTANT TO SET CORRECTLY DEPENDING ON WHERE THE CUSTOM FIELD IS LOCATED
+  // THE FORMAT IS event.sectionId.groupId.uniqueFieldName
+  const fieldId: string = `birth.child.child-view-group.${fieldName}`
+  // IN ORDER TO USE THE VALUE ON A CERTIFICATE
+  // THE groupId IS IGNORED AND THE HANDLEBAR WILL LOG IN THE CONSOLE
+  // IN THIS EXAMPLE, IT WILL RESOLVE IN CAMELCASE TO "{{birthChildFavouriteColor}}"
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    type: 'PARAGRAPH', // ANY FORM FIELD TYPE IS POSSIBLE. ADD ADDITIONAL PROPS AS REQUIRED.  REFER TO THE form/README.md FILE
+    label: {
+      id: 'form.customField.label.certificateCostIsFree',
+      description: '',
+      defaultMessage: 'Your paper certificate is free'
+    },
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals
+  }
+}
+
+export function getCertificateLateCost(
+  conditionals: Conditional[]
+): SerializedFormField {
+  // GIVE THE FIELD A UNIQUE NAME.  IF THE NAME IS ALREADY IN USE, YOU WILL NOTICE AN ERROR ON PAGE LOAD IN DEVELOPMENT
+  const fieldName: string = 'certificateLateCost'
+  // THE fieldId STRING IS A DOT SEPARATED STRING AND IS IMPORTANT TO SET CORRECTLY DEPENDING ON WHERE THE CUSTOM FIELD IS LOCATED
+  // THE FORMAT IS event.sectionId.groupId.uniqueFieldName
+  const fieldId: string = `birth.child.child-view-group.${fieldName}`
+  // IN ORDER TO USE THE VALUE ON A CERTIFICATE
+  // THE groupId IS IGNORED AND THE HANDLEBAR WILL LOG IN THE CONSOLE
+  // IN THIS EXAMPLE, IT WILL RESOLVE IN CAMELCASE TO "{{birthChildFavouriteColor}}"
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    type: 'PARAGRAPH', // ANY FORM FIELD TYPE IS POSSIBLE. ADD ADDITIONAL PROPS AS REQUIRED.  REFER TO THE form/README.md FILE
+    label: {
+      id: 'form.customField.label.certificateLateCost',
+      description: '',
+      defaultMessage: 'Your paper certificate is late'
+    },
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals
+  }
+}
+
+export function getCertificateDelayedCost(
+  conditionals: Conditional[]
+): SerializedFormField {
+  // GIVE THE FIELD A UNIQUE NAME.  IF THE NAME IS ALREADY IN USE, YOU WILL NOTICE AN ERROR ON PAGE LOAD IN DEVELOPMENT
+  const fieldName: string = 'certificateDelayedCost'
+  // THE fieldId STRING IS A DOT SEPARATED STRING AND IS IMPORTANT TO SET CORRECTLY DEPENDING ON WHERE THE CUSTOM FIELD IS LOCATED
+  // THE FORMAT IS event.sectionId.groupId.uniqueFieldName
+  const fieldId: string = `birth.child.child-view-group.${fieldName}`
+  // IN ORDER TO USE THE VALUE ON A CERTIFICATE
+  // THE groupId IS IGNORED AND THE HANDLEBAR WILL LOG IN THE CONSOLE
+  // IN THIS EXAMPLE, IT WILL RESOLVE IN CAMELCASE TO "{{birthChildFavouriteColor}}"
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    type: 'PARAGRAPH', // ANY FORM FIELD TYPE IS POSSIBLE. ADD ADDITIONAL PROPS AS REQUIRED.  REFER TO THE form/README.md FILE
+    label: {
+      id: 'form.customField.label.certificateDelayedCost',
+      description: '',
+      defaultMessage: 'Your paper certificate is delayed'
+    },
+    initialValue: '',
+    validator: [],
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals
+  }
+}

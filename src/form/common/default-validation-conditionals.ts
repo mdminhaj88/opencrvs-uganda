@@ -12,11 +12,88 @@ import { Conditional } from '../types/types'
 import { IntegratingSystemType } from '../types/types'
 import { Validator } from '../types/validators'
 
+/*
+const pattern = /^\\d{4}-\\d{2}-\\d{2}$/;
+const today = new Date();
+
+const eventDatePlusLateRegistrationTarget = new Date(values.childBirthDate);
+
+const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.REGISTRATION_TARGET;
+
+eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget);
+
+!pattern.test(values.childBirthDate) || today < eventDatePlusLateRegistrationTarget;
+*/
+
 export const birthLateRegistrationReason = [
   {
     action: 'hide',
     expression:
       'const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; const today = new Date(); const eventDatePlusLateRegistrationTarget = new Date(values.childBirthDate); const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.REGISTRATION_TARGET; eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget); !pattern.test(values.childBirthDate) || today < eventDatePlusLateRegistrationTarget;'
+  }
+]
+
+/*
+const pattern = /^\\d{4}-\\d{2}-\\d{2}$/;
+const today = new Date();
+
+const eventDatePlusLateRegistrationTarget = new Date(values.childBirthDate);
+
+const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.REGISTRATION_TARGET;
+
+eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget);
+
+!pattern.test(values.childBirthDate) || !(today < eventDatePlusLateRegistrationTarget);
+*/
+
+export const certificateNotFree = [
+  {
+    action: 'hide',
+    expression:
+      'const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; const today = new Date(); const eventDatePlusLateRegistrationTarget = new Date(values.childBirthDate); const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.REGISTRATION_TARGET; eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget); !pattern.test(values.childBirthDate) || !(today < eventDatePlusLateRegistrationTarget);'
+  }
+]
+
+/*
+const pattern = /^\\d{4}-\\d{2}-\\d{2}$/;
+const today = new Date();
+
+const eventDatePlusLateRegistrationTarget = new Date(values.childBirthDate);
+const eventDatePlusDelayedRegistrationTarget = new Date(values.childBirthDate);
+
+const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.REGISTRATION_TARGET;
+const delayedRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.LATE_REGISTRATION_TARGET;
+
+eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget);
+eventDatePlusDelayedRegistrationTarget.setDate(eventDatePlusDelayedRegistrationTarget.getDate() + delayedRegistrationTarget);
+
+!pattern.test(values.childBirthDate) || (today < eventDatePlusLateRegistrationTarget || today > eventDatePlusDelayedRegistrationTarget)
+*/
+
+export const certificateCostLate = [
+  {
+    action: 'hide',
+    expression:
+      'const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; const today = new Date(); const eventDatePlusLateRegistrationTarget = new Date(values.childBirthDate); const eventDatePlusDelayedRegistrationTarget = new Date(values.childBirthDate); const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.REGISTRATION_TARGET; const delayedRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.LATE_REGISTRATION_TARGET; eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget); eventDatePlusDelayedRegistrationTarget.setDate(eventDatePlusDelayedRegistrationTarget.getDate() + delayedRegistrationTarget); !pattern.test(values.childBirthDate) || (today < eventDatePlusLateRegistrationTarget || today > eventDatePlusDelayedRegistrationTarget)'
+  }
+]
+
+/*
+const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; 
+const today = new Date(); 
+
+const eventDatePlusDelayedRegistrationTarget = new Date(values.childBirthDate); 
+const delayedRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.LATE_REGISTRATION_TARGET; 
+
+eventDatePlusDelayedRegistrationTarget.setDate(eventDatePlusDelayedRegistrationTarget.getDate() + delayedRegistrationTarget); 
+!pattern.test(values.childBirthDate) || today < eventDatePlusDelayedRegistrationTarget
+*/
+
+export const certificateCostDelayed = [
+  {
+    action: 'hide',
+    expression:
+      'const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; const today = new Date(); const eventDatePlusDelayedRegistrationTarget = new Date(values.childBirthDate); const delayedRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.BIRTH.LATE_REGISTRATION_TARGET; eventDatePlusDelayedRegistrationTarget.setDate(eventDatePlusDelayedRegistrationTarget.getDate() + delayedRegistrationTarget); !pattern.test(values.childBirthDate) || today < eventDatePlusDelayedRegistrationTarget'
   }
 ]
 

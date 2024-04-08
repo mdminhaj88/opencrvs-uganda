@@ -34,7 +34,7 @@
         "login.resend": "Resend {notificationMethod, select, sms {SMS} email {Email} other {}}",
         "login.optionalLabel": "Optional",
         "login.stepTwoTitle": "Verify your account",
-        "login.stepOneText": "Login to NSIS-CRVS",
+        "login.stepOneText": "Login to NIRA OpenCRVS",
         "login.verficationCodeLabel": "Verification code (6 digits)",
         "login.stepTwoInstruction.sms": "An authentication code has been sent to {number}. This code will be valid for 10 minutes",
         "login.stepTwoInstruction.email": "An authentication code has been sent to {email}. This code will be valid for 10 minutes",
