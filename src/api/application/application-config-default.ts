@@ -12,6 +12,11 @@ export const defaultApplicationConfig = {
     },
     PRINT_IN_ADVANCE: true
   },
+  COUNTRY_LOGO: countryLogo,
+  CURRENCY: {
+    languagesAndCountry: ['en-US'],
+    isoCode: 'UGX'
+  },
   DEATH: {
     REGISTRATION_TARGET: 45,
     FEE: {
@@ -20,7 +25,11 @@ export const defaultApplicationConfig = {
     },
     PRINT_IN_ADVANCE: true
   },
-  MARRIAGE_REGISTRATION: false,
+  PHONE_NUMBER_PATTERN: '^(03|07)[0-9]{8}$',
+  NID_NUMBER_PATTERN: '^[a-zA-Z0-9]{14}$',
+  LOGIN_BACKGROUND: {
+    backgroundColor: '36304E'
+  },
   MARRIAGE: {
     REGISTRATION_TARGET: 90,
     FEE: {
@@ -29,22 +38,14 @@ export const defaultApplicationConfig = {
     },
     PRINT_IN_ADVANCE: true
   },
-  DATE_OF_BIRTH_UNKNOWN: true,
-  CURRENCY: {
-    languagesAndCountry: ['en-US'],
-    isoCode: 'UGX'
-  },
-  PHONE_NUMBER_PATTERN: '^(03|07)[0-9]{8}$',
-  NID_NUMBER_PATTERN: '^[a-zA-Z0-9]{14}$',
-  COUNTRY_LOGO: countryLogo,
-  LOGIN_BACKGROUND: {
-    backgroundColor: '36304E'
-  },
-  INFORMANT_SIGNATURE: true,
-  INFORMANT_SIGNATURE_REQUIRED: true,
-  EXTERNAL_VALIDATION_WORKQUEUE: false,
+  // Following constants aren't configurable via UI
   FIELD_AGENT_AUDIT_LOCATIONS: 'DISTRICT',
   DECLARATION_AUDIT_LOCATIONS: 'DISTRICT',
+  EXTERNAL_VALIDATION_WORKQUEUE: false,
+  MARRIAGE_REGISTRATION: false,
+  DATE_OF_BIRTH_UNKNOWN: true,
+  INFORMANT_SIGNATURE: true,
+  INFORMANT_SIGNATURE_REQUIRED: true,
   USER_NOTIFICATION_DELIVERY_METHOD: 'email', // or 'sms', or '' ... You can use 'sms' for WhatsApp
   INFORMANT_NOTIFICATION_DELIVERY_METHOD: 'email', // or 'sms', or '' ... You can use 'sms' for WhatsApp
   SIGNATURE_REQUIRED_FOR_ROLES: ['LOCAL_REGISTRAR', 'NATIONAL_REGISTRAR']
