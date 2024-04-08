@@ -1,7 +1,7 @@
 import { countryLogo } from '@countryconfig/api/application/country-logo'
 
 export const defaultApplicationConfig = {
-  APPLICATION_NAME: 'NIRA OpenCRVS',
+  APPLICATION_NAME: 'NSIS-CRVS',
   BIRTH: {
     REGISTRATION_TARGET: 30 * 6,
     LATE_REGISTRATION_TARGET: 365 * 3,
