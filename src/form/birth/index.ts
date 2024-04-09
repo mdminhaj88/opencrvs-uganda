@@ -56,6 +56,9 @@ import {
   ageOfParentsConditionals,
   ageOfIndividualValidators,
   birthLateRegistrationReason,
+  certificateNotFree,
+  certificateCostLate,
+  certificateCostDelayed,
   hideIfNidIntegrationEnabled
 } from '../common/default-validation-conditionals'
 import {
@@ -73,7 +76,10 @@ import {
   getIDNumberFields,
   getIDType,
   pointOfContactHeader,
-  reasonForLateRegistration
+  reasonForLateRegistration,
+  getCertificateIsFree,
+  getCertificateLateCost,
+  getCertificateDelayedCost
 } from '../custom-fields'
 import { motherMaidenName, timeOfBirth } from './custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
@@ -195,6 +201,9 @@ export const birthForm: ISerializedForm = {
               isValidChildBirthDate,
               certificateHandlebars.eventDate
             ), // Required field.
+            getCertificateIsFree(certificateNotFree),
+            getCertificateLateCost(certificateCostLate),
+            getCertificateDelayedCost(certificateCostDelayed),
             reasonForLateRegistration(
               'birth.child.child-view-group.lateRegistrationReason',
               formMessageDescriptors.birthLateRegistrationReason,
