@@ -12,6 +12,11 @@ import {
   getTaskResource,
   getTrackingIdFromTaskResource
 } from '@countryconfig/utils'
+import { faker } from '@faker-js/faker'
+
+function generateNin() {
+  return faker.random.alphaNumeric(14).toUpperCase()
+}
 
 function generateRegistrationNumber(trackingId: string): string {
   /* adding current year */
@@ -45,7 +50,7 @@ export async function createUniqueRegistrationNumberFromBundle(
       childIdentifiers: [
         {
           type: 'BIRTH_CONFIGURABLE_IDENTIFIER_1',
-          value: ''
+          value: generateNin()
         },
         {
           type: 'BIRTH_CONFIGURABLE_IDENTIFIER_2',
