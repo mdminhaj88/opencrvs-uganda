@@ -15,8 +15,8 @@ export function noop(props: FactoryProps): Handlebars.HelperDelegate {
 }
 
 export function uppercase(): Handlebars.HelperDelegate {
-  return function (this: any, value: string) {
-    return value.toUpperCase()
+  return function (this: any, value?: string) {
+    return value?.toUpperCase() ?? ''
   }
 }
 
