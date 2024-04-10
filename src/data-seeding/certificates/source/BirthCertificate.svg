@@ -17,6 +17,7 @@
       <tspan x="165.337" y="150.307">{{uppercase childFirstName}}</tspan>
       <tspan x="165.337" y="161.307">{{uppercase childMiddleName}}</tspan>
       <tspan x="165.337" y="172.307">{{uppercase childFamilyName}}</tspan>
+      <tspan x="165.337" y="194.307">NIN: {{birthConfigurableIdentifier1}}</tspan>
     </text>
     <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
       <tspan x="289.005" y="78.1697">{{location locationLevel4PlaceofbirthId 'name'}}</tspan>
