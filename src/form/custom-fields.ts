@@ -204,7 +204,8 @@ export function pointOfContactHeader(): SerializedFormField {
 
 export function declarationWitnessFields(
   event: 'birth' | 'death',
-  required: boolean
+  required: boolean,
+  addressHierarchy: string[]
 ): SerializedFormField[] {
   return [
     {
@@ -312,17 +313,19 @@ export function declarationWitnessFields(
       validator: [],
       conditionals: []
     },
-    ...getAddressFields('witness', AddressCases.PRIMARY_ADDRESS).map(
-      (field) => ({
-        ...field,
-        custom: true,
-        customQuestionMappingId: `${event}.witness.witness-view-group.${field.name}`,
-        previewGroup: 'placeOfResidence',
-        mapping: getCustomFieldMapping(
-          `${event}.witness.witness-view-group.${field.name}`
-        )
-      })
-    )
+    ...getAddressFields(
+      'witness',
+      AddressCases.PRIMARY_ADDRESS,
+      addressHierarchy
+    ).map((field) => ({
+      ...field,
+      custom: true,
+      customQuestionMappingId: `${event}.witness.witness-view-group.${field.name}`,
+      previewGroup: 'placeOfResidence',
+      mapping: getCustomFieldMapping(
+        `${event}.witness.witness-view-group.${field.name}`
+      )
+    }))
   ]
 }
 export function createCustomFieldExample(): SerializedFormField {

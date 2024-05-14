@@ -36,7 +36,9 @@ export function timeOfDeath(): SerializedFormField {
   }
 }
 
-export function deceasedPlaceOfBirth(): SerializedFormField[] {
+export function deceasedPlaceOfBirth(
+  addressHierarchy: string[]
+): SerializedFormField[] {
   return [
     {
       name: 'placeOfBirthTitle',
@@ -47,7 +49,11 @@ export function deceasedPlaceOfBirth(): SerializedFormField[] {
       validator: [],
       conditionals: []
     },
-    ...getAddressFields('', EventLocationAddressCases.PLACE_OF_BIRTH)
+    ...getAddressFields(
+      '',
+      EventLocationAddressCases.PLACE_OF_BIRTH,
+      addressHierarchy
+    )
       .filter(
         ({ name }) =>
           !['place-of-birth', 'placeOfBirth', 'birthLocation'].includes(name)

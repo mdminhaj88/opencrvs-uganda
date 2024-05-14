@@ -100,7 +100,7 @@ import { motherMaidenName, timeOfBirth } from './custom-fields'
 
 // DUPLICATE & FOLLOW THE INSTRUCTIONS IN THE createCustomFieldExample FUNCTION WHEN REQUIRED FOR ADDING NEW CUSTOM FIELDS
 
-export const birthForm: ISerializedForm = {
+export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
   sections: [
     registrationSection, // REQUIRED HIDDEN SECTION CONTAINING IDENTIFIERS
     {
@@ -490,7 +490,7 @@ export const birthForm: ISerializedForm = {
       groups: [
         {
           id: 'witness-view-group',
-          fields: declarationWitnessFields('birth', false),
+          fields: declarationWitnessFields('birth', false, addressHierarchy),
           conditionals: [
             {
               action: 'hide',
@@ -502,4 +502,4 @@ export const birthForm: ISerializedForm = {
     },
     documentsSection // REQUIRED SECTION FOR DOCUMENT ATTACHMENTS
   ]
-}
+})

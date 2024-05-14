@@ -103,7 +103,7 @@ import {
 
 // DUPLICATE & FOLLOW THE INSTRUCTIONS IN THE createCustomFieldExample FUNCTION WHEN REQUIRED FOR ADDING NEW CUSTOM FIELDS
 
-export const deathForm = {
+export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
   sections: [
     registrationSection, // REQUIRED HIDDEN SECTION CONTAINING IDENTIFIERS
     {
@@ -216,7 +216,7 @@ export const deathForm = {
               certificateHandlebars.ageOfDeceasedInYears
             ),
             getOccupation(certificateHandlebars.deceasedOccupation),
-            ...deceasedPlaceOfBirth(),
+            ...deceasedPlaceOfBirth(addressHierarchy),
             divider('place-of-birth-seperator')
             // PLACE OF BIRTH FIEDLS WILL RENDER HERE
           ],
@@ -539,10 +539,10 @@ export const deathForm = {
       groups: [
         {
           id: 'witness-view-group',
-          fields: declarationWitnessFields('death', true)
+          fields: declarationWitnessFields('death', true, addressHierarchy)
         }
       ]
     },
     documentsSection
   ]
-} satisfies ISerializedForm
+})
