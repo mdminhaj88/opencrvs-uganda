@@ -70,13 +70,16 @@
     <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
       <tspan x="698" y="151.927">{{deceasedNationalId}}{{deceasedPassport}}{{deceasedAlienId}}{{deceasedRefugeeId}}</tspan>
     </text>
-    <rect x="707" y="11.7375" width="33.2306" height="33.2306" fill="url(#pattern_qrcode)"></rect>
     <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
       <tspan x="67" y="280.927"></tspan>
     </text>
-    <rect x="633" y="231" width="140" height="47" fill="url(#pattern_signature)"></rect>
   </g>
-  <defs><pattern id="pattern_qrcode" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image_qrcode" transform="translate(-0.05 -0.0727811) scale(0.00325444)"></use></pattern><pattern id="pattern_signature" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image_signature" transform="matrix(0.000942507 0 0 0.00280747 0 -0.527533)"></use></pattern><clipPath id="clip0_252_2"><rect width="297.5" height="841" fill="white" transform="translate(0 298.12) rotate(-90)"></rect></clipPath><image id="image_qrcode" width="338" height="352"></image>
-{{#unless printInAdvance}}<image id="image_signature" width="1061" height="732"></image>{{/unless}}
+  <image width="36" height="36" xlink:href="{{qrCode}}" x="707" y="11.7375"></image>
+  {{#unless printInAdvance}}<image width="140" height="70" xlink:href="{{registrar.signature}}" x="633" y="231"></image>{{/unless}}
+  <defs>
+    <clipPath id="clip0_252_2">
+      <rect width="297.5" height="841" fill="white" transform="translate(0 298.12) rotate(-90)">
+      </rect>
+    </clipPath>
 </defs>
 </svg>
