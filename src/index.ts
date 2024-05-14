@@ -237,13 +237,19 @@ export async function createServer() {
 
   server.auth.default('jwt')
 
+  if (process.env.NODE_ENV !== 'production') {
+    server.route({
+      method: 'GET',
+      path: '/certificates/{event}.svg',
+      handler: certificateHandler,
+      options: {
+        auth: false,
+        tags: ['api', 'certificates'],
+        description: 'Returns only one certificate metadata'
+      }
+    })
+  }
   // add ping route by default for health check
-  server.route({
-    method: 'GET',
-    path: '/certificates/{event}.svg',
-    handler: certificateHandler
-  })
-
   server.route({
     method: 'GET',
     path: '/ping',
@@ -324,7 +330,8 @@ export async function createServer() {
     options: {
       auth: false,
       tags: ['api'],
-      description: 'Serves handlebars as JS'
+      description:
+        'Serves custom handlebar helper functions as JS to be used in certificates'
     }
   })
 
@@ -432,6 +439,7 @@ export async function createServer() {
     handler: notificationHandler,
     options: {
       tags: ['api'],
+      auth: false,
       validate: {
         payload: notificationSchema
       },
@@ -454,8 +462,7 @@ export async function createServer() {
       validate: {
         payload: emailSchema
       },
-      description:
-        'Handles sending either SMS or email using a predefined template file'
+      description: 'Handles sending email using a predefined template file'
     }
   })
 

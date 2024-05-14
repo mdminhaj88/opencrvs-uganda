@@ -1,4 +1,21 @@
 # Changelog
+## [1.5.0]
+
+- Change auth URLs to access them via gateway
+- Add hearth URL to search service
+- Include an endpoint for serving individual certificates in development mode
+- Include compositionId in confirm registration payload
+- Move individual configuration options to feature flags
+- Remove logrocket refrences
+- Upgrade to node 18
+- Enable gzip compression in client & login
+- Make SENTRY_DSN variable optional
+- Use docker compose v2 in github workflows
+- Mass email from national system admin
+- Remove dependency on openhim. The openhim db is kept for backwards compatibility reasons and will be removed in v1.6
+- Add smtp environment variables in qa compose file
+- Use image tag instead of patterns in certificate SVGs
+- Generate default address according to logged-in user's location
 
 ## [1.4.1](https://github.com/opencrvs/opencrvs-countryconfig/compare/v1.4.0...v1.4.1)
 
@@ -54,13 +71,15 @@ In the next OpenCRVS release v1.5.0, there will be two significant changes:
 - The `infrastructure` directory and related pipelines will be moved to a new repository.
 - Both the new infrastructure repository and the OpenCRVS country resource package repositories will start following their own release cycles, mostly independent from the core's release cycle. From this release forward, both packages are released as "OpenCRVS minor compatible" releases, meaning that the OpenCRVS countryconfig 1.3.0-<incrementing release number> is compatible with OpenCRVS 1.3.0, 1.3.1, 1.3.2, etc. This allows for the release of new hotfix versions of the core without having to publish a new version of the infrastructure or countryconfig.
 
+## [1.3.4](https://github.com/opencrvs/opencrvs-countryconfig/compare/v1.3.3...v1.3.4)
+
 ### Bug fixes
+
+- Fix typo in certificate handlebar names
 
 ## [1.3.3](https://github.com/opencrvs/opencrvs-countryconfig/compare/v1.3.2...v1.3.3)
 
-## Breaking changes
-
-## New features
+### New features
 
 - #### Greater customizability of location data in certificates
 
@@ -128,19 +147,7 @@ In the next OpenCRVS release v1.5.0, there will be two significant changes:
 - #### Reason for late registration field
   The birth & death forms will include another custom field, **reasonForLateRegistration**, which makes use of "LATE_REGISTRATION_TARGET" configuration option in it's visibility conditional.
 
-## Bug fixes
+### Bug fixes
 
 - Updated translations for form introduction page and sending for approval to reflect the default notification method being email.
-- # Remove hard-coded conditionals from "occupation" field to make it usable in the deceased form
-
-## [1.3.4](https://github.com/opencrvs/opencrvs-countryconfig/compare/v1.3.3...v1.3.4) (TBD)
-
-## Breaking changes
-
-## New features
-
-## Bug fixes
-
-- Fix typo in certificate handlebar names
-
-See [Releases](https://github.com/opencrvs/opencrvs-countryconfig/releases) for release notes of older releases.
+- Remove hard-coded conditionals from "occupation" field to make it usable in the deceased form
