@@ -282,6 +282,7 @@ export function declarationWitnessFields(
         const fieldName = `witness${uppercaseFirstLetter(camelCase(value))}`
         return {
           name: fieldName,
+          customQuestionMappingId: `${event}.witness.witness-view-group.${fieldName}`,
           required,
           custom: true,
           type: 'TEXT',
