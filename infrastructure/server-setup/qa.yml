@@ -16,6 +16,11 @@ all:
           - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmWcEJJg5u51E4OHlWSko6Man8MfNkGdMV24YHnKo4N1nwohHtdOdzezVcDdV9uPEONqWiIv2+KaMnl3NCtBtmgmtfHULjzIHHHnGs9uzfI0xP0a3FJP8sHmkBIsECvQlQr8dR/modxz5Vx2jAyBnjg5YvdiYvocMym4vSnmLD9KSAPoZFq28X3H5/ENwWOLPs5CFy3ni9bP2R5xLFNBgSBJoZn7Yl+IwR14Pgv8zFMPDUGnqfq54p2uOLIT78dv5jVlJZMq1AfEPGbwHYhi1tzB1oHL85umtC2HqHGjEW9g2s5nDCJtjVG/zC5SO1brjItWxyNxy6ko2mRV04sVHDvlHlhrUDpiu7CnY8pXUeURbPVozs4SJ68KbpJC1CA+vpa9rBRGg6TWeXBZH8qwrvbQ9fqia/g+yF4VkySiVNEkiZ7qIh5aPe0IVoPNK1nrjvCUZp8rW+cR9Uw7eDcMq4gcNZi0cg8rICg/d/GedW+m0cBy/6WW6R2DdQTFma47k= carol@carol-Dell-G15-5530
         state: present
         sudoer: true
+      - name: tameem
+        ssh_keys:
+          - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUprcQyUFYwRto0aRpgriR95C1pgNxrQ0lEWEe1D8he haidertameem@gmail.com
+        state: present
+        sudoer: true
 
 docker-manager-first:
   hosts:
