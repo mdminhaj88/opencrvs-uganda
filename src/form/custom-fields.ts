@@ -116,8 +116,7 @@ export function getIDNumber(
     camelCase(idValue)
   )}`
   const validators = getValidators(sectionId, idValue)
-  // eslint-disable-next-line no-console
-  console.log('Custom field addded with handlebar: ', fieldName)
+
   return {
     name: fieldName,
     required,

@@ -1,12 +1,12 @@
 primaryOfficeId,givenNames,familyName,systemRole,role,mobile,username,email,password
-CRVS_OFFICE_3,Rose,Lwanga,FIELD_AGENT,Social Worker,0711111111,r.lwanga,kalushabwalya17@gmail.com,test
-CRVS_OFFICE_3,William,Yiga,REGISTRATION_AGENT,Registration Agent,0722222222,w.yiga,kalushabwalya17+@gmail.com,test
-CRVS_OFFICE_3,Juliet Irene,Namagembe,LOCAL_REGISTRAR,Local Registrar,0733333333,ji.namagembe,kalushabwalya1.7@gmail.com,test
-CRVS_OFFICE_3,Ernest Robert,Babirye,LOCAL_SYSTEM_ADMIN,Local System Admin,0721681112,er.babirye,kalushabwalya.17@gmail.com,test
-CRVS_OFFICE_28,Joseph Innocent,Sempa,NATIONAL_SYSTEM_ADMIN,National System Admin,0721111111,ji.sempa,kalushabwaly.a17@gmail.com,test
-CRVS_OFFICE_44,Geoffrey,Ssempa,FIELD_AGENT,Local Leader,0712121212,g.ssempa,kalushabwal.ya17@gmail.com,test
-CRVS_OFFICE_44,Jackline,Namagembe,REGISTRATION_AGENT,Registration Agent,0723232323,j.namagembe,kalushabwa.lya17@gmail.com,test
-CRVS_OFFICE_44,Juma Wilson,Nayiga,LOCAL_REGISTRAR,Local Registrar,0734343434,j.nayiga,kalushabw.alya17@gmail.com,test
-CRVS_OFFICE_44,Anna,Kironde,LOCAL_SYSTEM_ADMIN,Local System Admin,0778787878,a.kironde,kalushab.walya17@gmail.com,test
-CRVS_OFFICE_48,John,Seguya,PERFORMANCE_MANAGEMENT,Performance Manager,0777777777,j.seguya,kalusha.bwalya17@gmail.com,test
-CRVS_OFFICE_48,Grace,Nakaye,NATIONAL_REGISTRAR,National Registrar,0715151515,g.nakaye,kalush.abwalya17@gmail.com,test
+CRVS_OFFICE_3,Rose,Lwanga,FIELD_AGENT,Social Worker,+256711111111,r.lwanga,kalushabwalya17@gmail.com,test
+CRVS_OFFICE_3,William,Yiga,REGISTRATION_AGENT,Registration Agent,+256722222222,w.yiga,kalushabwalya17+@gmail.com,test
+CRVS_OFFICE_3,Juliet Irene,Namagembe,LOCAL_REGISTRAR,Local Registrar,+256733333333,ji.namagembe,kalushabwalya1.7@gmail.com,test
+CRVS_OFFICE_3,Ernest Robert,Babirye,LOCAL_SYSTEM_ADMIN,Local System Admin,+256721681112,er.babirye,kalushabwalya.17@gmail.com,test
+CRVS_OFFICE_28,Joseph Innocent,Sempa,NATIONAL_SYSTEM_ADMIN,National System Admin,+256721111111,ji.sempa,kalushabwaly.a17@gmail.com,test
+CRVS_OFFICE_44,Geoffrey,Ssempa,FIELD_AGENT,Local Leader,+256712121212,g.ssempa,kalushabwal.ya17@gmail.com,test
+CRVS_OFFICE_44,Jackline,Namagembe,REGISTRATION_AGENT,Registration Agent,+256723232323,j.namagembe,kalushabwa.lya17@gmail.com,test
+CRVS_OFFICE_44,Juma Wilson,Nayiga,LOCAL_REGISTRAR,Local Registrar,+256734343434,j.nayiga,kalushabw.alya17@gmail.com,test
+CRVS_OFFICE_44,Anna,Kironde,LOCAL_SYSTEM_ADMIN,Local System Admin,+256778787878,a.kironde,kalushab.walya17@gmail.com,test
+CRVS_OFFICE_48,John,Seguya,PERFORMANCE_MANAGEMENT,Performance Manager,+256777777777,j.seguya,kalusha.bwalya17@gmail.com,test
+CRVS_OFFICE_48,Grace,Nakaye,NATIONAL_REGISTRAR,National Registrar,+256715151515,g.nakaye,kalush.abwalya17@gmail.com,test
