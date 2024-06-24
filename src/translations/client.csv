@@ -90,7 +90,7 @@ buttons.publish,Publish button text on form config,Publish,Publier
 buttons.refresh,Refresh button,Refresh,Rafraîchir
 buttons.register,Label for button on register confirmation modal,Register,Enregistrer
 buttons.reinstate,Label for reinstate button,Reinstate,Rétablir
-buttons.reject,A label for reject link,Reject,Rejeter
+buttons.reject,A label for reject link,Send for updates,Rejeter
 buttons.rejectDeclaration,Reject declaration button text,Reject declaration,Rejeter la déclaration
 buttons.replace,Label for replacing the whole section in review form,Change all,Modifier tout
 buttons.retry,The title of retry button for failed declaration,Retry,Réessayer
@@ -1913,7 +1913,7 @@ review.rejection.form.reasons.markDuplicate,Label for rejection option duplicate
 review.rejection.form.reasons.misspelling,Label for rejection option misspelling,Misspelling,Mauvaise orthographe
 review.rejection.form.reasons.other,Label for rejection option other,Other,Autre
 review.rejection.form.submitButton,Rejection form submit button,Submit rejection,Soumettre le rejet
-review.rejection.form.title,Rejection form title,Reason for rejection?,Quelle mise à jour la déclaration nécessite-t-elle ?
+review.rejection.form.title,Rejection form title,Reason for updates?,Quelle mise à jour la déclaration nécessite-t-elle ?
 review.signature.clear,Label for button that clear signature input,Clear,Clair
 review.signature.delete,Label for button that deletes signature,Delete,Supprimer
 review.signature.description,Label awknowledging the correctness of the declaration,"I, solemnly declare under penalty of perjury that the information provided above given by me, is true, accurate, and complete to the best of my knowledge and belief.","Je soussigné(e) déclare par la présente que les informations contenues dans ce formulaire sont, à ma connaissance, vraies et correctes."
