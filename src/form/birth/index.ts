@@ -86,7 +86,7 @@ import {
   getCertificateLateCost,
   getCertificateDelayedCost
 } from '../custom-fields'
-import { motherMaidenName, timeOfBirth } from './custom-fields'
+import { timeOfBirth } from './custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
 
 // ======================= FORM CONFIGURATION =======================
@@ -358,7 +358,6 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               motherFamilyNameConditionals,
               certificateHandlebars.motherFamilyName
             ), // Required field.
-            motherMaidenName(),
             getBirthDate(
               'motherBirthDate',
               mothersBirthDateConditionals,
