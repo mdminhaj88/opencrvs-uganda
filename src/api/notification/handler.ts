@@ -40,7 +40,7 @@ type EmailNotificationPayload = {
     email: EmailTemplateType
   }
   recipient: {
-    email: string
+    email?: string
     bcc?: string[]
   }
   type: 'user' | 'informant'
@@ -103,6 +103,10 @@ export async function notificationHandler(
 
   if (isEmailPayload(applicationConfig, payload)) {
     const { templateName, variables, recipient } = payload
+    if (!recipient.email) {
+      logger.info(`Skipping notification as no recipient found`)
+      return h.response().code(200)
+    }
     logger.info(`Notification method is email and recipient ${recipient.email}`)
 
     const template = getTemplate(templateName.email)
