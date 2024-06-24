@@ -538,7 +538,7 @@ correction.name,Certificate correction section name,Correction,Correction
 correction.reason.additionalComment,Label for any additional comment for correction reason form,Comments,Un commentaire supplémentaire ?
 correction.reason.clericalError,Label for clerical error for correction reason form,Myself or an agent made a mistake (Clerical error),Moi-même ou un agent avons fait une erreur (erreur d'écriture)
 correction.reason.error,Error for reason form,Reason for change,Veuillez indiquer la raison du changement
-correction.reason.judicialOrder,Label for judicial order for correction reason form,Requested to do so by the court (Judicial order),Demandé par le tribunal (Ordonnance judiciaire)
+correction.reason.judicialOrder,Label for judicial order for correction reason form,Ordered to do so by the court (Judicial order),Demandé par le tribunal (Ordonnance judiciaire)
 correction.reason.materialError,Label for material error for correction reason form,Notifier provided incorrect information (Material error),L'informateur a fourni des informations incorrectes (erreur matérielle)
 correction.reason.materialOmission,Label for material omission for correction reason form,Notifier did not provide this information (Material omission),L'informateur n'a pas fourni cette information (Omission matérielle)
 correction.reason.other,,Other,Autre
