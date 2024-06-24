@@ -60,6 +60,14 @@ export const idTypeOptions = [
     }
   },
   {
+    value: 'REFUGEE_ATTESTATION_ID' as const,
+    label: {
+      defaultMessage: 'Refugee Attestation ID',
+      description: 'Option for form field: Type of ID',
+      id: 'form.field.label.iDTypeRefugeeAttestationID'
+    }
+  },
+  {
     value: 'NONE' as const,
     label: {
       defaultMessage: 'None',

@@ -1095,7 +1095,8 @@ form.field.label.iDTypeNoID,,No ID available,Aucune pièce d'identité disponibl
 form.field.label.iDTypeOther,,Other,Autre
 form.field.label.iDTypeOtherLabel,,Other type of ID,Autre type de carte d'identité
 form.field.label.iDTypePassport,,Passport,Passeport
-form.field.label.iDTypeRefugeeId,,Refugee ID,Refugee ID
+form.field.label.iDTypeRefugeeAttestationId,,Refugee Attestation ID,Refugee ID
+form.field.label.iDTypeRefugeeID,,Refugee ID,Refugee ID
 form.field.label.iDTypeRefugeeNumber,,Refugee Number,Numéro de réfugié
 form.field.label.imageUpload.uploadedList,,Uploaded:,Téléchargé :
 form.field.label.informant,Informant Label,Notifier,Informateur
