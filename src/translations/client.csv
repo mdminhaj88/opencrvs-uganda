@@ -1162,6 +1162,7 @@ form.field.label.mannerOfDeath,,Circumstances of death,Mode de décès
 form.field.label.mannerOfDeathAccident,,Accident,Accident
 form.field.label.mannerOfDeathBodyFound,,Body found,Body found
 form.field.label.mannerOfDeathHomicide,,Homicide,Homicide
+form.field.label.mannerOfDeathLegalIntervention, Legal intervention, Legal intervention,
 form.field.label.mannerOfDeathNatural,,Natural causes,Cause naturelle
 form.field.label.mannerOfDeathSuicide,,Suicide,Suicide
 form.field.label.mannerOfDeathUndetermined,,Manner undetermined,Manière indéterminée

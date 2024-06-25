@@ -674,6 +674,11 @@ export const formMessageDescriptors = {
     description: 'Option for form field: Manner of death',
     id: 'form.field.label.mannerOfDeathHomicide'
   },
+  legalIntervention: {
+    defaultMessage: 'Legal intervention',
+    description: 'Option for form field: Legal intervention',
+    id: 'form.field.label.mannerOfDeathLegalIntervention'
+  },
   mannerUndetermined: {
     defaultMessage: 'Manner undetermined',
     description: 'Option for form field: Manner of death',
