@@ -9,7 +9,13 @@
  * Copyright (C) The OpenCRVS Authors located at https://github.com/opencrvs/opencrvs-core/blob/master/AUTHORS.
  */
 import { formMessageDescriptors } from './common/messages'
-import { AddressCases, Conditional, SerializedFormField } from './types/types'
+import {
+  AddressCases,
+  Conditional,
+  IFormSectionData,
+  ISelectOption,
+  SerializedFormField
+} from './types/types'
 import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getNationalIDValidators } from './common/default-validation-conditionals'
 import { camelCase } from 'lodash'
@@ -79,6 +85,24 @@ export const idTypeOptions = [
 
 type IDType = ArrayElement<typeof idTypeOptions>['value']
 
+const idTypeConditional = ({
+  field,
+  values
+}: {
+  field: ISelectOption
+  values: IFormSectionData
+}) => {
+  if (
+    ['ALIEN_ID', 'REFUGEE_ID', 'REFUGEE_ATTESTATION_ID'].includes(field.value)
+  ) {
+    return values.nationality !== 'UGA'
+  }
+  if (field.value === 'NATIONAL_ID') {
+    return values.nationality === 'UGA'
+  }
+  return true
+}
+
 export function getIDType(
   event: 'birth' | 'death' | 'marriage',
   sectionId: string,
@@ -99,6 +123,7 @@ export function getIDType(
       defaultMessage: 'Type of ID'
     },
     initialValue: '',
+    optionCondition: `${idTypeConditional}`,
     validator: [],
     mapping: getCustomFieldMapping(fieldId),
     placeholder: formMessageDescriptors.formSelectPlaceholder,
