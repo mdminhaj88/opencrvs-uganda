@@ -183,7 +183,7 @@ export function getIDNumber(
         expression: `(values.${sectionId}IdType!=="${idValue}") || (values.${sectionId}IdType==="NONE")`
       }
     ].concat(conditionals),
-    maxLength: 250
+    maxLength: idValue === 'NATIONAL_ID' ? 14 : 250
   }
 }
 
