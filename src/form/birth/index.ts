@@ -494,7 +494,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
       groups: [
         {
           id: 'witness-view-group',
-          fields: declarationWitnessFields('birth', false, addressHierarchy),
+          fields: declarationWitnessFields('birth', false),
           conditionals: [
             {
               action: 'hide',

@@ -10,7 +10,6 @@
  */
 import { formMessageDescriptors } from './common/messages'
 import {
-  AddressCases,
   Conditional,
   IFormSectionData,
   ISelectOption,
@@ -21,7 +20,6 @@ import { getNationalIDValidators } from './common/default-validation-conditional
 import { camelCase } from 'lodash'
 import { uppercaseFirstLetter } from '@countryconfig/utils'
 import { MessageDescriptor } from 'react-intl'
-import { getAddressFields } from './addresses/address-fields'
 
 // ======================= CUSTOM FIELD CONFIGURATION =======================
 
@@ -236,8 +234,7 @@ export function pointOfContactHeader(): SerializedFormField {
 
 export function declarationWitnessFields(
   event: 'birth' | 'death',
-  required: boolean,
-  addressHierarchy: string[]
+  required: boolean
 ): SerializedFormField[] {
   return [
     {
@@ -336,29 +333,7 @@ export function declarationWitnessFields(
           ],
           maxLength: 250
         }
-      }),
-    {
-      name: 'placeOfResidenceTitle',
-      type: 'HEADING3',
-      label: formMessageDescriptors.primaryAddress,
-      previewGroup: 'placeOfResidence',
-      initialValue: '',
-      validator: [],
-      conditionals: []
-    },
-    ...getAddressFields(
-      'witness',
-      AddressCases.PRIMARY_ADDRESS,
-      addressHierarchy
-    ).map((field) => ({
-      ...field,
-      custom: true,
-      customQuestionMappingId: `${event}.witness.witness-view-group.${field.name}`,
-      previewGroup: 'placeOfResidence',
-      mapping: getCustomFieldMapping(
-        `${event}.witness.witness-view-group.${field.name}`
-      )
-    }))
+      })
   ]
 }
 export function createCustomFieldExample(): SerializedFormField {

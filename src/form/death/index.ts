@@ -544,7 +544,7 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
       groups: [
         {
           id: 'witness-view-group',
-          fields: declarationWitnessFields('death', true, addressHierarchy),
+          fields: declarationWitnessFields('death', true),
           conditionals: [
             {
               action: 'hide',
