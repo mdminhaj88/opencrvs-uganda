@@ -1103,6 +1103,7 @@ form.field.label.informant,Informant Label,Notifier,Informateur
 form.field.label.informantAthorityToApplyProof,,Proof of notifier's authority to apply,Preuve de l'autorité de l'informateur pour faire la demande
 form.field.label.informantOtherRelationship,,Other relation,Autre lien de parenté
 form.field.label.informantPrimaryAddress,,Usual place of residence,Quelle est l'adresse de leur domicile ?
+form.field.label.informantRelation.aunt,Label for option Aunt,Aunt,Aunt
 form.field.label.informantRelation.bride,Label for option bride,Bride,Mariée
 form.field.label.informantRelation.brother,Label for option brother,Brother,Frère
 form.field.label.informantRelation.contactPoint,,Contact Point,point de contact
@@ -1125,10 +1126,12 @@ form.field.label.informantRelation.officer,,Officer-in-charge of the road or pub
 form.field.label.informantRelation.other,,Other(Specify),Autre(Précisez)
 form.field.label.informantRelation.others,Label for option someone else,Other,Autre
 form.field.label.informantRelation.owner,,Owner of the house or building where the death occurred,Propriétaire de la maison ou du bâtiment où le décès a eu lieu.
+form.field.label.informantRelation.police,Label for option Police,Police,Police
 form.field.label.informantRelation.sister,Label for option Sister,Sister,Soeur
 form.field.label.informantRelation.son,Label for option Son,Son,Fils
 form.field.label.informantRelation.sonInLaw,Label for option Son in law,Son in law,Fils par alliance
 form.field.label.informantRelation.spouse,Label for option Spouse,Spouse,Conjoint
+form.field.label.informantRelation.uncle,Label for option Uncle,Uncle,Uncle
 form.field.label.informantRelation.whoIsBirthInformant,Label for option birth informant,Who is notifier,Qui est l'informateur
 form.field.label.informantRelation.whoIsDeathInformant,Label for option death informant,Who is notifier,Qui est l'informateur
 form.field.label.informantSecondaryAddress,,Secondary Address,Adresse secondaire

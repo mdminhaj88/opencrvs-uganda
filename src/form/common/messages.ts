@@ -17,6 +17,11 @@ export const informantMessageDescriptors = {
     description: 'Who is applying for birth registration',
     id: 'register.selectInformant.birthInformantTitle'
   },
+  POLICE: {
+    defaultMessage: 'Police',
+    description: 'Label for option police',
+    id: 'form.field.label.informantRelation.police'
+  },
   MOTHER: {
     defaultMessage: 'Mother',
     description: 'Label for option mother',
@@ -26,6 +31,16 @@ export const informantMessageDescriptors = {
     defaultMessage: 'Father',
     description: 'Label for option father',
     id: 'form.field.label.informantRelation.father'
+  },
+  UNCLE: {
+    defaultMessage: 'Uncle',
+    description: 'Label for option Uncle',
+    id: 'form.field.label.informantRelation.uncle'
+  },
+  AUNT: {
+    defaultMessage: 'Aunt',
+    description: 'Label for option Aunt',
+    id: 'form.field.label.informantRelation.aunt'
   },
   GRANDFATHER: {
     defaultMessage: 'Grandfather',
