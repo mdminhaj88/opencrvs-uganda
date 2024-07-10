@@ -67,7 +67,12 @@ import {
   informantBirthDateConditionals,
   exactDateOfBirthUnknownConditional
 } from '../common/default-validation-conditionals'
-import { documentsSection, registrationSection } from './required-sections'
+import {
+  documentsSection,
+  registrationSection,
+  previewSection,
+  reviewSection
+} from './required-sections'
 import { certificateHandlebars } from './certificate-handlebars'
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/mapping-utils'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
@@ -145,7 +150,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
                 },
                 {
                   defaultMessage:
-                    'Once the declaration is processed you will receive you will receive an SMS to tell you when to visit the office to collect the certificate - Take your ID with you.',
+                    'Once the declaration is processed you will receive an SMS to tell you when to visit the office to collect the certificate - Take your ID with you.',
                   description: 'Form information for birth',
                   id: 'form.section.information.birth.bullet3'
                 },
@@ -500,6 +505,8 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
         }
       ]
     },
-    documentsSection // REQUIRED SECTION FOR DOCUMENT ATTACHMENTS
+    documentsSection, // REQUIRED SECTION FOR DOCUMENT ATTACHMENTS
+    previewSection, // REQUIRED SECTION TO PREVIEW DECLARATION BEFORE SUBMIT
+    reviewSection // REQUIRED SECTION TO REVIEW SUBMITTED DECLARATION
   ]
 })

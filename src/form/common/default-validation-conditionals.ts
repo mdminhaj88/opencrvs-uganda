@@ -104,6 +104,18 @@ export const deathLateRegistrationReason = [
       'const pattern = /^\\d{4}-\\d{2}-\\d{2}$/; const today = new Date(); const eventDatePlusLateRegistrationTarget = new Date(values.deathDate); const lateRegistrationTarget = offlineCountryConfig && offlineCountryConfig.config.DEATH.REGISTRATION_TARGET; eventDatePlusLateRegistrationTarget.setDate(eventDatePlusLateRegistrationTarget.getDate() + lateRegistrationTarget); !pattern.test(values.deathDate) || today < eventDatePlusLateRegistrationTarget;'
   }
 ]
+/**
+ * Turns a string expression into a Conditional object
+ * @param expression conditional expression
+ * @param action conditional action. e.g. 'hide' |'hideInPreview'. Defaults to 'hide'
+ */
+export const expressionToConditional = (
+  expression: string,
+  action: string = 'hide'
+): Conditional => ({
+  action,
+  expression: `${expression}`
+})
 
 export const isValidChildBirthDate = [
   {
