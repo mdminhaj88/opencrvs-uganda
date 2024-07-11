@@ -333,7 +333,44 @@ export function declarationWitnessFields(
           ],
           maxLength: 250
         }
-      })
+      }),
+    pointOfContactHeader(),
+    {
+      name: 'registrationPhone',
+      customQuestionMappingId: `${event}.witness.witness-view-group.registrationPhone`,
+      custom: true,
+      type: 'TEL',
+      label: formMessageDescriptors.phoneNumber,
+      required: false,
+      initialValue: '',
+      validator: [
+        {
+          operation: 'phoneNumberFormat'
+        }
+      ],
+      conditionals: [],
+      mapping: getCustomFieldMapping(
+        `${event}.witness.witness-view-group.registrationPhone`
+      )
+    },
+    {
+      name: 'registrationEmail',
+      customQuestionMappingId: `${event}.witness.witness-view-group.registrationEmail`,
+      custom: true,
+      type: 'TEXT',
+      label: formMessageDescriptors.email,
+      required: false,
+      initialValue: '',
+      validator: [
+        {
+          operation: 'emailAddressFormat'
+        }
+      ],
+      conditionals: [],
+      mapping: getCustomFieldMapping(
+        `${event}.witness.witness-view-group.registrationEmail`
+      )
+    }
   ]
 }
 export function createCustomFieldExample(): SerializedFormField {
