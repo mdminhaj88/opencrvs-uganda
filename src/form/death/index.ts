@@ -77,7 +77,7 @@ import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import {
   declarationWitnessFields,
-  getIDNumberFields,
+  getIdNumberFields,
   getIDType,
   pointOfContactHeader,
   reasonForLateRegistration
@@ -200,7 +200,7 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             ), // Required field.  Names in Latin characters must be provided for international passport
             getNationality(certificateHandlebars.deceasedNationality, []),
             getIDType('death', 'deceased', [], true),
-            ...getIDNumberFields('deceased', [], true),
+            ...getIdNumberFields('deceased', [], true),
             getGender(certificateHandlebars.deceasedGender), // Required field.
             getBirthDate(
               'deceasedBirthDate',
@@ -314,7 +314,7 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             ),
             getNationality(certificateHandlebars.informantNationality, []),
             getIDType('death', 'informant', hideIfNidIntegrationEnabled, true),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'informant',
               hideIfNidIntegrationEnabled,
               true

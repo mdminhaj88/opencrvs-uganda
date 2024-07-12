@@ -1194,6 +1194,7 @@ form.field.label.mothersDetailsExist,,Mother's details are not available,Les coo
 form.field.label.multipleBirth,,Parity,Nombre de naissances antérieures
 form.field.label.name,,Name,Nom
 form.field.label.nationality,,Nationality,Nationalité
+form.field.label.nin,,NIN,NIN
 form.field.label.occupation,,Occupation,Profession
 form.field.label.optionalLabel,,Optional,Facultatif
 form.field.label.otherAddress,,Other address,Autre adresse
@@ -1202,6 +1203,7 @@ form.field.label.otherInformantType,,Other relation,Autre lien de parenté
 form.field.label.otherInstitution,,Other,Autre
 form.field.label.otherOption,,Other,Autre
 form.field.label.parentDetailsType,,Do you have the mother and father's details?,Avez-vous les coordonnées de la mère et du père ?
+form.field.label.passportNumber,,Passport Number,Passport Number
 form.field.label.phoneNumber,,Phone number,Numéro de téléphone
 form.field.label.physician,,Physician,Médecin
 form.field.label.placeOfBirth,,Place of birth,Lieu

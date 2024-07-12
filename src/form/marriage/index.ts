@@ -63,7 +63,7 @@ import {
 } from '../common/preview-groups'
 import { certificateHandlebars } from './certificate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
-import { getIDNumberFields, getIDType } from '../custom-fields'
+import { getIdNumberFields, getIDType } from '../custom-fields'
 
 // import { createCustomFieldExample } from '../custom-fields'
 
@@ -147,7 +147,7 @@ export const marriageForm: ISerializedForm = {
               hideIfInformantBrideOrGroom,
               true
             ),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'informant',
               hideIfInformantBrideOrGroom,
               true
@@ -200,7 +200,7 @@ export const marriageForm: ISerializedForm = {
             ),
             getNationality(certificateHandlebars.groomNationality, []), // Required field
             getIDType('marriage', 'groom', [], true),
-            ...getIDNumberFields('groom', [], true),
+            ...getIdNumberFields('groom', [], true),
             getMarriedLastName(certificateHandlebars.groomMarriedLastNameEng)
           ],
           previewGroups: [groomNameInEnglish]
@@ -246,7 +246,7 @@ export const marriageForm: ISerializedForm = {
             ),
             getNationality(certificateHandlebars.brideNationality, []), // Required field
             getIDType('marriage', 'bride', [], true),
-            ...getIDNumberFields('bride', [], true),
+            ...getIdNumberFields('bride', [], true),
             getMarriedLastName(certificateHandlebars.brideMarriedLastNameEng)
           ],
           previewGroups: [brideNameInEnglish]

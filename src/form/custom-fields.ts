@@ -26,10 +26,6 @@ import { MessageDescriptor } from 'react-intl'
 // A CUSTOM FIELD CAN BE ADDED TO APPEAR IN ANY SECTION
 // DUPLICATE AND RENAME FUNCTIONS LIKE THESE IN ORDER TO USE SIMILAR FIELDS
 
-type ArrayElement<ArrayType> = ArrayType extends readonly (infer ElementType)[]
-  ? ElementType
-  : never
-
 export const idTypeOptions = [
   {
     value: 'NATIONAL_ID' as const,
@@ -81,8 +77,6 @@ export const idTypeOptions = [
   }
 ]
 
-type IDType = ArrayElement<typeof idTypeOptions>['value']
-
 const idTypeConditional = ({
   field,
   values
@@ -130,69 +124,188 @@ export function getIDType(
   }
 }
 
-function getValidators(configCase: string, idValue: IDType) {
-  if (idValue === 'NATIONAL_ID') {
-    return getNationalIDValidators(configCase)
-  }
-  return []
-}
-
-export function getIDNumber(
+export function getIdNumberFields(
   sectionId: string,
-  idValue: IDType,
   conditionals: Conditional[] = [],
-  required: boolean
-): SerializedFormField {
-  const fieldName: string = `${sectionId}${uppercaseFirstLetter(
-    camelCase(idValue)
-  )}`
-  const validators = getValidators(sectionId, idValue)
-
-  return {
-    name: fieldName,
-    required,
-    custom: true,
-    type: 'TEXT',
-    label: {
-      id: 'form.field.label.iD',
-      description: 'A form field that asks for the id number.',
-      defaultMessage: 'ID number'
-    },
-    initialValue: '',
-    validator: validators,
-    mapping: {
-      template: {
-        fieldName: fieldName,
-        operation: 'identityToFieldTransformer',
-        parameters: ['id', idValue]
+  required = true
+): SerializedFormField[] {
+  return [
+    {
+      name: `${sectionId}NationalId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        id: 'form.field.label.nin',
+        description: 'A form field that asks for the nin',
+        defaultMessage: 'NIN'
       },
-      mutation: {
-        operation: 'fieldToIdentityTransformer',
-        parameters: ['id', idValue]
+      initialValue: '',
+      validator: getNationalIDValidators(sectionId),
+      mapping: {
+        template: {
+          fieldName: `${sectionId}NationalId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'NATIONAL_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'NATIONAL_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'NATIONAL_ID']
+        }
       },
-      query: {
-        operation: 'identityToFieldTransformer',
-        parameters: ['id', idValue]
-      }
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "NATIONAL_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 14
     },
-    conditionals: [
-      {
-        action: 'hide',
-        expression: `(values.${sectionId}IdType!=="${idValue}") || (values.${sectionId}IdType==="NONE")`
-      }
-    ].concat(conditionals),
-    maxLength: idValue === 'NATIONAL_ID' ? 14 : 250
-  }
-}
-
-export function getIDNumberFields(
-  section: string,
-  conditionals: Conditional[] = [],
-  required: boolean
-) {
-  return idTypeOptions
-    .filter((opt) => opt.value !== 'NONE')
-    .map((opt) => getIDNumber(section, opt.value, conditionals, required))
+    {
+      name: `${sectionId}Passport`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        id: 'form.field.label.passportNumber',
+        description: 'A form field that asks for the passport number',
+        defaultMessage: 'Passport Number'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}Passport`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'PASSPORT']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'PASSPORT']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'PASSPORT']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "PASSPORT" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    },
+    {
+      name: `${sectionId}AlienId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        defaultMessage: 'Alien ID',
+        description: 'Option for form field: Type of ID',
+        id: 'form.field.label.iDTypeAlienID'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}AlienId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'ALIEN_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'ALIEN_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'ALIEN_ID']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "ALIEN_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    },
+    {
+      name: `${sectionId}RefugeeId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        defaultMessage: 'Refugee ID',
+        description: 'Option for form field: Type of ID',
+        id: 'form.field.label.iDTypeRefugeeID'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}RefugeeId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'REFUGEE_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ID']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "REFUGEE_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    },
+    {
+      name: `${sectionId}RefugeeAttestationId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        defaultMessage: 'Refugee Attestation ID',
+        description: 'Option for form field: Type of ID',
+        id: 'form.field.label.iDTypeRefugeeAttestationID'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}RefugeeAttestationId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ATTESTATION_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'REFUGEE_ATTESTATION_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ATTESTATION_ID']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "REFUGEE_ATTESTATION_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    }
+  ]
 }
 
 export function reasonForLateRegistration(

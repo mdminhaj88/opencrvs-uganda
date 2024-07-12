@@ -78,7 +78,7 @@ import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/ma
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import {
   declarationWitnessFields,
-  getIDNumberFields,
+  getIdNumberFields,
   getIDType,
   pointOfContactHeader,
   reasonForLateRegistration,
@@ -293,7 +293,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
               true
             ),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'informant',
               hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
               true
@@ -382,7 +382,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
             ),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'mother',
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
@@ -467,7 +467,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
             ),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'father',
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
