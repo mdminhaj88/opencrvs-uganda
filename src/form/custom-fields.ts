@@ -275,11 +275,7 @@ export function getIdNumberFields(
       required,
       custom: true,
       type: 'TEXT',
-      label: {
-        defaultMessage: 'Refugee Attestation ID',
-        description: 'Option for form field: Type of ID',
-        id: 'form.field.label.iDTypeRefugeeAttestationID'
-      },
+      label: formMessageDescriptors.iDTypeRefugeeAttestationID,
       initialValue: '',
       validator: [],
       mapping: {

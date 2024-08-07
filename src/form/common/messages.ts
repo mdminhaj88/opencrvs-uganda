@@ -962,6 +962,11 @@ export const formMessageDescriptors = {
     description: 'Option for form field: Type of ID',
     id: 'form.field.label.iDTypeBRN'
   },
+  iDTypeRefugeeAttestationID: {
+    defaultMessage: 'Refugee Attestation ID',
+    description: 'Option for form field: Type of ID',
+    id: 'form.field.label.iDTypeRefugeeAttestationID'
+  },
   iDTypeRefugeeNumber: {
     defaultMessage: 'Refugee Number',
     description: 'Option for form field: Type of ID',

@@ -33,6 +33,7 @@ export const birthDocumentType = {
   PASSPORT: 'PASSPORT',
   ALIEN_ID: 'ALIEN_ID',
   REFUGEE_ID: 'REFUGEE_ID',
+  REFUGEE_ATTESTATION_ID: 'REFUGEE_ATTESTATION_ID',
   OTHER: 'OTHER',
   NOTIFICATION_OF_BIRTH: 'NOTIFICATION_OF_BIRTH',
   POLICE_REPORT: 'POLICE_REPORT',
@@ -100,6 +101,10 @@ export const documentsSection = {
             {
               value: birthDocumentType.REFUGEE_ID,
               label: formMessageDescriptors.iDTypeRefugeeNumber
+            },
+            {
+              value: birthDocumentType.REFUGEE_ATTESTATION_ID,
+              label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
           conditionals: [
@@ -136,6 +141,10 @@ export const documentsSection = {
             {
               value: birthDocumentType.REFUGEE_ID,
               label: formMessageDescriptors.iDTypeRefugeeNumber
+            },
+            {
+              value: birthDocumentType.REFUGEE_ATTESTATION_ID,
+              label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
           conditionals: [
@@ -172,6 +181,10 @@ export const documentsSection = {
             {
               value: birthDocumentType.REFUGEE_ID,
               label: formMessageDescriptors.iDTypeRefugeeNumber
+            },
+            {
+              value: birthDocumentType.REFUGEE_ATTESTATION_ID,
+              label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
           conditionals: [
