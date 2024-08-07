@@ -63,7 +63,7 @@ export const documentsSection = {
         {
           name: 'uploadDocForChildDOB',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.proofOfBirth,
+          label: formMessageDescriptors.docTypeChildBirthProof,
           initialValue: '',
           extraValue: birthDocumentExtraValue.CHILD,
           hideAsterisk: true,
@@ -71,7 +71,7 @@ export const documentsSection = {
           options: [
             {
               value: birthDocumentType.NOTIFICATION_OF_BIRTH,
-              label: formMessageDescriptors.docTypeChildBirthProof
+              label: formMessageDescriptors.form3
             }
           ],
           mapping: getFieldMapping('documents')

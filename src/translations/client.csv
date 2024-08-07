@@ -1022,7 +1022,7 @@ form.field.label.deny,,No,Non
 form.field.label.district,Label for District,District,District
 form.field.label.docTypeBirthCert,,Birth certificate,Certificat de la naissance
 form.field.label.docTypeChildAgeProof,,Proof of child's age,Preuve de l'âge de l'enfant
-form.field.label.docTypeChildBirthProof,,LC Recommendation Letter,Notification de la naissance
+form.field.label.docTypeChildBirthProof,,Notification of birth,Notification de la naissance
 form.field.label.docTypeCopyOfBurialReceipt,,Certified copy of burial receipt,Copie certifiée du reçu d'enterrement
 form.field.label.docTypeCoronersReport,,Coroner's report,Rapport du coroner
 form.field.label.docTypeDeathCertificate,,Attested certificate of death,Certificat de décès attesté
@@ -1080,6 +1080,7 @@ form.field.label.fileUploadError,,{type} supported image only,{type} supporté u
 form.field.label.firstName,,First name(s),Prénom
 form.field.label.firstNameEN,,First name(s),Prénom anglais
 form.field.label.firstNames,,Surname,Prénom(s)
+form.field.label.form3,,Form 3,Form 3
 form.field.label.healthFacility,,Health Facility,Health Facility
 form.field.label.healthInstitution,,Health Institution,Institution de santé
 form.field.label.hospital,,Hospital,Hôpital

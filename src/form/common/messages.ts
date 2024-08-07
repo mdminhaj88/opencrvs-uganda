@@ -537,6 +537,11 @@ export const formMessageDescriptors = {
     description: 'Label for list item Proof of birth',
     id: 'form.field.label.proofOfBirth'
   },
+  form3: {
+    defaultMessage: 'Form 3',
+    description: 'Label for select option form 3',
+    id: 'form.field.label.form3'
+  },
   docTypeChildBirthProof: {
     defaultMessage: 'Notification of birth',
     description: 'Label for select option Notification of birth',
