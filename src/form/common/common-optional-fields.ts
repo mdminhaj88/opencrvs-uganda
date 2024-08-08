@@ -209,6 +209,13 @@ export const informantsSignature = {
   },
   validator: [],
   type: 'SIGNATURE',
+  conditionals: [
+    {
+      action: 'hide',
+      expression:
+        'Boolean(draftData.documents?.uploadDocForChildDOB?.[0]?.data)'
+    }
+  ],
   mapping: {
     mutation: {
       operation: 'fieldValueSectionExchangeTransformer',
