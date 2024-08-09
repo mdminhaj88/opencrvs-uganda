@@ -74,6 +74,12 @@ jobs:
         run: |
           echo "KNOWN_HOSTS=" >> $GITHUB_ENV
 
+      - name: Set up wireguard connection
+        if: secrets.WG_CONFIG_FILE != ''
+        uses: niklaskeerl/easy-wireguard-action@v2
+        with:
+          WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
+
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
