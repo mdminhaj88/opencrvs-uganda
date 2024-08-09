@@ -136,8 +136,12 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           known_hosts: ${{ env.KNOWN_HOSTS }}
 
+      - name: Set up wireguard file
+        id: wg-file
+        run: echo "##[set-output name=wg_file;]${{ secrets.WG_CONFIG_FILE }}"
+
       - name: Set up wireguard connection
-        if: ${{ secrets.WG_CONFIG_FILE != '' }}
+        if: ${{ steps.wg-file.outputs.wg_file != '' }}
         uses: niklaskeerl/easy-wireguard-action@v2
         with:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
