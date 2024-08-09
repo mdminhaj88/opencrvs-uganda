@@ -137,7 +137,7 @@ jobs:
           known_hosts: ${{ env.KNOWN_HOSTS }}
 
       - name: Set up wireguard connection
-        if: secrets.WG_CONFIG_FILE != ''
+        if: ${{ secrets.WG_CONFIG_FILE != '' }}
         uses: niklaskeerl/easy-wireguard-action@v2
         with:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}

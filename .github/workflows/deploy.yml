@@ -73,7 +73,7 @@ jobs:
           echo "KNOWN_HOSTS=" >> $GITHUB_ENV
 
       - name: Set up wireguard connection
-        if: secrets.WG_CONFIG_FILE != ''
+        if: ${{ secrets.WG_CONFIG_FILE != '' }}
         uses: niklaskeerl/easy-wireguard-action@v2
         with:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
