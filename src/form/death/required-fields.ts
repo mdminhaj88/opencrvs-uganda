@@ -89,7 +89,7 @@ export const getMannerOfDeath: SerializedFormField = {
   mapping: getFieldMapping('mannerOfDeath', certificateHandlebars.mannerOfDeath)
 }
 
-export const getCauseOfDeath: SerializedFormField = {
+export const getCauseOfDeathEstablished: SerializedFormField = {
   name: 'causeOfDeathEstablished',
   type: 'CHECKBOX',
   label: formMessageDescriptors.causeOfDeathEstablished,

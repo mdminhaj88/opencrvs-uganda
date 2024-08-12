@@ -28,7 +28,7 @@ import {
 } from '../common/common-required-fields'
 import {
   deathInformantType,
-  getCauseOfDeath,
+  getCauseOfDeathEstablished,
   getDeathDate,
   getMannerOfDeath
 } from './required-fields'
@@ -84,7 +84,7 @@ import {
 } from '../custom-fields'
 import {
   deceasedPlaceOfBirth,
-  icd11code,
+  causeOfDeath,
   individualWhoFoundTheBody,
   timeOfDeath
 } from './custom-fields'
@@ -259,8 +259,8 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             // PLACE OF DEATH FIELDS WILL RENDER HERE
             getMannerOfDeath,
             ...individualWhoFoundTheBody(),
-            getCauseOfDeath,
-            icd11code()
+            getCauseOfDeathEstablished,
+            causeOfDeath()
           ]
         }
       ]

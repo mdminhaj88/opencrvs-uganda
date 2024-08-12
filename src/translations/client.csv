@@ -888,6 +888,7 @@ fieldAgentHome.requireUpdatesCountLoading,,Checking your declarations,Vérificat
 fieldAgentHome.sentForReviewCount,,Sent for review ({total}),Envoyées pour révision ({total})
 fieldAgentHome.zeroUpdatesText,,No declarations require updates,Aucune déclaration ne nécessite de mise à jour
 form.customField.label.birthLateRegistrationReason,,Reason for late registration (after 30 days),Reason for late registration (after 6 months)
+form.customField.label.causeOfDeath,,Cause of death,Cause of death
 form.customField.label.certificateCostIsFree,,Your paper certificate is free,undefined
 form.customField.label.certificateDelayedCost,,"Your paper certificate is USh: 10,000",undefined
 form.customField.label.certificateLateCost,,"Your paper certificate is USh: 5,000",undefined
@@ -895,7 +896,6 @@ form.customField.label.circumstances,,Description of circumstances under which b
 form.customField.label.deathLateRegistrationReason,,Reason for late registration (after 90 days),Reason for late registration (after 90 days)
 form.customField.label.deceasedIdentityUnknown,,Deceased identity is unknown,Deceased identity is unknown
 form.customField.label.declarationWitness,,Declaration witness,Declaration witness
-form.customField.label.icdCode,,ICD11 code and description,ICD11 code and description
 form.customField.label.motherMaidenName,,Maiden name,Maiden name
 form.customField.label.pointOfContact,,Point of contact,Point of contact
 form.customField.label.reasonWhyUnidentifiable,,Reason why individual is not identifiable,Reason why individual is not identifiable

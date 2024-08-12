@@ -189,8 +189,8 @@ export function individualWhoFoundTheBody(): SerializedFormField[] {
   ]
 }
 
-export function icd11code(): SerializedFormField {
-  const fieldName: string = 'icdCode'
+export function causeOfDeath(): SerializedFormField {
+  const fieldName: string = 'causeOfDeath'
   const fieldId: string = `death.deathEvent.death-event-details.${fieldName}`
 
   return {
@@ -200,9 +200,9 @@ export function icd11code(): SerializedFormField {
     required: false,
     type: 'TEXT',
     label: {
-      id: 'form.customField.label.icdCode',
-      description: 'A form field that asks for the ICD11 code & description',
-      defaultMessage: 'ICD11 code and description'
+      id: 'form.customField.label.causeOfDeath',
+      description: 'A form field that asks for the cause of death',
+      defaultMessage: 'Cause of death'
     },
     initialValue: '',
     validator: [],
