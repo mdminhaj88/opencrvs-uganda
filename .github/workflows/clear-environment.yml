@@ -23,6 +23,8 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
     runs-on: ubuntu-22.04
     timeout-minutes: 60
+    env:
+      WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
     steps:
       - name: Clone country config resource package
         uses: actions/checkout@v3
@@ -45,7 +47,7 @@ jobs:
           known_hosts: ${{ env.KNOWN_HOSTS }}
 
       - name: Set up wireguard connection
-        if: ${{ secrets.WG_CONFIG_FILE != '' }}
+        if: env.WG_CONFIG_FILE != ''
         uses: niklaskeerl/easy-wireguard-action@v2
         with:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
