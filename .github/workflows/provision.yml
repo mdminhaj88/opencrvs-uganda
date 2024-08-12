@@ -84,6 +84,8 @@ jobs:
     outputs:
       outcome: ${{ steps.deploy.outcome }}
     timeout-minutes: 60
+    env:
+      WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
     steps:
       - name: Clone country config resource package
         uses: actions/checkout@v3
@@ -136,12 +138,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           known_hosts: ${{ env.KNOWN_HOSTS }}
 
-      - name: Set up wireguard file
-        id: wg-file
-        run: echo "##[set-output name=wg_file;]${{ secrets.WG_CONFIG_FILE }}"
-
       - name: Set up wireguard connection
-        if: ${{ steps.wg-file.outputs.wg_file != '' }}
+        if: env.WG_CONFIG_FILE != ''
         uses: niklaskeerl/easy-wireguard-action@v2
         with:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}

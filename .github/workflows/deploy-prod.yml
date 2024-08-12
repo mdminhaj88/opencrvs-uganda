@@ -24,6 +24,8 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
     runs-on: ubuntu-22.04
     timeout-minutes: 60
+    env:
+      WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
     steps:
       - uses: trstringer/manual-approval@v1
         with:
@@ -75,7 +77,7 @@ jobs:
           echo "KNOWN_HOSTS=" >> $GITHUB_ENV
 
       - name: Set up wireguard connection
-        if: ${{ secrets.WG_CONFIG_FILE != '' }}
+        if: env.WG_CONFIG_FILE != ''
         uses: niklaskeerl/easy-wireguard-action@v2
         with:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
