@@ -901,6 +901,7 @@ form.customField.label.pointOfContact,,Point of contact,Point of contact
 form.customField.label.reasonWhyUnidentifiable,,Reason why individual is not identifiable,Reason why individual is not identifiable
 form.customField.label.timeOfBirth,,Time of birth,Time of birth
 form.customField.label.timeOfDeath,,Time of death,Time of death
+form.customField.label.townOrVillage,,Town/Village,Town/Village
 form.field.SearchField.changeButtonLabel,,"{fieldName, select, registrationOffice {Change assigned office} other {Change health institute}}","{fieldName, select, registrationOffice {Bureau d'enregistrement assigné} autre {Instituts de santé}}"
 form.field.SearchField.modalTitle,,"{fieldName, select, registrationOffice {Assigned registration office} other {Health institutions}}","{fieldName, select, registrationOffice {Bureau d'enregistrement assigné} autre {Instituts de santé}}"
 form.field.SearchField.officeLocationId,,Id: {locationId},Id : {locationId}

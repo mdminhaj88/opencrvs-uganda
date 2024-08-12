@@ -54,10 +54,7 @@ export function deceasedPlaceOfBirth(
       EventLocationAddressCases.PLACE_OF_BIRTH,
       addressHierarchy
     )
-      .filter(
-        ({ name }) =>
-          !['place-of-birth', 'placeOfBirth', 'birthLocation'].includes(name)
-      )
+      .filter(({ name }) => name === 'countryPlaceofbirth')
       .map((field) => ({
         ...field,
         custom: true,
@@ -69,7 +66,27 @@ export function deceasedPlaceOfBirth(
         mapping: getCustomFieldMapping(
           `death.deceased.deceased-view-group.${field.name}`
         )
-      }))
+      })),
+    {
+      name: 'townPlaceOfBirth',
+      customQuestionMappingId:
+        'death.deceased.deceased-view-group.townPlaceOfBirth',
+      custom: true,
+      required: true,
+      type: 'TEXT',
+      label: {
+        id: 'form.customField.label.townOrVillage',
+        description: 'Label for place of birth field town/village',
+        defaultMessage: 'Town/Village'
+      },
+      initialValue: '',
+      validator: [],
+      previewGroup: 'placeOfBirth',
+      mapping: getCustomFieldMapping(
+        'death.deceased.deceased-view-group.townPlaceOfBirth'
+      ),
+      maxLength: 32
+    }
   ]
 }
 
