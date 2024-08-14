@@ -111,7 +111,13 @@ export const documentsSection = {
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
           hideAsterisk: true,
           validator: [],
-          conditionals: [],
+          conditionals: [
+            {
+              action: 'hide',
+              expression:
+                'draftData?.deathEvent?.placeOfDeath !== "HEALTH_FACILITY"'
+            }
+          ],
           options: [
             {
               value: deathDocumentType.PROOF_OF_CAUSE_OF_DEATH,
