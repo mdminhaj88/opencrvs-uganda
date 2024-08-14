@@ -1181,6 +1181,7 @@ form.field.label.maritalStatusSeparated,,Separated,Séparé(e)
 form.field.label.maritalStatusSingle,,Single,Célibataire
 form.field.label.maritalStatusWidowed,,Widowed,Veuf(ve)
 form.field.label.marriedLastName,,Married last name (if different),Marié Nom de famille (si différent)
+form.field.label.medicalCertificateOfCauseOfDeath,,Medical certificate of cause of death,Medical certificate of cause of death
 form.field.label.medicalFacility,,Medical Facility,undefined
 form.field.label.medicallyCertified,,Medically Certified Cause of Death,Cause du décès médicalement certifiée
 form.field.label.methodOfCauseOfDeath,,Method of Cause of Death,Méthode de détermination de la cause du décès
@@ -1235,6 +1236,7 @@ form.field.label.print.warningNotVerified,,Please be aware that if you proceed y
 form.field.label.privateHome,,Residential address,Adresse résidentielle
 form.field.label.proofOfBirth,,Proof of birth,Preuve de naissance
 form.field.label.proofOfBridesID,,Proof of bride's identity,Preuve de l'identité de la mariée
+form.field.label.proofOfCauseOfDeath,,Proof of cause of death,Proof of cause of death
 form.field.label.proofOfDocCertificateOfChild,,Certificate from doctor to prove child's age OR School certificate,Certificat du médecin attestant de l'âge de l'enfant OU certificat de scolarité
 form.field.label.proofOfEPICardOfChild,,EPI Card of Child,Carte EPI de l'enfant
 form.field.label.proofOfFathersID,,Proof of father's ID,Identité du père

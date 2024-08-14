@@ -27,6 +27,9 @@ export const deathDocumentExtraValue = {
 export const deathDocumentType = {
   HOSPITAL_CERTIFICATE_OF_DEATH: 'HOSPITAL_CERTIFICATE_OF_DEATH',
   ATTESTED_LETTER_OF_DEATH: 'ATTESTED_LETTER_OF_DEATH',
+  PROOF_OF_CAUSE_OF_DEATH: 'PROOF_OF_CAUSE_OF_DEATH',
+  MEDICAL_CERTIFICATE_OF_CAUSE_OF_DEATH:
+    'MEDICAL_CERTIFICATE_OF_CAUSE_OF_DEATH',
   BURIAL_RECEIPT: 'BURIAL_RECEIPT',
   FORM_12: 'FORM_12',
   POLICE_CERTIFICATE_OF_DEATH: 'POLICE_CERTIFICATE_OF_DEATH',
@@ -96,6 +99,40 @@ export const documentsSection = {
             {
               value: deathDocumentType.ATTESTED_LETTER_OF_DEATH,
               label: formMessageDescriptors.docTypeLetterOfDeath
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
+          name: 'uploadDocForProofOfCauseOfDeath',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.proofOfCauseOfDeath,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
+          hideAsterisk: true,
+          validator: [],
+          conditionals: [],
+          options: [
+            {
+              value: deathDocumentType.PROOF_OF_CAUSE_OF_DEATH,
+              label: formMessageDescriptors.proofOfCauseOfDeath
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
+          name: 'uploadDocForMedicalCertificateOfCauseOfDeath',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.medicalCertificateOfCauseOfDeath,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
+          hideAsterisk: true,
+          validator: [],
+          conditionals: [],
+          options: [
+            {
+              value: deathDocumentType.MEDICALLY_CERTIFIED_CAUSE_OF_DEATH,
+              label: formMessageDescriptors.medicalCertificateOfCauseOfDeath
             }
           ],
           mapping: getFieldMapping('documents')

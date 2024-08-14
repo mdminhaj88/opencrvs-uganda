@@ -782,6 +782,16 @@ export const formMessageDescriptors = {
     description: 'Option for radio group field: Type of Document To Upload',
     id: 'form.field.label.deceasedDeathProof'
   },
+  proofOfCauseOfDeath: {
+    defaultMessage: 'Proof of cause of death',
+    description: 'Label for field: Proof of cause of death',
+    id: 'form.field.label.proofOfCauseOfDeath'
+  },
+  medicalCertificateOfCauseOfDeath: {
+    defaultMessage: 'Medical certificate of cause of death',
+    description: 'Label for field: Medical certificate of cause of death',
+    id: 'form.field.label.medicalCertificateOfCauseOfDeath'
+  },
   form12: {
     defaultMessage: 'Form 12',
     description: 'Label for select option Form 12',
