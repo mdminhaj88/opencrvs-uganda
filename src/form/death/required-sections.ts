@@ -132,9 +132,15 @@ export const documentsSection = {
           label: formMessageDescriptors.medicalCertificateOfCauseOfDeath,
           initialValue: '',
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
-          hideAsterisk: true,
+          required: true,
           validator: [],
-          conditionals: [],
+          conditionals: [
+            {
+              action: 'hide',
+              expression:
+                'draftData?.deathEvent?.causeOfDeathEstablished === "false"'
+            }
+          ],
           options: [
             {
               value: deathDocumentType.MEDICALLY_CERTIFIED_CAUSE_OF_DEATH,
