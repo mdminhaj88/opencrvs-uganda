@@ -987,6 +987,7 @@ form.field.label.deathDate,,"Enter the date as: day, month, year e.g. 24 10 2020
 form.field.label.deathDescription,,Description,Description
 form.field.label.deathPlace,,Place of Occurrence of Death,Lieu de survenance du décès
 form.field.label.deceasedCurAddSamePerm,,Is deceased's current address the same as their permanent address?,L'adresse actuelle du défunt est-elle la même que son adresse permanente ?
+form.field.label.deceasedDeathNotification,,Notification of death,Notification of death
 form.field.label.deceasedDeathProof,,Proof of death,Preuve du décès du défunt
 form.field.label.deceasedDoBProof,,Proof of date of birth of deceased,Preuve de la date de naissance de la personne décédée
 form.field.label.deceasedDocumentParagraph,,The following documents are required,"Pour l'enregistrement d'un décès, les documents suivants sont requis :"
@@ -1081,6 +1082,7 @@ form.field.label.fileUploadError,,{type} supported image only,{type} supporté u
 form.field.label.firstName,,First name(s),Prénom
 form.field.label.firstNameEN,,First name(s),Prénom anglais
 form.field.label.firstNames,,Surname,Prénom(s)
+form.field.label.form12,,Form 12,Form 12
 form.field.label.form3,,Form 3,Form 3
 form.field.label.healthFacility,,Health Facility,Health Facility
 form.field.label.healthInstitution,,Health Institution,Institution de santé

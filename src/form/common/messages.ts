@@ -772,10 +772,20 @@ export const formMessageDescriptors = {
     description: 'Option for radio group field: Type of Document To Upload',
     id: 'form.field.label.deceasedIDProof'
   },
+  deceasedDeathNotification: {
+    defaultMessage: 'Notification of death',
+    description: 'Label for document upload field: Notification of death',
+    id: 'form.field.label.deceasedDeathNotification'
+  },
   deceasedDeathProof: {
     defaultMessage: 'Proof of death of deceased',
     description: 'Option for radio group field: Type of Document To Upload',
     id: 'form.field.label.deceasedDeathProof'
+  },
+  form12: {
+    defaultMessage: 'Form 12',
+    description: 'Label for select option Form 12',
+    id: 'form.field.label.form12'
   },
   docTypeLetterOfDeath: {
     defaultMessage: 'Attested letter of death',

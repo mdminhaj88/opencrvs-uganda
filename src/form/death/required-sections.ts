@@ -19,6 +19,7 @@ export const registrationSection = {
 export const deathDocumentExtraValue = {
   DECEASED_ID_PROOF: 'DECEASED_ID_PROOF',
   DECEASED_DEATH_PROOF: 'DECEASED_DEATH_PROOF',
+  DECEASED_DEATH_NOTIFICATION: 'DECEASED_DEATH_NOTIFICATION',
   DECEASED_DEATH_CAUSE_PROOF: 'DECEASED_DEATH_CAUSE_PROOF',
   INFORMANT_ID_PROOF: 'INFORMANT_ID_PROOF'
 }
@@ -27,6 +28,7 @@ export const deathDocumentType = {
   HOSPITAL_CERTIFICATE_OF_DEATH: 'HOSPITAL_CERTIFICATE_OF_DEATH',
   ATTESTED_LETTER_OF_DEATH: 'ATTESTED_LETTER_OF_DEATH',
   BURIAL_RECEIPT: 'BURIAL_RECEIPT',
+  FORM_12: 'FORM_12',
   POLICE_CERTIFICATE_OF_DEATH: 'POLICE_CERTIFICATE_OF_DEATH',
   MEDICALLY_CERTIFIED_CAUSE_OF_DEATH: 'MEDICALLY_CERTIFIED_CAUSE_OF_DEATH',
   VERBAL_AUTOPSY_REPORT: 'VERBAL_AUTOPSY_REPORT',
@@ -53,6 +55,23 @@ export const documentsSection = {
           label: formMessageDescriptors.deceasedParagraph,
           initialValue: '',
           validator: []
+        },
+        {
+          name: 'uploadDocForDeceasedDeathNotification',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.deceasedDeathNotification,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_DEATH_NOTIFICATION,
+          hideAsterisk: true,
+          validator: [],
+          conditionals: [],
+          options: [
+            {
+              value: deathDocumentType.FORM_12,
+              label: formMessageDescriptors.form12
+            }
+          ],
+          mapping: getFieldMapping('documents')
         },
         {
           name: 'uploadDocForDeceasedDeath',
