@@ -30,8 +30,6 @@ jobs:
     outputs:
       outcome: ${{ steps.deploy.outcome }}
     timeout-minutes: 60
-    env:
-      WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
     steps:
       - name: Clone core
         uses: actions/checkout@v3
@@ -74,8 +72,12 @@ jobs:
         run: |
           echo "KNOWN_HOSTS=" >> $GITHUB_ENV
 
+      - name: Read wireguard file from secret
+        id: read-wg-file
+        run: echo "##[set-output name=wg_file;]${{ secrets.WG_CONFIG_FILE }}"
+
       - name: Set up wireguard connection
-        if: env.WG_CONFIG_FILE != ''
+        if: ${{ steps.read-wg-file.outputs.wg_file != '' }}
         uses: niklaskeerl/easy-wireguard-action@v2
         with:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
