@@ -21,8 +21,11 @@ services:
         mode: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /data/traefik/acme.json:/acme.json
+      - /data/traefik/certs:/certs
+      - /opt/opencrvs/infrastructure/traefik/certs.yaml:/etc/traefik/certs.yaml
     command:
+      - --providers.file.directory=/etc/traefik
+      - --providers.file.watch=true
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --providers.docker
@@ -30,11 +33,6 @@ services:
       - --api.dashboard=true
       - --api.insecure=true
       - --log.level=WARNING
-      - --certificatesresolvers.certResolver.acme.email=riku@opencrvs.org
-      - --certificatesresolvers.certResolver.acme.storage=acme.json
-      - --certificatesresolvers.certResolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
-      - --certificatesresolvers.certResolver.acme.httpchallenge.entrypoint=web
-      - --certificatesresolvers.certResolver.acme.httpchallenge=true
       - --entrypoints.web.http.redirections.entryPoint.to=websecure
       - --entrypoints.web.http.redirections.entryPoint.scheme=https
       - --entrypoints.web.http.redirections.entrypoint.permanent=true
