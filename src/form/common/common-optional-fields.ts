@@ -200,30 +200,26 @@ export const getEducation = (
   mapping: getFieldMapping('educationalAttainment', certificateHandlebar)
 })
 
-export const informantsSignature = {
-  name: 'informantSignature',
-  label: {
-    defaultMessage: 'Signature of informant',
-    description: 'Label for informants signature input',
-    id: 'review.inputs.informantsSignature'
-  },
-  validator: [],
-  type: 'SIGNATURE',
-  conditionals: [
-    {
-      action: 'hide',
-      expression:
-        'Boolean(draftData.documents?.uploadDocForChildDOB?.[0]?.data)'
-    }
-  ],
-  mapping: {
-    mutation: {
-      operation: 'fieldValueSectionExchangeTransformer',
-      parameters: ['registration', 'informantsSignature']
+export function getInformantsSignature(conditionals: Conditional[] = []) {
+  return {
+    name: 'informantSignature',
+    label: {
+      defaultMessage: 'Signature of informant',
+      description: 'Label for informants signature input',
+      id: 'review.inputs.informantsSignature'
     },
-    query: {
-      operation: 'fieldValueSectionExchangeTransformer',
-      parameters: ['registration', 'informantsSignature']
+    validator: [],
+    type: 'SIGNATURE',
+    conditionals,
+    mapping: {
+      mutation: {
+        operation: 'fieldValueSectionExchangeTransformer',
+        parameters: ['registration', 'informantsSignature']
+      },
+      query: {
+        operation: 'fieldValueSectionExchangeTransformer',
+        parameters: ['registration', 'informantsSignature']
+      }
     }
-  }
-} satisfies SerializedFormField
+  } satisfies SerializedFormField
+}
