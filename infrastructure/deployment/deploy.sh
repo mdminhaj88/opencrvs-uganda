@@ -169,7 +169,7 @@ configured_rsync() {
 get_environment_variables() {
   local env_vars=""
   # Define an array of variables to exclude
-  local exclude_vars=("PATH" "SSH_ARGS" "HOME" "LANG" "USER" "SHELL" "PWD")
+  local exclude_vars=("PATH" "SSH_ARGS" "HOME" "LANG" "USER" "SHELL" "PWD" "WG_CONFIG_FILE")
 
   while IFS='=' read -r name value; do
     # Check if the variable is in the exclude list
