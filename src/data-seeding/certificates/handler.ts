@@ -14,8 +14,11 @@ import { readFileSync } from 'fs'
 
 export async function certificateHandler(request: Request, h: ResponseToolkit) {
   if (request.params.event) {
+    const event: string = request.params.event
     const res = readFileSync(
-      `./src/data-seeding/certificates/source/Farajaland-${request.params.event}-certificate-v2.svg`
+      `./src/data-seeding/certificates/source/${event
+        .charAt(0)
+        .toUpperCase()}${event.slice(1)}Certificate.svg`
     ).toString()
     return h.response(res).code(200)
   }
