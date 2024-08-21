@@ -1181,9 +1181,8 @@ form.field.label.maritalStatusSeparated,,Separated,Séparé(e)
 form.field.label.maritalStatusSingle,,Single,Célibataire
 form.field.label.maritalStatusWidowed,,Widowed,Veuf(ve)
 form.field.label.marriedLastName,,Married last name (if different),Marié Nom de famille (si différent)
-form.field.label.medicalCertificateOfCauseOfDeath,,Medical certificate of cause of death,Medical certificate of cause of death
 form.field.label.medicalFacility,,Medical Facility,undefined
-form.field.label.medicallyCertified,,Medically Certified Cause of Death,Cause du décès médicalement certifiée
+form.field.label.medicallyCertified,,Medical certificate of cause of death,Cause du décès médicalement certifiée
 form.field.label.methodOfCauseOfDeath,,Method of Cause of Death,Méthode de détermination de la cause du décès
 form.field.label.middleName,,Given name,Middle name
 form.field.label.monogamy,,Monogamous,Monogame

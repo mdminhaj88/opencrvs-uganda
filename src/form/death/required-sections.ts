@@ -127,29 +127,6 @@ export const documentsSection = {
           mapping: getFieldMapping('documents')
         },
         {
-          name: 'uploadDocForMedicalCertificateOfCauseOfDeath',
-          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.medicalCertificateOfCauseOfDeath,
-          initialValue: '',
-          extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
-          required: true,
-          validator: [],
-          conditionals: [
-            {
-              action: 'hide',
-              expression:
-                'draftData?.deathEvent?.causeOfDeathEstablished === "false"'
-            }
-          ],
-          options: [
-            {
-              value: deathDocumentType.MEDICALLY_CERTIFIED_CAUSE_OF_DEATH,
-              label: formMessageDescriptors.medicalCertificateOfCauseOfDeath
-            }
-          ],
-          mapping: getFieldMapping('documents')
-        },
-        {
           name: 'uploadDocForCauseOfDeath',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
           label: formMessageDescriptors.causeOfDeathProof,

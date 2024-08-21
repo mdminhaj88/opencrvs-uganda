@@ -725,7 +725,7 @@ export const formMessageDescriptors = {
     id: 'form.field.label.verbalAutopsy'
   },
   medicallyCertified: {
-    defaultMessage: 'Medically Certified Cause of Death',
+    defaultMessage: 'Medical certificate of cause of death',
     description: 'Option for form field: Method of Cause of Death',
     id: 'form.field.label.medicallyCertified'
   },
@@ -786,11 +786,6 @@ export const formMessageDescriptors = {
     defaultMessage: 'Proof of cause of death',
     description: 'Label for field: Proof of cause of death',
     id: 'form.field.label.proofOfCauseOfDeath'
-  },
-  medicalCertificateOfCauseOfDeath: {
-    defaultMessage: 'Medical certificate of cause of death',
-    description: 'Label for field: Medical certificate of cause of death',
-    id: 'form.field.label.medicalCertificateOfCauseOfDeath'
   },
   form12: {
     defaultMessage: 'Form 12',
