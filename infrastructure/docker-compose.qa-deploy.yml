@@ -3,6 +3,8 @@ services:
     networks:
       - overlay_net
     command:
+      - --providers.file.directory=/etc/traefik
+      - --providers.file.watch=true
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --providers.docker
