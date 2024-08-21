@@ -33,6 +33,7 @@ export const deathDocumentType = {
   BURIAL_RECEIPT: 'BURIAL_RECEIPT',
   FORM_12: 'FORM_12',
   POLICE_CERTIFICATE_OF_DEATH: 'POLICE_CERTIFICATE_OF_DEATH',
+  POLICE_REPORT: 'POLICE_REPORT',
   MEDICALLY_CERTIFIED_CAUSE_OF_DEATH: 'MEDICALLY_CERTIFIED_CAUSE_OF_DEATH',
   VERBAL_AUTOPSY_REPORT: 'VERBAL_AUTOPSY_REPORT',
   CORONERS_REPORT: 'CORONERS_REPORT',
@@ -145,6 +146,28 @@ export const documentsSection = {
             {
               value: deathDocumentType.MEDICALLY_CERTIFIED_CAUSE_OF_DEATH,
               label: formMessageDescriptors.medicallyCertified
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
+          name: 'uploadDocForPoliceReport',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.deceasedDeathProof,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
+          validator: [],
+          conditionals: [
+            {
+              action: 'hide',
+              expression:
+                '!["ACCIDENT", "SUICIDE", "HOMICIDE", "BODY_FOUND"].includes(draftData?.deathEvent?.mannerOfDeath)'
+            }
+          ],
+          options: [
+            {
+              value: deathDocumentType.POLICE_REPORT,
+              label: formMessageDescriptors.policeReport
             }
           ],
           mapping: getFieldMapping('documents')
