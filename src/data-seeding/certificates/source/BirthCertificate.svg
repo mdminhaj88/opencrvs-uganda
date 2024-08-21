@@ -15,7 +15,7 @@
     <text transform="translate(292.501 183.113) rotate(-90)" fill="black" style="white-space: pre" font-family="Arimo" font-size="7.19418" font-weight="bold" letter-spacing="0em">
       <tspan x="0" y="6.49408">{{uppercase childGender}}</tspan>
     </text>
-    <text fill="black" style="white-space: pre" font-family="Arimo" font-size="5.5" font-weight="bold" letter-spacing="0em" transform="translate(105.015 149.263)">
+    <text fill="black" style="white-space: pre" font-family="Arimo" font-size="5.5" font-weight="bold" letter-spacing="0em" transform="translate(108.015 149.263)">
 	{{#if placeOfBirthFacility}}
 		{{{wrap placeOfBirthFacility}}}
 	{{else}}
@@ -29,7 +29,7 @@
       <tspan x="165.337" y="194.307">NIN: {{birthConfigurableIdentifier1}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="289.005" y="78.1697">{{location locationLevel4PlaceofbirthId 'name'}}</tspan>
+      <tspan x="289.005" y="80.1697">{{location locationLevel4PlaceofbirthId 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="5.75535" font-weight="bold" letter-spacing="0em">
       <tspan x="32.0142" y="224.5">{{uppercase registrar.name}}</tspan>
@@ -38,25 +38,25 @@
       <tspan x="296.4" y="240.679">{{location registrar.locationLevel4Id 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="119.74" y="268.499">{{location loggedInUser.officeId 'name'}}</tspan>
+      <tspan x="119.74" y="266.499">{{location loggedInUser.officeId 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="376.177" y="268.499">{{certificateDate}}</tspan>
+      <tspan x="376.177" y="266.499">{{certificateDate}}</tspan>
     </text>
-    <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
+    <text fill="black" style="white-space: pre" font-family="Arimo" font-size="12" font-weight="bold" letter-spacing="0em">
       <tspan x="61.3088" y="281.247">{{registrationFees}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="119.74" y="256.988">{{uppercase childFirstName}} {{uppercase childMiddleName}} {{uppercase childFamilyName}}</tspan>
+      <tspan x="119.74" y="254.988">{{uppercase childFirstName}} {{uppercase childMiddleName}} {{uppercase childFamilyName}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="436.45" y="78.1697">{{location locationLevel3PlaceofbirthId 'name'}}</tspan>
+      <tspan x="436.45" y="80.1697">{{location locationLevel3PlaceofbirthId 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
       <tspan x="466.744" y="241.679">{{location registrar.locationLevel3Id 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="697.8" y="77.1697">{{location districtPlaceofbirthId 'name'}}</tspan>
+      <tspan x="697.8" y="80.1697">{{location districtPlaceofbirthId 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
       <tspan x="656.153" y="242.679">{{location registrar.districtId 'name'}}</tspan>

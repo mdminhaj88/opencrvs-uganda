@@ -9,13 +9,13 @@
   {{/if}}
   <g clip-path="url(#clip0_252_2)" transform="matrix(1, 0, 0, 1, -0.000017000002117129043, -1.4282269477844274)">
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="129.373" y="267.284">{{location loggedInUser.officeId 'name'}}</tspan>
+      <tspan x="129.373" y="270.284">{{location loggedInUser.officeId 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="129.373" y="254.927">{{uppercase deceasedFirstName}} {{uppercase deceasedMiddleName}} {{uppercase deceasedFamilyName}}</tspan>
+      <tspan x="129.373" y="257.927">{{uppercase deceasedFirstName}} {{uppercase deceasedMiddleName}} {{uppercase deceasedFamilyName}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="33" y="227.927">{{uppercase registrar.name}}</tspan>
+      <tspan x="33" y="229.927">{{uppercase registrar.name}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
       <tspan x="290" y="79.9268">{{location locationLevel4PlaceofdeathId 'name'}}</tspan>
@@ -27,19 +27,19 @@
       <tspan x="633" y="79.9268">{{location districtPlaceofdeathId 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="306" y="241.927">{{location registrar.locationLevel4Id 'name'}}</tspan>
+      <tspan x="306" y="245.927">{{location registrar.locationLevel4Id 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="375.879" y="267.392">{{uppercase certificateDate}}</tspan>
+      <tspan x="375.879" y="271.392">{{uppercase certificateDate}}</tspan>
+    </text>
+    <text fill="black" style="white-space: pre" font-family="Arimo" font-size="12" font-weight="bold" letter-spacing="0em">
+      <tspan x="61.3088" y="286.247">{{registrationFees}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="61.3088" y="281.247">{{registrationFees}}</tspan>
+      <tspan x="492" y="245.927">{{location registrar.locationLevel3Id 'name'}}</tspan>
     </text>
     <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="492" y="241.927">{{location registrar.locationLevel3Id 'name'}}</tspan>
-    </text>
-    <text fill="black" style="white-space: pre" font-family="Arimo" font-size="7" font-weight="bold" letter-spacing="0em">
-      <tspan x="679.087" y="241.927">{{location registrar.districtId 'name'}}</tspan>
+      <tspan x="679.087" y="245.927">{{location registrar.districtId 'name'}}</tspan>
     </text>
     <text transform="translate(31 211) rotate(-90)" fill="black" style="white-space: pre" font-family="Arimo" font-size="6.47295" font-weight="bold" letter-spacing="0em">
       <tspan x="11.4964" y="5.74404">{{registrationNumber}}</tspan>
