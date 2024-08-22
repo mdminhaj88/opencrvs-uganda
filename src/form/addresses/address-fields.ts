@@ -33,7 +33,7 @@ export const getXAddressSameAsY = (
     type: 'RADIO_GROUP',
     label,
     required: true,
-    initialValue: true,
+    initialValue: false,
     validator: [],
     options: yesNoRadioOptions,
     conditionals: conditionals

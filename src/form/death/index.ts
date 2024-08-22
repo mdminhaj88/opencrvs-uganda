@@ -320,7 +320,6 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
               true
             ),
             // ADDRESS FIELDS WILL RENDER HERE
-            divider('point-of-contact-separator'),
             pointOfContactHeader(),
             registrationPhone,
             registrationEmail
