@@ -398,7 +398,7 @@ done
 echo "Setting up Kibana config & alerts"
 
 while true; do
-  if configured_ssh "HOST=kibana.$HOST /opt/opencrvs/infrastructure/monitoring/kibana/setup-config.sh"; then
+  if configured_ssh "HOST=kibana$HOST /opt/opencrvs/infrastructure/monitoring/kibana/setup-config.sh"; then
     break
   fi
   sleep 5
