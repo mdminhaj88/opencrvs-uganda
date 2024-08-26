@@ -63,59 +63,59 @@ services:
     environment:
       - LANGUAGES=en,fr
       - SENTRY_DSN=${SENTRY_DSN:-}
-      - COUNTRY=FAR
+      - COUNTRY=UGA
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   workflow:
     environment:
       - LANGUAGES=en,fr
       - SENTRY_DSN=${SENTRY_DSN:-}
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   search:
     environment:
       - SENTRY_DSN=${SENTRY_DSN:-}
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   metrics:
     environment:
       - SENTRY_DSN=${SENTRY_DSN:-}
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   auth:
     environment:
       - SENTRY_DSN=${SENTRY_DSN:-}
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   user-mgnt:
     environment:
       - SENTRY_DSN=${SENTRY_DSN:-}
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   webhooks:
     environment:
       - SENTRY_DSN=${SENTRY_DSN:-}
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   config:
     environment:
       - SENTRY_DSN=${SENTRY_DSN:-}
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   documents:
     environment:
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
 
   scheduler:
     environment:
       - QA_ENV=true
-      - NODE_ENV=production
+      - NODE_ENV=qa
