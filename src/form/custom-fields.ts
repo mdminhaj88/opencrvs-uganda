@@ -17,8 +17,6 @@ import {
 } from './types/types'
 import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getNationalIDValidators } from './common/default-validation-conditionals'
-import { camelCase } from 'lodash'
-import { uppercaseFirstLetter } from '@countryconfig/utils'
 import { MessageDescriptor } from 'react-intl'
 
 // ======================= CUSTOM FIELD CONFIGURATION =======================
@@ -394,55 +392,16 @@ export function declarationWitnessFields(
       conditionals: [],
       maxLength: 250
     },
-    {
-      name: 'witnessIdType',
-      customQuestionMappingId: `${event}.witness.witness-view-group.witnessIdType`,
-      custom: true,
-      required,
-      type: 'SELECT_WITH_OPTIONS',
-      label: {
-        id: 'form.field.label.iDType',
-        description: 'A form field that asks for the type of ID.',
-        defaultMessage: 'Type of ID'
-      },
-      initialValue: '',
-      validator: [],
-      mapping: getCustomFieldMapping(
-        `${event}.witness.witness-view-group.witnessIdType`
-      ),
-      placeholder: formMessageDescriptors.formSelectPlaceholder,
-      conditionals: [],
-      options: idTypeOptions
-    },
-    ...idTypeOptions
-      .filter((opt) => opt.value !== 'NONE')
-      .map(({ value }): SerializedFormField => {
-        const fieldName = `witness${uppercaseFirstLetter(camelCase(value))}`
-        return {
-          name: fieldName,
-          customQuestionMappingId: `${event}.witness.witness-view-group.${fieldName}`,
-          required,
-          custom: true,
-          type: 'TEXT',
-          label: {
-            id: 'form.field.label.iD',
-            description: 'A form field that asks for the id number.',
-            defaultMessage: 'ID number'
-          },
-          initialValue: '',
-          validator: [],
-          mapping: getCustomFieldMapping(
-            `${event}.witness.witness-view-group.${fieldName}`
-          ),
-          conditionals: [
-            {
-              action: 'hide',
-              expression: `(values.witnessIdType!=="${value}") || (values.witnessIdType==="NONE")`
-            }
-          ],
-          maxLength: 250
-        }
-      }),
+    getIDType(event, 'witness', [], required),
+    ...getIdNumberFields('witness', [], required).map((fieldDef) => {
+      return {
+        ...fieldDef,
+        customQuestionMappingId: `${event}.witness.witness-view-group.${fieldDef.name}`,
+        mapping: getCustomFieldMapping(
+          `${event}.witness.witness-view-group.${fieldDef.name}`
+        )
+      }
+    }),
     pointOfContactHeader(),
     {
       name: 'registrationPhone',
