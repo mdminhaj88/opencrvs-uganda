@@ -28,7 +28,7 @@ export const defaultApplicationConfig = {
   PHONE_NUMBER_PATTERN: '^(03|07)[0-9]{8}$',
   NID_NUMBER_PATTERN: '^[a-zA-Z0-9]{14}$',
   LOGIN_BACKGROUND: {
-    backgroundColor: '36304E'
+    backgroundColor: 'D10026'
   },
   MARRIAGE: {
     REGISTRATION_TARGET: 90,

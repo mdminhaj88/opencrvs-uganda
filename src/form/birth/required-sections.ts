@@ -2,7 +2,7 @@ import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/ma
 import { formMessageDescriptors } from '../common/messages'
 import { ISerializedFormSection } from '../types/types'
 import { getFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
-import { informantsSignature } from '../common/common-optional-fields'
+import { getInformantsSignature } from '../common/common-optional-fields'
 
 export const registrationSection = {
   id: 'registration', // A hidden 'registration' section must be included to store identifiers in a form draft that are used in certificates
@@ -33,6 +33,7 @@ export const birthDocumentType = {
   PASSPORT: 'PASSPORT',
   ALIEN_ID: 'ALIEN_ID',
   REFUGEE_ID: 'REFUGEE_ID',
+  REFUGEE_ATTESTATION_ID: 'REFUGEE_ATTESTATION_ID',
   OTHER: 'OTHER',
   NOTIFICATION_OF_BIRTH: 'NOTIFICATION_OF_BIRTH',
   POLICE_REPORT: 'POLICE_REPORT',
@@ -63,7 +64,7 @@ export const documentsSection = {
         {
           name: 'uploadDocForChildDOB',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.proofOfBirth,
+          label: formMessageDescriptors.docTypeChildBirthProof,
           initialValue: '',
           extraValue: birthDocumentExtraValue.CHILD,
           hideAsterisk: true,
@@ -71,7 +72,7 @@ export const documentsSection = {
           options: [
             {
               value: birthDocumentType.NOTIFICATION_OF_BIRTH,
-              label: formMessageDescriptors.docTypeChildBirthProof
+              label: formMessageDescriptors.form3
             }
           ],
           mapping: getFieldMapping('documents')
@@ -100,6 +101,10 @@ export const documentsSection = {
             {
               value: birthDocumentType.REFUGEE_ID,
               label: formMessageDescriptors.iDTypeRefugeeNumber
+            },
+            {
+              value: birthDocumentType.REFUGEE_ATTESTATION_ID,
+              label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
           conditionals: [
@@ -136,6 +141,10 @@ export const documentsSection = {
             {
               value: birthDocumentType.REFUGEE_ID,
               label: formMessageDescriptors.iDTypeRefugeeNumber
+            },
+            {
+              value: birthDocumentType.REFUGEE_ATTESTATION_ID,
+              label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
           conditionals: [
@@ -172,6 +181,10 @@ export const documentsSection = {
             {
               value: birthDocumentType.REFUGEE_ID,
               label: formMessageDescriptors.iDTypeRefugeeNumber
+            },
+            {
+              value: birthDocumentType.REFUGEE_ATTESTATION_ID,
+              label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
           conditionals: [
@@ -221,7 +234,15 @@ export const previewSection = {
   groups: [
     {
       id: 'preview-view-group',
-      fields: [informantsSignature]
+      fields: [
+        getInformantsSignature([
+          {
+            action: 'hide',
+            expression:
+              'Boolean(draftData.documents?.uploadDocForChildDOB?.[0]?.data)'
+          }
+        ])
+      ]
     }
   ]
 } satisfies ISerializedFormSection
@@ -234,7 +255,15 @@ export const reviewSection = {
   groups: [
     {
       id: 'review-view-group',
-      fields: [informantsSignature]
+      fields: [
+        getInformantsSignature([
+          {
+            action: 'hide',
+            expression:
+              'Boolean(draftData.documents?.uploadDocForChildDOB?.[0]?.data)'
+          }
+        ])
+      ]
     }
   ]
 } satisfies ISerializedFormSection

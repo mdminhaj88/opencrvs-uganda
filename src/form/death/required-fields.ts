@@ -21,7 +21,13 @@ import {
   mannerOfDeathOptions,
   placeOfDeathOptions
 } from '../common/select-options'
-import { SerializedFormField, TEXTAREA, Conditional } from '../types/types'
+import {
+  SerializedFormField,
+  TEXTAREA,
+  Conditional,
+  ISelectOption,
+  IFormSectionData
+} from '../types/types'
 import { certificateHandlebars } from './certficate-handlebars'
 import { getEventLocationSelectionMapping } from '@countryconfig/utils/address-utils'
 
@@ -57,6 +63,19 @@ export const deathInformantType: SerializedFormField = {
   options: deathInformantTypeOptions
 }
 
+const mannerOfDeathConditional = ({
+  field,
+  values
+}: {
+  field: ISelectOption
+  values: IFormSectionData
+}) => {
+  if (field.value !== 'BODY_FOUND') {
+    return true
+  }
+  return values.placeOfDeath !== 'HEALTH_FACILITY'
+}
+
 export const getMannerOfDeath: SerializedFormField = {
   name: 'mannerOfDeath',
   type: 'SELECT_WITH_OPTIONS',
@@ -66,10 +85,11 @@ export const getMannerOfDeath: SerializedFormField = {
   validator: [],
   placeholder: formMessageDescriptors.formSelectPlaceholder,
   options: mannerOfDeathOptions,
+  optionCondition: `${mannerOfDeathConditional}`,
   mapping: getFieldMapping('mannerOfDeath', certificateHandlebars.mannerOfDeath)
 }
 
-export const getCauseOfDeath: SerializedFormField = {
+export const getCauseOfDeathEstablished: SerializedFormField = {
   name: 'causeOfDeathEstablished',
   type: 'CHECKBOX',
   label: formMessageDescriptors.causeOfDeathEstablished,

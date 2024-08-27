@@ -193,6 +193,9 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
           expressionToConditional(
             `!${primaryAddressSameAsOtherPrimaryAddress}`,
             'hideInPreview'
+          ),
+          expressionToConditional(
+            `values.informantType === 'HEALTH_FACILITY_ADMINISTRATOR'`
           )
         ],
         xComparisonSection: 'informant',

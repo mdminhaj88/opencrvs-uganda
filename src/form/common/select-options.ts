@@ -24,6 +24,7 @@ import {
 
 export const informantTypes = {
   HEALTH_FACILITY_ADMINISTRATOR: 'HEALTH_FACILITY_ADMINISTRATOR',
+  POLICE: 'POLICE',
   SPOUSE: 'SPOUSE',
   SON: 'SON',
   DAUGHTER: 'DAUGHTER',
@@ -34,6 +35,8 @@ export const informantTypes = {
   GRANDSON: 'GRANDSON',
   GRANDDAUGHTER: 'GRANDDAUGHTER',
   OTHER: 'OTHER',
+  UNCLE: 'UNCLE',
+  AUNT: 'AUNT',
   GROOM: 'GROOM',
   BRIDE: 'BRIDE',
   GRANDFATHER: 'GRANDFATHER',
@@ -156,12 +159,24 @@ export const birthInformantTypeOptions: ISelectOption[] = [
     label: informantMessageDescriptors.HEALTH_FACILITY_ADMINISTRATOR
   },
   {
+    value: informantTypes.POLICE,
+    label: informantMessageDescriptors.POLICE
+  },
+  {
     value: informantTypes.MOTHER,
     label: informantMessageDescriptors.MOTHER
   },
   {
     value: informantTypes.FATHER,
     label: informantMessageDescriptors.FATHER
+  },
+  {
+    value: informantTypes.UNCLE,
+    label: informantMessageDescriptors.UNCLE
+  },
+  {
+    value: informantTypes.AUNT,
+    label: informantMessageDescriptors.AUNT
   },
   {
     value: informantTypes.GRANDFATHER,
@@ -310,6 +325,10 @@ export const mannerOfDeathOptions: ISelectOption[] = [
   {
     value: 'MANNER_UNDETERMINED',
     label: formMessageDescriptors.mannerUndetermined
+  },
+  {
+    value: 'LEGAL_INTERVENTION',
+    label: formMessageDescriptors.legalIntervention
   },
   {
     value: 'BODY_FOUND',

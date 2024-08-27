@@ -2,7 +2,7 @@ import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/ma
 import { formMessageDescriptors } from '../common/messages'
 import { ISerializedFormSection } from '../types/types'
 import { getFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
-import { informantsSignature } from '../common/common-optional-fields'
+import { getInformantsSignature } from '../common/common-optional-fields'
 
 export const registrationSection = {
   id: 'registration',
@@ -19,6 +19,7 @@ export const registrationSection = {
 export const deathDocumentExtraValue = {
   DECEASED_ID_PROOF: 'DECEASED_ID_PROOF',
   DECEASED_DEATH_PROOF: 'DECEASED_DEATH_PROOF',
+  DECEASED_DEATH_NOTIFICATION: 'DECEASED_DEATH_NOTIFICATION',
   DECEASED_DEATH_CAUSE_PROOF: 'DECEASED_DEATH_CAUSE_PROOF',
   INFORMANT_ID_PROOF: 'INFORMANT_ID_PROOF'
 }
@@ -26,8 +27,13 @@ export const deathDocumentExtraValue = {
 export const deathDocumentType = {
   HOSPITAL_CERTIFICATE_OF_DEATH: 'HOSPITAL_CERTIFICATE_OF_DEATH',
   ATTESTED_LETTER_OF_DEATH: 'ATTESTED_LETTER_OF_DEATH',
+  PROOF_OF_CAUSE_OF_DEATH: 'PROOF_OF_CAUSE_OF_DEATH',
+  MEDICAL_CERTIFICATE_OF_CAUSE_OF_DEATH:
+    'MEDICAL_CERTIFICATE_OF_CAUSE_OF_DEATH',
   BURIAL_RECEIPT: 'BURIAL_RECEIPT',
+  FORM_12: 'FORM_12',
   POLICE_CERTIFICATE_OF_DEATH: 'POLICE_CERTIFICATE_OF_DEATH',
+  POLICE_REPORT: 'POLICE_REPORT',
   MEDICALLY_CERTIFIED_CAUSE_OF_DEATH: 'MEDICALLY_CERTIFIED_CAUSE_OF_DEATH',
   VERBAL_AUTOPSY_REPORT: 'VERBAL_AUTOPSY_REPORT',
   CORONERS_REPORT: 'CORONERS_REPORT',
@@ -55,6 +61,23 @@ export const documentsSection = {
           validator: []
         },
         {
+          name: 'uploadDocForDeceasedDeathNotification',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.deceasedDeathNotification,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_DEATH_NOTIFICATION,
+          hideAsterisk: true,
+          validator: [],
+          conditionals: [],
+          options: [
+            {
+              value: deathDocumentType.FORM_12,
+              label: formMessageDescriptors.form12
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
           name: 'uploadDocForDeceasedDeath',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
           label: formMessageDescriptors.deceasedDeathProof,
@@ -62,10 +85,44 @@ export const documentsSection = {
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
           hideAsterisk: true,
           validator: [],
+          conditionals: [
+            {
+              action: 'hide',
+              expression:
+                'draftData?.deathEvent?.causeOfDeathEstablished === "true"'
+            },
+            {
+              action: 'hide',
+              expression: 'draftData?.deathEvent?.placeOfDeath !== "OTHER"'
+            }
+          ],
           options: [
             {
               value: deathDocumentType.ATTESTED_LETTER_OF_DEATH,
               label: formMessageDescriptors.docTypeLetterOfDeath
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
+          name: 'uploadDocForProofOfCauseOfDeath',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.proofOfCauseOfDeath,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
+          hideAsterisk: true,
+          validator: [],
+          conditionals: [
+            {
+              action: 'hide',
+              expression:
+                'draftData?.deathEvent?.placeOfDeath !== "HEALTH_FACILITY"'
+            }
+          ],
+          options: [
+            {
+              value: deathDocumentType.PROOF_OF_CAUSE_OF_DEATH,
+              label: formMessageDescriptors.proofOfCauseOfDeath
             }
           ],
           mapping: getFieldMapping('documents')
@@ -89,6 +146,28 @@ export const documentsSection = {
             {
               value: deathDocumentType.MEDICALLY_CERTIFIED_CAUSE_OF_DEATH,
               label: formMessageDescriptors.medicallyCertified
+            }
+          ],
+          mapping: getFieldMapping('documents')
+        },
+        {
+          name: 'uploadDocForPoliceReport',
+          type: 'DOCUMENT_UPLOADER_WITH_OPTION',
+          label: formMessageDescriptors.deceasedDeathProof,
+          initialValue: '',
+          extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
+          validator: [],
+          conditionals: [
+            {
+              action: 'hide',
+              expression:
+                '!["ACCIDENT", "SUICIDE", "HOMICIDE", "BODY_FOUND"].includes(draftData?.deathEvent?.mannerOfDeath)'
+            }
+          ],
+          options: [
+            {
+              value: deathDocumentType.POLICE_REPORT,
+              label: formMessageDescriptors.policeReport
             }
           ],
           mapping: getFieldMapping('documents')
@@ -162,7 +241,15 @@ export const previewSection = {
   groups: [
     {
       id: 'preview-view-group',
-      fields: [informantsSignature]
+      fields: [
+        getInformantsSignature([
+          {
+            action: 'hide',
+            expression:
+              'Boolean(draftData.documents?.uploadDocForDeceasedDeathNotification?.[0]?.data)'
+          }
+        ])
+      ]
     }
   ]
 } satisfies ISerializedFormSection
@@ -175,7 +262,15 @@ export const reviewSection = {
   groups: [
     {
       id: 'review-view-group',
-      fields: [informantsSignature]
+      fields: [
+        getInformantsSignature([
+          {
+            action: 'hide',
+            expression:
+              'Boolean(draftData.documents?.uploadDocForDeceasedDeathNotification?.[0]?.data)'
+          }
+        ])
+      ]
     }
   ]
 } satisfies ISerializedFormSection

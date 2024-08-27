@@ -9,22 +9,20 @@
  * Copyright (C) The OpenCRVS Authors located at https://github.com/opencrvs/opencrvs-core/blob/master/AUTHORS.
  */
 import { formMessageDescriptors } from './common/messages'
-import { AddressCases, Conditional, SerializedFormField } from './types/types'
+import {
+  Conditional,
+  IFormSectionData,
+  ISelectOption,
+  SerializedFormField
+} from './types/types'
 import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getNationalIDValidators } from './common/default-validation-conditionals'
-import { camelCase } from 'lodash'
-import { uppercaseFirstLetter } from '@countryconfig/utils'
 import { MessageDescriptor } from 'react-intl'
-import { getAddressFields } from './addresses/address-fields'
 
 // ======================= CUSTOM FIELD CONFIGURATION =======================
 
 // A CUSTOM FIELD CAN BE ADDED TO APPEAR IN ANY SECTION
 // DUPLICATE AND RENAME FUNCTIONS LIKE THESE IN ORDER TO USE SIMILAR FIELDS
-
-type ArrayElement<ArrayType> = ArrayType extends readonly (infer ElementType)[]
-  ? ElementType
-  : never
 
 export const idTypeOptions = [
   {
@@ -60,6 +58,14 @@ export const idTypeOptions = [
     }
   },
   {
+    value: 'REFUGEE_ATTESTATION_ID' as const,
+    label: {
+      defaultMessage: 'Refugee Attestation ID',
+      description: 'Option for form field: Type of ID',
+      id: 'form.field.label.iDTypeRefugeeAttestationID'
+    }
+  },
+  {
     value: 'NONE' as const,
     label: {
       defaultMessage: 'None',
@@ -69,7 +75,23 @@ export const idTypeOptions = [
   }
 ]
 
-type IDType = ArrayElement<typeof idTypeOptions>['value']
+const idTypeConditional = ({
+  field,
+  values
+}: {
+  field: ISelectOption
+  values: IFormSectionData
+}) => {
+  if (
+    ['ALIEN_ID', 'REFUGEE_ID', 'REFUGEE_ATTESTATION_ID'].includes(field.value)
+  ) {
+    return values.nationality !== 'UGA'
+  }
+  if (field.value === 'NATIONAL_ID') {
+    return values.nationality === 'UGA'
+  }
+  return true
+}
 
 export function getIDType(
   event: 'birth' | 'death' | 'marriage',
@@ -91,6 +113,7 @@ export function getIDType(
       defaultMessage: 'Type of ID'
     },
     initialValue: '',
+    optionCondition: `${idTypeConditional}`,
     validator: [],
     mapping: getCustomFieldMapping(fieldId),
     placeholder: formMessageDescriptors.formSelectPlaceholder,
@@ -99,69 +122,184 @@ export function getIDType(
   }
 }
 
-function getValidators(configCase: string, idValue: IDType) {
-  if (idValue === 'NATIONAL_ID') {
-    return getNationalIDValidators(configCase)
-  }
-  return []
-}
-
-export function getIDNumber(
+export function getIdNumberFields(
   sectionId: string,
-  idValue: IDType,
   conditionals: Conditional[] = [],
-  required: boolean
-): SerializedFormField {
-  const fieldName: string = `${sectionId}${uppercaseFirstLetter(
-    camelCase(idValue)
-  )}`
-  const validators = getValidators(sectionId, idValue)
-
-  return {
-    name: fieldName,
-    required,
-    custom: true,
-    type: 'TEXT',
-    label: {
-      id: 'form.field.label.iD',
-      description: 'A form field that asks for the id number.',
-      defaultMessage: 'ID number'
-    },
-    initialValue: '',
-    validator: validators,
-    mapping: {
-      template: {
-        fieldName: fieldName,
-        operation: 'identityToFieldTransformer',
-        parameters: ['id', idValue]
+  required = true
+): SerializedFormField[] {
+  return [
+    {
+      name: `${sectionId}NationalId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        id: 'form.field.label.nin',
+        description: 'A form field that asks for the nin',
+        defaultMessage: 'NIN'
       },
-      mutation: {
-        operation: 'fieldToIdentityTransformer',
-        parameters: ['id', idValue]
+      initialValue: '',
+      validator: getNationalIDValidators(sectionId),
+      mapping: {
+        template: {
+          fieldName: `${sectionId}NationalId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'NATIONAL_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'NATIONAL_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'NATIONAL_ID']
+        }
       },
-      query: {
-        operation: 'identityToFieldTransformer',
-        parameters: ['id', idValue]
-      }
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "NATIONAL_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 14
     },
-    conditionals: [
-      {
-        action: 'hide',
-        expression: `(values.${sectionId}IdType!=="${idValue}") || (values.${sectionId}IdType==="NONE")`
-      }
-    ].concat(conditionals),
-    maxLength: 250
-  }
-}
-
-export function getIDNumberFields(
-  section: string,
-  conditionals: Conditional[] = [],
-  required: boolean
-) {
-  return idTypeOptions
-    .filter((opt) => opt.value !== 'NONE')
-    .map((opt) => getIDNumber(section, opt.value, conditionals, required))
+    {
+      name: `${sectionId}Passport`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        id: 'form.field.label.passportNumber',
+        description: 'A form field that asks for the passport number',
+        defaultMessage: 'Passport Number'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}Passport`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'PASSPORT']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'PASSPORT']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'PASSPORT']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "PASSPORT" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    },
+    {
+      name: `${sectionId}AlienId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        defaultMessage: 'Alien ID',
+        description: 'Option for form field: Type of ID',
+        id: 'form.field.label.iDTypeAlienID'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}AlienId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'ALIEN_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'ALIEN_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'ALIEN_ID']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "ALIEN_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    },
+    {
+      name: `${sectionId}RefugeeId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: {
+        defaultMessage: 'Refugee ID',
+        description: 'Option for form field: Type of ID',
+        id: 'form.field.label.iDTypeRefugeeID'
+      },
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}RefugeeId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'REFUGEE_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ID']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "REFUGEE_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    },
+    {
+      name: `${sectionId}RefugeeAttestationId`,
+      required,
+      custom: true,
+      type: 'TEXT',
+      label: formMessageDescriptors.iDTypeRefugeeAttestationID,
+      initialValue: '',
+      validator: [],
+      mapping: {
+        template: {
+          fieldName: `${sectionId}RefugeeAttestationId`,
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ATTESTATION_ID']
+        },
+        mutation: {
+          operation: 'fieldToIdentityTransformer',
+          parameters: ['id', 'REFUGEE_ATTESTATION_ID']
+        },
+        query: {
+          operation: 'identityToFieldTransformer',
+          parameters: ['id', 'REFUGEE_ATTESTATION_ID']
+        }
+      },
+      conditionals: [
+        {
+          action: 'hide',
+          expression: `values.${sectionId}IdType !== "REFUGEE_ATTESTATION_ID" || values.${sectionId}IdType === "NONE"`
+        }
+      ].concat(conditionals),
+      maxLength: 32
+    }
+  ]
 }
 
 export function reasonForLateRegistration(
@@ -203,8 +341,7 @@ export function pointOfContactHeader(): SerializedFormField {
 
 export function declarationWitnessFields(
   event: 'birth' | 'death',
-  required: boolean,
-  addressHierarchy: string[]
+  required: boolean
 ): SerializedFormField[] {
   return [
     {
@@ -255,77 +392,53 @@ export function declarationWitnessFields(
       conditionals: [],
       maxLength: 250
     },
+    getIDType(event, 'witness', [], required),
+    ...getIdNumberFields('witness', [], required).map((fieldDef) => {
+      return {
+        ...fieldDef,
+        customQuestionMappingId: `${event}.witness.witness-view-group.${fieldDef.name}`,
+        mapping: getCustomFieldMapping(
+          `${event}.witness.witness-view-group.${fieldDef.name}`
+        )
+      }
+    }),
+    pointOfContactHeader(),
     {
-      name: 'witnessIdType',
-      customQuestionMappingId: `${event}.witness.witness-view-group.witnessIdType`,
+      name: 'registrationPhone',
+      customQuestionMappingId: `${event}.witness.witness-view-group.registrationPhone`,
       custom: true,
-      required,
-      type: 'SELECT_WITH_OPTIONS',
-      label: {
-        id: 'form.field.label.iDType',
-        description: 'A form field that asks for the type of ID.',
-        defaultMessage: 'Type of ID'
-      },
+      type: 'TEL',
+      label: formMessageDescriptors.phoneNumber,
+      required: false,
       initialValue: '',
-      validator: [],
-      mapping: getCustomFieldMapping(
-        `${event}.witness.witness-view-group.witnessIdType`
-      ),
-      placeholder: formMessageDescriptors.formSelectPlaceholder,
-      conditionals: [],
-      options: idTypeOptions
-    },
-    ...idTypeOptions
-      .filter((opt) => opt.value !== 'NONE')
-      .map(({ value }): SerializedFormField => {
-        const fieldName = `witness${uppercaseFirstLetter(camelCase(value))}`
-        return {
-          name: fieldName,
-          customQuestionMappingId: `${event}.witness.witness-view-group.${fieldName}`,
-          required,
-          custom: true,
-          type: 'TEXT',
-          label: {
-            id: 'form.field.label.iD',
-            description: 'A form field that asks for the id number.',
-            defaultMessage: 'ID number'
-          },
-          initialValue: '',
-          validator: [],
-          mapping: getCustomFieldMapping(
-            `${event}.witness.witness-view-group.${fieldName}`
-          ),
-          conditionals: [
-            {
-              action: 'hide',
-              expression: `(values.witnessIdType!=="${value}") || (values.witnessIdType==="NONE")`
-            }
-          ],
-          maxLength: 250
+      validator: [
+        {
+          operation: 'phoneNumberFormat'
         }
-      }),
-    {
-      name: 'placeOfResidenceTitle',
-      type: 'HEADING3',
-      label: formMessageDescriptors.primaryAddress,
-      previewGroup: 'placeOfResidence',
-      initialValue: '',
-      validator: [],
-      conditionals: []
-    },
-    ...getAddressFields(
-      'witness',
-      AddressCases.PRIMARY_ADDRESS,
-      addressHierarchy
-    ).map((field) => ({
-      ...field,
-      custom: true,
-      customQuestionMappingId: `${event}.witness.witness-view-group.${field.name}`,
-      previewGroup: 'placeOfResidence',
+      ],
+      conditionals: [],
       mapping: getCustomFieldMapping(
-        `${event}.witness.witness-view-group.${field.name}`
+        `${event}.witness.witness-view-group.registrationPhone`
       )
-    }))
+    },
+    {
+      name: 'registrationEmail',
+      customQuestionMappingId: `${event}.witness.witness-view-group.registrationEmail`,
+      custom: true,
+      type: 'TEXT',
+      label: formMessageDescriptors.email,
+      required: false,
+      initialValue: '',
+      validator: [
+        {
+          operation: 'emailAddressFormat'
+        }
+      ],
+      conditionals: [],
+      mapping: getCustomFieldMapping(
+        `${event}.witness.witness-view-group.registrationEmail`
+      )
+    }
   ]
 }
 export function createCustomFieldExample(): SerializedFormField {

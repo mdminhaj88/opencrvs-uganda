@@ -28,7 +28,7 @@ import {
 } from '../common/common-required-fields'
 import {
   deathInformantType,
-  getCauseOfDeath,
+  getCauseOfDeathEstablished,
   getDeathDate,
   getMannerOfDeath
 } from './required-fields'
@@ -77,14 +77,14 @@ import { certificateHandlebars } from './certficate-handlebars'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import {
   declarationWitnessFields,
-  getIDNumberFields,
+  getIdNumberFields,
   getIDType,
   pointOfContactHeader,
   reasonForLateRegistration
 } from '../custom-fields'
 import {
   deceasedPlaceOfBirth,
-  icd11code,
+  causeOfDeath,
   individualWhoFoundTheBody,
   timeOfDeath
 } from './custom-fields'
@@ -200,7 +200,7 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             ), // Required field.  Names in Latin characters must be provided for international passport
             getNationality(certificateHandlebars.deceasedNationality, []),
             getIDType('death', 'deceased', [], true),
-            ...getIDNumberFields('deceased', [], true),
+            ...getIdNumberFields('deceased', [], true),
             getGender(certificateHandlebars.deceasedGender), // Required field.
             getBirthDate(
               'deceasedBirthDate',
@@ -259,8 +259,8 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             // PLACE OF DEATH FIELDS WILL RENDER HERE
             getMannerOfDeath,
             ...individualWhoFoundTheBody(),
-            getCauseOfDeath,
-            icd11code()
+            getCauseOfDeathEstablished,
+            causeOfDeath()
           ]
         }
       ]
@@ -314,13 +314,12 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             ),
             getNationality(certificateHandlebars.informantNationality, []),
             getIDType('death', 'informant', hideIfNidIntegrationEnabled, true),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'informant',
               hideIfNidIntegrationEnabled,
               true
             ),
             // ADDRESS FIELDS WILL RENDER HERE
-            divider('point-of-contact-separator'),
             pointOfContactHeader(),
             registrationPhone,
             registrationEmail
@@ -544,7 +543,14 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
       groups: [
         {
           id: 'witness-view-group',
-          fields: declarationWitnessFields('death', true, addressHierarchy)
+          fields: declarationWitnessFields('death', true),
+          conditionals: [
+            {
+              action: 'hide',
+              expression:
+                "draftData?.deathEvent?.placeOfDeath === 'HEALTH_FACILITY'"
+            }
+          ]
         }
       ]
     },

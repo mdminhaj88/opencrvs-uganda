@@ -78,7 +78,7 @@ import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/ma
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import {
   declarationWitnessFields,
-  getIDNumberFields,
+  getIdNumberFields,
   getIDType,
   pointOfContactHeader,
   reasonForLateRegistration,
@@ -86,7 +86,7 @@ import {
   getCertificateLateCost,
   getCertificateDelayedCost
 } from '../custom-fields'
-import { motherMaidenName, timeOfBirth } from './custom-fields'
+import { timeOfBirth } from './custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
 
 // ======================= FORM CONFIGURATION =======================
@@ -293,7 +293,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
               true
             ),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'informant',
               hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
               true
@@ -358,7 +358,6 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               motherFamilyNameConditionals,
               certificateHandlebars.motherFamilyName
             ), // Required field.
-            motherMaidenName(),
             getBirthDate(
               'motherBirthDate',
               mothersBirthDateConditionals,
@@ -383,7 +382,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
             ),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'mother',
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
@@ -468,7 +467,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
             ),
-            ...getIDNumberFields(
+            ...getIdNumberFields(
               'father',
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
@@ -495,7 +494,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
       groups: [
         {
           id: 'witness-view-group',
-          fields: declarationWitnessFields('birth', false, addressHierarchy),
+          fields: declarationWitnessFields('birth', false),
           conditionals: [
             {
               action: 'hide',

@@ -17,6 +17,11 @@ export const informantMessageDescriptors = {
     description: 'Who is applying for birth registration',
     id: 'register.selectInformant.birthInformantTitle'
   },
+  POLICE: {
+    defaultMessage: 'Police',
+    description: 'Label for option police',
+    id: 'form.field.label.informantRelation.police'
+  },
   MOTHER: {
     defaultMessage: 'Mother',
     description: 'Label for option mother',
@@ -26,6 +31,16 @@ export const informantMessageDescriptors = {
     defaultMessage: 'Father',
     description: 'Label for option father',
     id: 'form.field.label.informantRelation.father'
+  },
+  UNCLE: {
+    defaultMessage: 'Uncle',
+    description: 'Label for option Uncle',
+    id: 'form.field.label.informantRelation.uncle'
+  },
+  AUNT: {
+    defaultMessage: 'Aunt',
+    description: 'Label for option Aunt',
+    id: 'form.field.label.informantRelation.aunt'
   },
   GRANDFATHER: {
     defaultMessage: 'Grandfather',
@@ -522,6 +537,11 @@ export const formMessageDescriptors = {
     description: 'Label for list item Proof of birth',
     id: 'form.field.label.proofOfBirth'
   },
+  form3: {
+    defaultMessage: 'Form 3',
+    description: 'Label for select option form 3',
+    id: 'form.field.label.form3'
+  },
   docTypeChildBirthProof: {
     defaultMessage: 'Notification of birth',
     description: 'Label for select option Notification of birth',
@@ -674,6 +694,11 @@ export const formMessageDescriptors = {
     description: 'Option for form field: Manner of death',
     id: 'form.field.label.mannerOfDeathHomicide'
   },
+  legalIntervention: {
+    defaultMessage: 'Legal intervention',
+    description: 'Option for form field: Legal intervention',
+    id: 'form.field.label.mannerOfDeathLegalIntervention'
+  },
   mannerUndetermined: {
     defaultMessage: 'Manner undetermined',
     description: 'Option for form field: Manner of death',
@@ -700,7 +725,7 @@ export const formMessageDescriptors = {
     id: 'form.field.label.verbalAutopsy'
   },
   medicallyCertified: {
-    defaultMessage: 'Medically Certified Cause of Death',
+    defaultMessage: 'Medical certificate of cause of death',
     description: 'Option for form field: Method of Cause of Death',
     id: 'form.field.label.medicallyCertified'
   },
@@ -747,10 +772,25 @@ export const formMessageDescriptors = {
     description: 'Option for radio group field: Type of Document To Upload',
     id: 'form.field.label.deceasedIDProof'
   },
+  deceasedDeathNotification: {
+    defaultMessage: 'Notification of death',
+    description: 'Label for document upload field: Notification of death',
+    id: 'form.field.label.deceasedDeathNotification'
+  },
   deceasedDeathProof: {
     defaultMessage: 'Proof of death of deceased',
     description: 'Option for radio group field: Type of Document To Upload',
     id: 'form.field.label.deceasedDeathProof'
+  },
+  proofOfCauseOfDeath: {
+    defaultMessage: 'Proof of cause of death',
+    description: 'Label for field: Proof of cause of death',
+    id: 'form.field.label.proofOfCauseOfDeath'
+  },
+  form12: {
+    defaultMessage: 'Form 12',
+    description: 'Label for select option Form 12',
+    id: 'form.field.label.form12'
   },
   docTypeLetterOfDeath: {
     defaultMessage: 'Attested letter of death',
@@ -936,6 +976,11 @@ export const formMessageDescriptors = {
     defaultMessage: 'Birth registration number (in English)',
     description: 'Option for form field: Type of ID',
     id: 'form.field.label.iDTypeBRN'
+  },
+  iDTypeRefugeeAttestationID: {
+    defaultMessage: 'Refugee Attestation ID',
+    description: 'Option for form field: Type of ID',
+    id: 'form.field.label.iDTypeRefugeeAttestationID'
   },
   iDTypeRefugeeNumber: {
     defaultMessage: 'Refugee Number',
