@@ -41,7 +41,7 @@ all:
 
 docker-manager-first:
   hosts:
-    opencrvs-staging: # @todo set this to be the hostname of your target server
+    opencrvs-staging-VMware-Virtual-Platform: # @todo set this to be the hostname of your target server
       ansible_host: '10.40.0.110' # todo set this to be the hostname of your target server
       data_label: data1
       # If you are using a jump server to access this environment, enter other SSH args here.
