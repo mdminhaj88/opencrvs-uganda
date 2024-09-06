@@ -1,8 +1,8 @@
 {
-  "name": "OpenCRVS",
-  "short_name": "OpenCRVS",
-  "theme_color": "#4c68c1",
-  "background_color": "#4c68c1",
+  "name": "NSIS-CRVS",
+  "short_name": "NSIS-CRVS",
+  "theme_color": "#D10026",
+  "background_color": "#D10026",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
