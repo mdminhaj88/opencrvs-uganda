@@ -1196,6 +1196,7 @@ form.field.label.motherPlaceOfHeritage,,What is her place of origin (heritage)?,
 form.field.label.motherPrimaryAddress,,Usual place of residence,Quelle est l'adresse de son domicile ?
 form.field.label.mothersDetailsExist,,Mother's details are not available,Les coordonnées de la mère ne sont pas disponibles
 form.field.label.multipleBirth,,Parity,Nombre de naissances antérieures
+form.field.label.multipleBirthHint,,Parity is the number of times a woman has given birth (birth order of the child according to the mother),Parity is the number of times a woman has given birth (birth order of the child according to the mother)
 form.field.label.name,,Name,Nom
 form.field.label.nationality,,Nationality,Nationalité
 form.field.label.nin,,NIN,NIN

@@ -73,13 +73,19 @@ export const multipleBirth: SerializedFormField = {
     description: 'Label for form field: multipleBirth',
     id: 'form.field.label.multipleBirth'
   },
+  helperText: {
+    defaultMessage:
+      'Parity is the number of times a woman has given birth (birth order of the child according to the mother)',
+    description: 'Hint for form field: multipleBirth',
+    id: 'form.field.label.multipleBirthHint'
+  },
   conditionals: [
     {
       action: 'hide',
       expression: '!values.detailsExist'
     }
   ],
-  required: true,
+  required: false,
   initialValue: '',
   validator: [
     {
