@@ -207,12 +207,7 @@ export function causeOfDeath(): SerializedFormField {
     initialValue: '',
     validator: [],
     mapping: getCustomFieldMapping(fieldId),
-    conditionals: [
-      {
-        action: 'hide',
-        expression: 'values.causeOfDeathEstablished === "false"'
-      }
-    ],
+    conditionals: [],
     maxLength: 250
   }
 }
