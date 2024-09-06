@@ -1618,7 +1618,7 @@ performance.reports.subHeader.completenessRates,Sub header for report completene
 performance.reports.subHeader.totalCertificates,Sub header for report total certificates,"Certification rate is the no. of certificates issues, expressed as a percentage of the total number of registrations","Le taux de certification est le nombre de certificats émis, exprimé en pourcentage du nombre total d'enregistrements."
 performance.stats.header,Title for perforamce stats,Stats,Stats
 performance.values.labels.birth.healthFacility,Label text for display showing health facility births,Health facility birth,Naissances dans les établissements de santé
-performance.values.labels.birth.home,Label text for display showing private home births,Home birth,Naissances à domicile
+performance.values.labels.birth.home,Label text for display showing private home births,Community birth,Naissances à domicile
 performance.values.labels.death.healthFacility,Label text for display showing health facility deaths,Health facility death,Décès dans les établissements de santé
 performance.values.labels.death.home,Label text for display showing private home deaths,Home death,Décès à domicile
 performance.values.labels.delayed,Label text for display showing delayed registrations,Delayed registrations,Enregistrements tardifs
