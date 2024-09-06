@@ -7,12 +7,13 @@
 - Remove `splitView` option from DOCUMENT_UPLOADER_WITH_OPTION field
 - New required sections preview & review added. Signature field definitions are now part of these two sections same as normal form fields.
 - Remove `inputFieldWidth` from Number type form field
+- You can now configure the home screen application’s name and icons in your country configuration package as manifest.json and app icon files are moved from core to country config (check `src/client-static` folder)
 
 ### Bug fixes
 
+- Protect individual certificate endpoint with token
 - Kibana disk space alerts now work regardless of your disk device names. Alerts listen devices mounted both to `/` and `/data` (encrypted data partition)
-
-## 1.5.0
+- Environment creator script now requires countries to provide a Github token with no expiry date. This is to reduce effort in keeping the token up to date.
 
 ### Breaking changes
 
