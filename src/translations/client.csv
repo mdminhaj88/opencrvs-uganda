@@ -2017,6 +2017,7 @@ system.user.settings.avatarUpdating,Profile image message when uploading,Updatin
 system.user.settings.emailAddressUpdated,Email change message on success,Email address updated
 system.user.settings.incorrectPassword,Response message for incorrect password for password change,Current password incorrect. Please try again.
 system.user.settings.incorrectVerifyCode,Response message for incorrect Verify code for phone number change,Verify code incorrect. Please try again.
+system.user.settings.language,Language name,"{language, select, en {English} fr {Français} other {{language}}}"
 system.user.settings.name,label for Name,Name
 system.user.settings.passwordUpdated,Password change message on success,Password was successfully changed
 system.user.settings.phonedNumberUpdated,Phone change message on success,Phone number updated
