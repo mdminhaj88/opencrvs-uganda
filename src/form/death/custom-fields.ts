@@ -288,7 +288,7 @@ export function relationshipToDeceased(): SerializedFormField {
   }
 }
 
-export const otherRelationshipToDeceased = () => {
+export function otherRelationshipToDeceased() {
   const fieldName: string = 'otherRelationshipToDeceased'
   const fieldId: string = `death.informant.informant-view-group.${fieldName}`
   return {
@@ -311,5 +311,47 @@ export const otherRelationshipToDeceased = () => {
       }
     ],
     mapping: getCustomFieldMapping(fieldId)
+  } satisfies SerializedFormField
+}
+
+export function meansOfKnowledgeOfDeath() {
+  const fieldName: string = 'meansOfKnowledgeOfDeath'
+  const fieldId: string = `death.informant.informant-view-group.${fieldName}`
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'SELECT_WITH_OPTIONS',
+    hideInPreview: false,
+    label: formMessageDescriptors.meansOfKnowledgeOfDeath,
+    initialValue: '',
+    validator: [],
+    placeholder: formMessageDescriptors.formSelectPlaceholder,
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals: [],
+    options: [
+      {
+        value: 'PRESENT_AT_DEATH',
+        label: formMessageDescriptors.presentAtDeath
+      },
+      {
+        value: 'LIVE_IN_AREA',
+        label: formMessageDescriptors.liveInArea
+      },
+      {
+        value: 'OCCUPIER_OF_HOUSE',
+        label: formMessageDescriptors.occupierOfHouse
+      },
+      {
+        value: 'RESPONSIBLE_FOR_DISPOSAL',
+        label: formMessageDescriptors.responsibleForDisposal
+      },
+      {
+        value: 'OTHER',
+        label: formMessageDescriptors.other
+      }
+    ]
   } satisfies SerializedFormField
 }

@@ -639,6 +639,31 @@ export const formMessageDescriptors = {
     description: 'Form section name for Deceased',
     id: 'form.section.deceased.name'
   },
+  meansOfKnowledgeOfDeath: {
+    defaultMessage: 'Means of knowledge of death',
+    description: 'label for the field means of knowledge of death',
+    id: 'form.section.deceased.meansOfKnowledgeOfDeath'
+  },
+  presentAtDeath: {
+    defaultMessage: 'Present at the time of death',
+    description: 'label for the option present at the time of death',
+    id: 'form.section.deceased.presentAtDeath'
+  },
+  liveInArea: {
+    defaultMessage: 'Live in area where death occurred',
+    description: 'label for the option live in area where death occurred',
+    id: 'form.section.deceased.liveInArea'
+  },
+  occupierOfHouse: {
+    defaultMessage: 'Occupier of house where death occurred',
+    description: 'label for the option occupier of house where death occurred',
+    id: 'form.section.deceased.occupierOfHouse'
+  },
+  responsibleForDisposal: {
+    defaultMessage: 'Responsible for disposal of body',
+    description: 'label for the option responsible for disposal of body',
+    id: 'form.section.deceased.responsibleForDisposal'
+  },
   relationshipToDeceased: {
     defaultMessage: 'Relationship to deceased',
     description: 'Relationship of applicant to the deceased person',

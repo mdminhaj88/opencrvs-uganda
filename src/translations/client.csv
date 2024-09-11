@@ -1340,11 +1340,16 @@ form.section.deathEvent.title,,Event details
 form.section.deceased.father.name,,What is the deceased's father name?
 form.section.deceased.father.title,,Father's details
 form.section.deceased.hasSpouse,,Yes
+form.section.deceased.liveInArea,,Live in area where death occurred
+form.section.deceased.meansOfKnowledgeOfDeath,,Means of knowledge of death
 form.section.deceased.mother.name,,What is the deceased's mother name?
 form.section.deceased.mother.title,,Mother's details
 form.section.deceased.name,,Deceased
 form.section.deceased.noSpouse,,No / Unknown
+form.section.deceased.occupierOfHouse,,Occupier of house where death occurred
+form.section.deceased.presentAtDeath,,Present at the time of death
 form.section.deceased.relationship,,Relationship to deceased
+form.section.deceased.responsibleForDisposal,,Responsible for disposal of body
 form.section.deceased.spouse.name,,Does the deceased have a spouse?
 form.section.deceased.spouse.title,,Spouse details
 form.section.deceased.title,,Deceased's details
