@@ -1855,6 +1855,7 @@ register.registerForm.queryError,The error message shown when a search query fai
 register.selInf.deathInfSomeoneElse,,Relationship to the deceased
 register.selectInformant.birthErrorMessage,Label for birth error message,Please select who is the notifier
 register.selectInformant.birthInformantTitle,Who is applying for birth registration,Notifier type
+register.selectInformant.capacity,,Capacity
 register.selectInformant.daughter,,Daughter
 register.selectInformant.deathErrorMessage,Label for death error message,Please select the relationship to the deceased
 register.selectInformant.deathInformantTitle,Who is applying for death registration,Relationship to deceased

@@ -77,6 +77,11 @@ export const informantMessageDescriptors = {
     description: 'Label for option someone else',
     id: 'form.field.label.informantRelation.others'
   },
+  capacity: {
+    defaultMessage: 'Capacity',
+    description: 'Label for field Capacity',
+    id: 'register.selectInformant.capacity'
+  },
   deathInformantTitle: {
     defaultMessage: 'Who is applying for death registration?',
     description: 'Who is applying for death registration',
@@ -91,6 +96,16 @@ export const informantMessageDescriptors = {
     defaultMessage: 'Spouse',
     description: 'Label for option Spouse',
     id: 'form.field.label.informantRelation.spouse'
+  },
+  RELATIVE: {
+    defaultMessage: 'Relative',
+    description: 'Label for option Relative',
+    id: 'form.field.label.informantRelation.relative'
+  },
+  NEXT_OF_KIN: {
+    defaultMessage: 'Next of kin',
+    description: 'Label for option Next of kin',
+    id: 'form.field.label.informantRelation.nextOfKin'
   },
   SON: {
     defaultMessage: 'Son',
