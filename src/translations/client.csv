@@ -1200,6 +1200,7 @@ form.field.label.nationality,,Nationality
 form.field.label.nin,,NIN
 form.field.label.occupation,,Occupation
 form.field.label.optionalLabel,,Optional
+form.field.label.other,,Other
 form.field.label.otherAddress,,Other address
 form.field.label.otherBirthSupportingDocuments,,Other
 form.field.label.otherInformantType,,Other relation

@@ -138,7 +138,7 @@ export const otherInformantType = (event: Event) =>
       event == Event.Birth
         ? formMessageDescriptors.informantsRelationWithChild
         : event == Event.Death
-        ? formMessageDescriptors.relationshipToDeceased
+        ? formMessageDescriptors.other
         : formMessageDescriptors.relationshipToSpouses,
     placeholder: formMessageDescriptors.relationshipPlaceHolder,
     required: true,
