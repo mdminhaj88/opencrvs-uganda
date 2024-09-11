@@ -236,7 +236,7 @@ export function relationshipToDeceased(): SerializedFormField {
       {
         action: 'hide',
         expression:
-          'values.informantType !== "RELATIVE" && values.informantType !== "NEXT_OF_KIN'
+          'values.informantType !== "RELATIVE" && values.informantType !== "NEXT_OF_KIN"'
       }
     ],
     options: [
@@ -297,6 +297,7 @@ export function otherRelationshipToDeceased() {
     custom: true,
     type: 'TEXT',
     label: formMessageDescriptors.other,
+    placeholder: formMessageDescriptors.relationshipPlaceHolder,
     required: true,
     initialValue: '',
     validator: [
