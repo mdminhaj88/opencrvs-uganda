@@ -1,6 +1,11 @@
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/mapping-utils'
 import { formMessageDescriptors } from '../common/messages'
-import { ISerializedFormSection } from '../types/types'
+import {
+  IFormData,
+  IFormSectionData,
+  ISelectOption,
+  ISerializedFormSection
+} from '../types/types'
 import { getFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getInformantsSignature } from '../common/common-optional-fields'
 
@@ -39,6 +44,46 @@ export const birthDocumentType = {
   POLICE_REPORT: 'POLICE_REPORT',
   PROOF_OF_LEGAL_GUARDIANSHIP: 'PROOF_OF_LEGAL_GUARDIANSHIP',
   PROOF_OF_ASSIGNED_RESPONSIBILITY: 'PROOF_OF_ASSIGNED_RESPONSIBILITY'
+}
+
+const uploadDocConditionalForMother = ({
+  field,
+  values,
+  declaration
+}: {
+  field: ISelectOption
+  values: IFormSectionData
+  declaration: IFormData
+}) => {
+  if (
+    ['ALIEN_ID', 'REFUGEE_ID', 'REFUGEE_ATTESTATION_ID'].includes(field.value)
+  ) {
+    return declaration.mother.nationality !== 'UGA'
+  }
+  if (field.value === 'NATIONAL_ID') {
+    return declaration.mother.nationality === 'UGA'
+  }
+  return true
+}
+
+const uploadDocConditionalForFather = ({
+  field,
+  values,
+  declaration
+}: {
+  field: ISelectOption
+  values: IFormSectionData
+  declaration: IFormData
+}) => {
+  if (
+    ['ALIEN_ID', 'REFUGEE_ID', 'REFUGEE_ATTESTATION_ID'].includes(field.value)
+  ) {
+    return declaration.father.nationality !== 'UGA'
+  }
+  if (field.value === 'NATIONAL_ID') {
+    return declaration.father.nationality === 'UGA'
+  }
+  return true
 }
 
 export const documentsSection = {
@@ -107,6 +152,7 @@ export const documentsSection = {
               label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
+          optionCondition: `${uploadDocConditionalForMother}`,
           conditionals: [
             {
               description: 'Hidden for Parent Details none or Mother only',
@@ -147,6 +193,7 @@ export const documentsSection = {
               label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
+          optionCondition: `${uploadDocConditionalForFather}`,
           conditionals: [
             {
               description: 'Hidden for Parent Details none or Father only',
