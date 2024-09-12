@@ -86,7 +86,10 @@ import {
   deceasedPlaceOfBirth,
   causeOfDeath,
   individualWhoFoundTheBody,
-  timeOfDeath
+  timeOfDeath,
+  relationshipToDeceased,
+  otherRelationshipToDeceased,
+  meansOfKnowledgeOfDeath
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
@@ -259,8 +262,8 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             // PLACE OF DEATH FIELDS WILL RENDER HERE
             getMannerOfDeath,
             ...individualWhoFoundTheBody(),
-            getCauseOfDeathEstablished,
-            causeOfDeath()
+            causeOfDeath(),
+            getCauseOfDeathEstablished
           ]
         }
       ]
@@ -276,6 +279,9 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
           fields: [
             deathInformantType,
             otherInformantType(Event.Death),
+            relationshipToDeceased(),
+            otherRelationshipToDeceased(),
+            meansOfKnowledgeOfDeath(),
             getFirstNameField(
               'informantNameInEnglish',
               informantFirstNameConditionals,

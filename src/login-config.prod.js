@@ -13,7 +13,7 @@ window.config = {
   CONFIG_API_URL: 'https://config{{hostname}}',
   // Country code in uppercase ALPHA-3 format
   COUNTRY: 'UGA',
-  LANGUAGES: 'en,fr',
+  LANGUAGES: 'en',
   CLIENT_APP_URL: 'https://register{{hostname}}/',
   COUNTRY_CONFIG_URL: 'https://countryconfig{{hostname}}',
   SENTRY: '{{sentry}}'

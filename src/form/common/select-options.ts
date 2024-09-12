@@ -26,6 +26,8 @@ export const informantTypes = {
   HEALTH_FACILITY_ADMINISTRATOR: 'HEALTH_FACILITY_ADMINISTRATOR',
   POLICE: 'POLICE',
   SPOUSE: 'SPOUSE',
+  RELATIVE: 'RELATIVE',
+  NEXT_OF_KIN: 'NEXT_OF_KIN',
   SON: 'SON',
   DAUGHTER: 'DAUGHTER',
   SON_IN_LAW: 'SON_IN_LAW',
@@ -116,36 +118,16 @@ export const deathInformantTypeOptions: ISelectOption[] = [
     label: informantMessageDescriptors.HEALTH_FACILITY_ADMINISTRATOR
   },
   {
-    value: informantTypes.SPOUSE,
-    label: informantMessageDescriptors.SPOUSE
+    value: informantTypes.POLICE,
+    label: informantMessageDescriptors.POLICE
   },
   {
-    value: informantTypes.MOTHER,
-    label: informantMessageDescriptors.MOTHER
+    value: informantTypes.RELATIVE,
+    label: informantMessageDescriptors.RELATIVE
   },
   {
-    value: informantTypes.FATHER,
-    label: informantMessageDescriptors.FATHER
-  },
-  {
-    value: informantTypes.GRANDFATHER,
-    label: informantMessageDescriptors.GRANDFATHER
-  },
-  {
-    value: informantTypes.GRANDMOTHER,
-    label: informantMessageDescriptors.GRANDMOTHER
-  },
-  {
-    value: informantTypes.BROTHER,
-    label: informantMessageDescriptors.BROTHER
-  },
-  {
-    value: informantTypes.SISTER,
-    label: informantMessageDescriptors.SISTER
-  },
-  {
-    value: informantTypes.LEGAL_GUARDIAN,
-    label: informantMessageDescriptors.LEGAL_GUARDIAN
+    value: informantTypes.NEXT_OF_KIN,
+    label: informantMessageDescriptors.NEXT_OF_KIN
   },
   {
     value: informantTypes.OTHER,
@@ -185,14 +167,6 @@ export const birthInformantTypeOptions: ISelectOption[] = [
   {
     value: informantTypes.GRANDMOTHER,
     label: informantMessageDescriptors.GRANDMOTHER
-  },
-  {
-    value: informantTypes.BROTHER,
-    label: informantMessageDescriptors.BROTHER
-  },
-  {
-    value: informantTypes.SISTER,
-    label: informantMessageDescriptors.SISTER
   },
   {
     value: informantTypes.LEGAL_GUARDIAN,

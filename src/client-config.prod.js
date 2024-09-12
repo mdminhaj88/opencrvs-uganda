@@ -17,7 +17,7 @@ window.config = {
   COUNTRY_CONFIG_URL: 'https://countryconfig{{hostname}}',
   // Country code in uppercase ALPHA-3 format
   COUNTRY: 'UGA',
-  LANGUAGES: 'en,fr',
+  LANGUAGES: 'en',
   SENTRY: '{{sentry}}',
   LEADERBOARDS_DASHBOARD_URL:
     'https://metabase{{hostname}}/public/dashboard/acae0527-74be-4804-a3ee-f8b3c9c8784c#bordered=false&titled=false&refresh=300',

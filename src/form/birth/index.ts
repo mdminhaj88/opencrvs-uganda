@@ -227,11 +227,7 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
     {
       id: 'informant',
       viewType: 'form',
-      name: {
-        defaultMessage: 'Informant',
-        description: 'Form section name for Informant',
-        id: 'form.section.informant.name'
-      },
+      name: formMessageDescriptors.informantName,
       title: formMessageDescriptors.birthInformantTitle,
       groups: [
         {

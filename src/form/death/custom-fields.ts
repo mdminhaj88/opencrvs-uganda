@@ -14,9 +14,13 @@ import {
   SerializedFormField
 } from '../types/types'
 import { getCustomFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
-import { formMessageDescriptors } from '../common/messages'
+import {
+  formMessageDescriptors,
+  informantMessageDescriptors
+} from '../common/messages'
 import { getAddressFields } from '../addresses/address-fields'
 import { divider } from '../common/common-optional-fields'
+import { informantTypes } from '../common/select-options'
 
 export function timeOfDeath(): SerializedFormField {
   const fieldName = 'timeOfDeath'
@@ -207,12 +211,148 @@ export function causeOfDeath(): SerializedFormField {
     initialValue: '',
     validator: [],
     mapping: getCustomFieldMapping(fieldId),
+    conditionals: [],
+    maxLength: 250
+  }
+}
+
+export function relationshipToDeceased(): SerializedFormField {
+  const fieldName: string = 'relationshipToDeceased'
+  const fieldId: string = `death.informant.informant-view-group.${fieldName}`
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'SELECT_WITH_OPTIONS',
+    hideInPreview: false,
+    label: formMessageDescriptors.relationshipToDeceased,
+    initialValue: '',
+    validator: [],
+    placeholder: formMessageDescriptors.formSelectPlaceholder,
+    mapping: getCustomFieldMapping(fieldId),
     conditionals: [
       {
         action: 'hide',
-        expression: 'values.causeOfDeathEstablished === "false"'
+        expression:
+          'values.informantType !== "RELATIVE" && values.informantType !== "NEXT_OF_KIN"'
       }
     ],
-    maxLength: 250
+    options: [
+      {
+        value: informantTypes.SPOUSE,
+        label: informantMessageDescriptors.SPOUSE
+      },
+      {
+        value: informantTypes.SON,
+        label: informantMessageDescriptors.SON
+      },
+      {
+        value: informantTypes.DAUGHTER,
+        label: informantMessageDescriptors.DAUGHTER
+      },
+      {
+        value: informantTypes.MOTHER,
+        label: informantMessageDescriptors.MOTHER
+      },
+      {
+        value: informantTypes.FATHER,
+        label: informantMessageDescriptors.FATHER
+      },
+      {
+        value: informantTypes.GRANDFATHER,
+        label: informantMessageDescriptors.GRANDFATHER
+      },
+      {
+        value: informantTypes.GRANDMOTHER,
+        label: informantMessageDescriptors.GRANDMOTHER
+      },
+      {
+        value: informantTypes.BROTHER,
+        label: informantMessageDescriptors.BROTHER
+      },
+      {
+        value: informantTypes.SISTER,
+        label: informantMessageDescriptors.SISTER
+      },
+      {
+        value: informantTypes.LEGAL_GUARDIAN,
+        label: informantMessageDescriptors.LEGAL_GUARDIAN
+      },
+      {
+        value: informantTypes.OTHER,
+        label: informantMessageDescriptors.OTHER
+      }
+    ]
   }
+}
+
+export function otherRelationshipToDeceased() {
+  const fieldName: string = 'otherRelationshipToDeceased'
+  const fieldId: string = `death.informant.informant-view-group.${fieldName}`
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    type: 'TEXT',
+    label: formMessageDescriptors.other,
+    placeholder: formMessageDescriptors.relationshipPlaceHolder,
+    required: true,
+    initialValue: '',
+    validator: [
+      {
+        operation: 'englishOnlyNameFormat'
+      }
+    ],
+    conditionals: [
+      {
+        action: 'hide',
+        expression: 'values.relationshipToDeceased !== "OTHER"'
+      }
+    ],
+    mapping: getCustomFieldMapping(fieldId)
+  } satisfies SerializedFormField
+}
+
+export function meansOfKnowledgeOfDeath() {
+  const fieldName: string = 'meansOfKnowledgeOfDeath'
+  const fieldId: string = `death.informant.informant-view-group.${fieldName}`
+
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    required: false,
+    type: 'SELECT_WITH_OPTIONS',
+    hideInPreview: false,
+    label: formMessageDescriptors.meansOfKnowledgeOfDeath,
+    initialValue: '',
+    validator: [],
+    placeholder: formMessageDescriptors.formSelectPlaceholder,
+    mapping: getCustomFieldMapping(fieldId),
+    conditionals: [],
+    options: [
+      {
+        value: 'PRESENT_AT_DEATH',
+        label: formMessageDescriptors.presentAtDeath
+      },
+      {
+        value: 'LIVE_IN_AREA',
+        label: formMessageDescriptors.liveInArea
+      },
+      {
+        value: 'OCCUPIER_OF_HOUSE',
+        label: formMessageDescriptors.occupierOfHouse
+      },
+      {
+        value: 'RESPONSIBLE_FOR_DISPOSAL',
+        label: formMessageDescriptors.responsibleForDisposal
+      },
+      {
+        value: 'OTHER',
+        label: formMessageDescriptors.other
+      }
+    ]
+  } satisfies SerializedFormField
 }
