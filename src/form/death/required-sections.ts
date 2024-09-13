@@ -80,7 +80,7 @@ export const documentsSection = {
         {
           name: 'uploadDocForDeceasedDeath',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.deceasedDeathProof,
+          label: formMessageDescriptors.docTypeLetterOfDeath,
           initialValue: '',
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
           hideAsterisk: true,
@@ -130,7 +130,7 @@ export const documentsSection = {
         {
           name: 'uploadDocForCauseOfDeath',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.causeOfDeathProof,
+          label: formMessageDescriptors.medicallyCertified,
           initialValue: '',
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_CAUSE_PROOF,
           hideAsterisk: true,
@@ -153,7 +153,7 @@ export const documentsSection = {
         {
           name: 'uploadDocForPoliceReport',
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
-          label: formMessageDescriptors.deceasedDeathProof,
+          label: formMessageDescriptors.policeReport,
           initialValue: '',
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
           validator: [],

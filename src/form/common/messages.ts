@@ -817,11 +817,6 @@ export const formMessageDescriptors = {
     description: 'Label for document upload field: Notification of death',
     id: 'form.field.label.deceasedDeathNotification'
   },
-  deceasedDeathProof: {
-    defaultMessage: 'Proof of death of deceased',
-    description: 'Option for radio group field: Type of Document To Upload',
-    id: 'form.field.label.deceasedDeathProof'
-  },
   proofOfCauseOfDeath: {
     defaultMessage: 'Proof of cause of death',
     description: 'Label for field: Proof of cause of death',
@@ -856,11 +851,6 @@ export const formMessageDescriptors = {
     defaultMessage: 'Certified copy of burial receipt',
     description: 'Label for select option Certified Copy of Burial Receipt',
     id: 'form.field.label.docTypeCopyOfBurialReceipt'
-  },
-  causeOfDeathProof: {
-    defaultMessage: 'Proof of cause of death',
-    description: 'Label for doc section: Proof of cause of death',
-    id: 'form.field.label.causeOfDeathProof'
   },
   verbalAutopsyReport: {
     defaultMessage: 'Verbal autopsy report',
