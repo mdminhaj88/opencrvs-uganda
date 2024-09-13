@@ -133,7 +133,7 @@ export const documentsSection = {
           label: formMessageDescriptors.medicallyCertified,
           initialValue: '',
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_CAUSE_PROOF,
-          hideAsterisk: true,
+          required: true,
           validator: [],
           conditionals: [
             {
