@@ -1,8 +1,14 @@
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 import { formMessageDescriptors } from '../common/messages'
-import { ISerializedFormSection } from '../types/types'
+import {
+  IFormData,
+  IFormSectionData,
+  ISelectOption,
+  ISerializedFormSection
+} from '../types/types'
 import { getFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getInformantsSignature } from '../common/common-optional-fields'
+import { uploadDocConditionalForInformant } from '../common/default-validation-conditionals'
 
 export const registrationSection = {
   id: 'registration',
@@ -44,6 +50,27 @@ export const deathDocumentType = {
   PASSPORT: 'PASSPORT',
   OTHER: 'OTHER'
 }
+
+const uploadDocConditionalForDeceased = ({
+  field,
+  values,
+  declaration
+}: {
+  field: ISelectOption
+  values: IFormSectionData
+  declaration: IFormData
+}) => {
+  if (
+    ['ALIEN_ID', 'REFUGEE_ID', 'REFUGEE_ATTESTATION_ID'].includes(field.value)
+  ) {
+    return declaration.deceased.nationality !== 'UGA'
+  }
+  if (field.value === 'NATIONAL_ID') {
+    return declaration.deceased.nationality === 'UGA'
+  }
+  return true
+}
+
 export const documentsSection = {
   id: 'documents',
   viewType: 'form',
@@ -198,6 +225,7 @@ export const documentsSection = {
               label: formMessageDescriptors.iDTypeRefugeeNumber
             }
           ],
+          optionCondition: `${uploadDocConditionalForDeceased}`,
           mapping: getFieldMapping('documents')
         },
         {
@@ -226,6 +254,7 @@ export const documentsSection = {
               label: formMessageDescriptors.iDTypeRefugeeNumber
             }
           ],
+          optionCondition: `${uploadDocConditionalForInformant}`,
           mapping: getFieldMapping('documents')
         }
       ]
