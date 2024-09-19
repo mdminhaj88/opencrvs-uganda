@@ -182,6 +182,7 @@ export const documentsSection = {
           type: 'DOCUMENT_UPLOADER_WITH_OPTION',
           label: formMessageDescriptors.policeReport,
           initialValue: '',
+          required: true,
           extraValue: deathDocumentExtraValue.DECEASED_DEATH_PROOF,
           validator: [],
           conditionals: [
