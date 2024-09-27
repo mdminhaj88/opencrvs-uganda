@@ -27,14 +27,14 @@ jobs:
     env:
       WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
     steps:
-      - uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: r402,carolabby,mutatiinagodwin
-          minimum-approvals: 1
-          issue-title: 'Deploy (${{ github.event.inputs.environment }}): core: ${{ github.event.inputs.core-image-tag }} country config: ${{ github.event.inputs.countryconfig-image-tag }}'
-          issue-body: 'Please approve or deny the deployment of core: ${{ github.event.inputs.core-image-tag }} country config: ${{ github.event.inputs.countryconfig-image-tag }} to ${{ github.event.inputs.environment }}'
-          exclude-workflow-initiator-as-approver: false
+#      - uses: trstringer/manual-approval@v1
+#        with:
+#          secret: ${{ github.TOKEN }}
+#          approvers: r402,carolabby,mutatiinagodwin
+#          minimum-approvals: 1
+#          issue-title: 'Deploy (${{ github.event.inputs.environment }}): core: ${{ github.event.inputs.core-image-tag }} country config: ${{ github.event.inputs.countryconfig-image-tag }}'
+#          issue-body: 'Please approve or deny the deployment of core: ${{ github.event.inputs.core-image-tag }} country config: ${{ github.event.inputs.countryconfig-image-tag }} to ${{ github.event.inputs.environment }}'
+#          exclude-workflow-initiator-as-approver: false
       - name: Clone core
         uses: actions/checkout@v3
         with:
