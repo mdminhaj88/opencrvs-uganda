@@ -65,7 +65,7 @@ export async function getToken(): Promise<string> {
     token = resJson.token
   }
   const { exp } = decode<Token>(token)
-  const closeToExpiration = Date.now() - exp < 3_600_000
+  const closeToExpiration = Date.now() - exp < 3_600_000 // 1 hour
   if (closeToExpiration) {
     token = await refreshToken(token)
   }
