@@ -210,6 +210,7 @@ export function getInformantsSignature(conditionals: Conditional[] = []) {
     },
     validator: [],
     type: 'SIGNATURE',
+    allowedFileFormats: ['image/png', 'image/svg'],
     conditionals,
     mapping: {
       mutation: {
