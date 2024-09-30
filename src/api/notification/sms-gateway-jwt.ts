@@ -28,11 +28,15 @@ async function refreshToken(token: string): Promise<string> {
   const response = await fetch(
     new URL('v1/refresh-jwt-token', SMS_GATEWAY_ENDPOINT),
     {
-      body: JSON.stringify({ token })
+      method: 'POST',
+      body: JSON.stringify({ token }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }
   )
   if (!response.ok) {
-    throw new Error()
+    throw new Error(`Failed to refresh jwt token: ${await response.text()}`)
   }
   const resJson: { token: string } = await response.json()
   return resJson.token
@@ -43,23 +47,26 @@ export async function getToken(): Promise<string> {
     const response = await fetch(
       new URL('v1/get-jwt-token', SMS_GATEWAY_ENDPOINT),
       {
+        method: 'POST',
         body: JSON.stringify({
           userId: SMS_USER_ID,
           password: SMS_PASSWORD,
           email: SMS_EMAIL
-        })
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
     )
     if (!response.ok) {
-      throw new Error()
+      throw new Error(`Failed to fetch jwt token: ${await response.text()}`)
     }
     const resJson: { token: string } = await response.json()
     token = resJson.token
   }
   const { exp } = decode<Token>(token)
-  const tokenExpired = exp > Date.now()
-  const closeToExpiration = false
-  if (tokenExpired || closeToExpiration) {
+  const closeToExpiration = Date.now() - exp < 3_600_000
+  if (closeToExpiration) {
     token = await refreshToken(token)
   }
   return token
