@@ -356,3 +356,25 @@ export function meansOfKnowledgeOfDeath() {
     ]
   } satisfies SerializedFormField
 }
+
+export function otherMeansOfKnowledgeOfDeath() {
+  const fieldName: string = 'otherMeansOfKnowledge'
+  const fieldId: string = `death.informant.informant-view-group.${fieldName}`
+  return {
+    name: fieldName,
+    customQuestionMappingId: fieldId,
+    custom: true,
+    type: 'TEXT',
+    label: formMessageDescriptors.other,
+    required: true,
+    initialValue: '',
+    validator: [],
+    conditionals: [
+      {
+        action: 'hide',
+        expression: 'values.meansOfKnowledgeOfDeath !== "OTHER"'
+      }
+    ],
+    mapping: getCustomFieldMapping(fieldId)
+  } satisfies SerializedFormField
+}

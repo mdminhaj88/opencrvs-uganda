@@ -82,6 +82,9 @@ const idTypeConditional = ({
   field: ISelectOption
   values: IFormSectionData
 }) => {
+  if (!values.nationality) {
+    return true
+  }
   if (
     ['ALIEN_ID', 'REFUGEE_ID', 'REFUGEE_ATTESTATION_ID'].includes(field.value)
   ) {

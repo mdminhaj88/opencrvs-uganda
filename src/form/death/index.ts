@@ -89,7 +89,8 @@ import {
   timeOfDeath,
   relationshipToDeceased,
   otherRelationshipToDeceased,
-  meansOfKnowledgeOfDeath
+  meansOfKnowledgeOfDeath,
+  otherMeansOfKnowledgeOfDeath
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
@@ -282,6 +283,7 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             relationshipToDeceased(),
             otherRelationshipToDeceased(),
             meansOfKnowledgeOfDeath(),
+            otherMeansOfKnowledgeOfDeath(),
             getFirstNameField(
               'informantNameInEnglish',
               informantFirstNameConditionals,
