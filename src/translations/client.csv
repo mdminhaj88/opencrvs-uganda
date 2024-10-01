@@ -966,7 +966,6 @@ form.field.label.caregiver.other,,Other caregiver
 form.field.label.caregiver.parents,,Mother and father
 form.field.label.causeOfDeathEstablished,,Medically certified cause of death has been established
 form.field.label.causeOfDeathMethod,,Source of cause of death
-form.field.label.causeOfDeathProof,,Proof of cause of death
 form.field.label.certificatePrintInAdvance,,Print in advance
 form.field.label.childFamilyName,,Last name
 form.field.label.childFirstNames,,First name(s)
@@ -986,7 +985,6 @@ form.field.label.deathDescription,,Description
 form.field.label.deathPlace,,Place of Occurrence of Death
 form.field.label.deceasedCurAddSamePerm,,Is deceased's current address the same as their permanent address?
 form.field.label.deceasedDeathNotification,,Notification of death
-form.field.label.deceasedDeathProof,,Proof of death
 form.field.label.deceasedDoBProof,,Proof of date of birth of deceased
 form.field.label.deceasedDocumentParagraph,,The following documents are required
 form.field.label.deceasedFamilyName,,Last Name(s) in default character set other than English
@@ -1625,7 +1623,7 @@ performance.stats.header,Title for perforamce stats,Stats
 performance.values.labels.birth.healthFacility,Label text for display showing health facility births,Health facility birth
 performance.values.labels.birth.home,Label text for display showing private home births,Community birth
 performance.values.labels.death.healthFacility,Label text for display showing health facility deaths,Health facility death
-performance.values.labels.death.home,Label text for display showing private home deaths,Home death
+performance.values.labels.death.home,Label text for display showing private home deaths,Community death
 performance.values.labels.delayed,Label text for display showing delayed registrations,Delayed registrations
 performance.values.labels.female,Label text for displays showing the number of females,Female
 performance.values.labels.late,Label text for display showing late registrations,Late registrations

@@ -8,6 +8,7 @@ import {
 } from '../types/types'
 import { getFieldMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
 import { getInformantsSignature } from '../common/common-optional-fields'
+import { uploadDocConditionalForInformant } from '../common/default-validation-conditionals'
 
 export const registrationSection = {
   id: 'registration', // A hidden 'registration' section must be included to store identifiers in a form draft that are used in certificates
@@ -234,6 +235,7 @@ export const documentsSection = {
               label: formMessageDescriptors.iDTypeRefugeeAttestationID
             }
           ],
+          optionCondition: `${uploadDocConditionalForInformant}`,
           conditionals: [
             {
               action: 'hide',
