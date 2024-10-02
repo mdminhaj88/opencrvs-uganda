@@ -22,6 +22,8 @@ jobs:
     name: 'Reset data'
     environment: ${{ github.event.inputs.environment }}
     runs-on: ubuntu-22.04
+    outputs:
+      outcome: ${{ steps.reset-data.outcome }}
     timeout-minutes: 60
     env:
       WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
@@ -53,6 +55,7 @@ jobs:
           WG_CONFIG_FILE: ${{ secrets.WG_CONFIG_FILE }}
 
       - name: Reset data
+        id: reset-data
         env:
           HOST: ${{ vars.DOMAIN }}
           ENV: ${{ vars.ENVIRONMENT_TYPE }}
