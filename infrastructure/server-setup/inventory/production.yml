@@ -61,7 +61,7 @@ docker-workers : {}
 
 backups:
   hosts:
-    backup: # @todo set this to be the hostname of your backup server
+    opencrvs-backup: # @todo set this to be the hostname of your backup server
       ansible_host: '10.40.0.113'
       # Written by provision pipeline. Assumes "backup" environment
       # exists in Github environments
