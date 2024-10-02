@@ -54,7 +54,6 @@ import {
   informantNotMotherOrFather,
   detailsExistConditional,
   ageOfParentsConditionals,
-  ageOfIndividualValidators,
   birthLateRegistrationReason,
   certificateNotFree,
   certificateCostLate,
@@ -64,7 +63,6 @@ import {
 import {
   informantFirstNameConditionals,
   informantFamilyNameConditionals,
-  informantBirthDateConditionals,
   exactDateOfBirthUnknownConditional
 } from '../common/default-validation-conditionals'
 import {
@@ -254,31 +252,6 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               ),
               certificateHandlebars.informantFamilyName
             ), // Required field.
-            getBirthDate(
-              'informantBirthDate',
-              informantBirthDateConditionals.concat(
-                hideIfInformantMotherOrFather
-              ),
-              [
-                {
-                  operation: 'dateFormatIsCorrect',
-                  parameters: []
-                },
-                {
-                  operation: 'dateInPast',
-                  parameters: []
-                }
-              ],
-              certificateHandlebars.informantBirthDate
-            ), // Required field.
-            exactDateOfBirthUnknown(hideIfInformantMotherOrFather),
-            getAgeOfIndividualInYears(
-              formMessageDescriptors.ageOfInformant,
-              exactDateOfBirthUnknownConditional.concat(
-                hideIfInformantMotherOrFather
-              ),
-              ageOfIndividualValidators
-            ),
             getNationality(
               certificateHandlebars.informantNationality,
               hideIfInformantMotherOrFather

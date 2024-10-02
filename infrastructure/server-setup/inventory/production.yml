@@ -38,7 +38,7 @@ all:
 
 docker-manager-first:
   hosts:
-    opencrvs-production: # @todo set this to be the hostname of your target server
+    login-niracrvs-production.nira.go.ug: # @todo set this to be the hostname of your target server
       ansible_host: '10.40.0.101' # @todo set this to be the hostname of your target server
       data_label: data1
       # If you are using a jump server to access this environment, enter other SSH args here.
@@ -61,7 +61,7 @@ docker-workers : {}
 
 backups:
   hosts:
-    backup: # @todo set this to be the hostname of your backup server
+    login-niracrvs-backup.nira.go.ug: # @todo set this to be the hostname of your backup server
       ansible_host: '10.40.0.113'
       # Written by provision pipeline. Assumes "backup" environment
       # exists in Github environments
