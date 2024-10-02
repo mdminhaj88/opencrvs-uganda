@@ -35,9 +35,7 @@ import {
 import { formMessageDescriptors } from '../common/messages'
 import { Event, ISerializedForm } from '../types/types'
 import {
-  informantBirthDateConditionals,
   informantFamilyNameConditionals,
-  ageOfIndividualValidators,
   ageOfDeceasedConditionals,
   informantFirstNameConditionals,
   exactDateOfBirthUnknownConditional,
@@ -299,27 +297,6 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
               informantFamilyNameConditionals,
               certificateHandlebars.informantFamilyName
             ), // Required field.
-            getBirthDate(
-              'informantBirthDate',
-              informantBirthDateConditionals,
-              [
-                {
-                  operation: 'dateFormatIsCorrect',
-                  parameters: []
-                },
-                {
-                  operation: 'dateInPast',
-                  parameters: []
-                }
-              ],
-              certificateHandlebars.informantBirthDate
-            ), // Required field.
-            exactDateOfBirthUnknown([]),
-            getAgeOfIndividualInYears(
-              formMessageDescriptors.ageOfInformant,
-              exactDateOfBirthUnknownConditional,
-              ageOfIndividualValidators
-            ),
             getNationality(certificateHandlebars.informantNationality, []),
             getIDType('death', 'informant', hideIfNidIntegrationEnabled, true),
             ...getIdNumberFields(
