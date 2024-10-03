@@ -154,133 +154,23 @@ changeEmail.validation.msg,Phone number validation message,Must be a valid email
 changePhone.validation.msg,Phone number validation message,Must be a valid 10 digit number that starts with 0
 config.advanced.search,This is used for the advanced search,Advanced Search
 config.advanced.search.instruction,This is used for the advanced search,Select the options to build an advanced search. A minimum of two search parameters is required.
-config.application.applicationNameChangeNotification,Message for application name change notification,Name of application updated
-config.application.applicationNameLabel,Application name config label,Name of application
-config.application.backgroundImageChangeNotification,Message for background image change notification,Background image updated
-config.application.backgroundImageError,Error message for background image change,Unable to change image. Please try again.
-config.application.backgroundImageFileLimitError,Error message for large Background file,Background image file must be less than 2mb
-config.application.birthDelayedDialogTitle,Delayed dialog title for brith,Delayed registration time period for birth registration
-config.application.birthDelayedFeeChangeNotification,Message for application birth delayed fee change notification,Birth delayed fee updated
-config.application.birthLateFeeChangeNotification,Message for application birth late fee change notification,Birth late fee updated
-config.application.birthLateRegTargetChangeNotification,Message for application birth late registration target change notification,Birth late registration target days updated
-config.application.birthLegallySpecifiedDialogTitle,Legally specified dialog title for brith,Legally specified time period for birth registration
-config.application.birthOnTimeFeeChangeNotification,Message for application birth on time fee change notification,Birth on time fee updated
-config.application.birthRegTargetChangeNotification,Message for application birth registration target change notification,Birth registration target days updated
 config.application.birthTabTitle,The title for birth tab,Birth
 config.application.birthTabTitleExport,The title for birth tab for VSExport,Births
-config.application.colourTabText,The title for colour tab text,Hex code
-config.application.colourTabTitle,The title for colour tab,Colour
-config.application.configChangeError,Error message for application config change,Unable to make change. Please try again
-config.application.currencyChangeMessage,Message for application currency change modal,Select your currency for your CRVS system
-config.application.currencyChangeNotification,Message for application currency change notification,Currency updated
-config.application.currencyLabel,Currency config label,Currency
-config.application.deathDelayedFeeChangeNotification,Message for application death delayed fee change notification,Death delayed fee updated
-config.application.deathLegallySpecifiedDialogTitle,Legally specified dialog title for death,Legally specified time period for death registration
-config.application.deathOnTimeFeeChangeNotification,Message for application death on time fee change notification,Death on time fee updated
-config.application.deathRegTargetChangeNotification,Message for application death registration target change notification,Death registration target days updated
 config.application.deathTabTitle,The title for death tab,Death
 config.application.deathTabTitleExport,The title for death tab for VSExport,Deaths
-config.application.delayedFeeDialogTitle,Delayed fee dialog title,Registration fees for delayed registrations
-config.application.delayedRegistrationLabel,Delayed registration config label,Delayed registration
-config.application.delayedRegistrationValue,Delayed registration config value,After {lateTime} days
 config.application.emptystate,Vital Statistics Export Empty State Text,The previous month's vital statistics data (based on vital event registrations occurring within that month) will become available for you to export as of the 1st of every month. Large CSV files cannot be opened in Excel and should therefore be opened in a statistical program such as {posit}.
-config.application.eventTargetInputLabel,The label for event target label,days
-config.application.example,Label for Example,Example
 config.application.export,Download Export CSV,Export
-config.application.generalTabTitle,The title for general tab,General
-config.application.govermentLogoLabel,Government logo config label,Goverment logo
-config.application.govtLogoChangeError,Error message for country logo change,Unable to change logo. Please try again.
-config.application.govtLogoChangeMessage,Message for government logo change modal,Upload a logo to be used on the login and declaration review screens
-config.application.govtLogoChangeNotification,Message for government logo change notification,Government logo updated
-config.application.govtLogoFileLimitError,Error message for large country logo file,Logo image file must be less than 2mb
-config.application.imageTabTitle,The title for image tab,Image
-config.application.invalidExample,Label for Invalid example,Invalid
-config.application.lateFeeDialogTitle,Date fee dialog title,Registration fees for late registrations
-config.application.lateRegistrationLabel,Late registration config label,Late registration
-config.application.lateRegistrationValue,Late registration config value,Between {onTime} days and {lateTime} days
-config.application.legallySpecifiedLabel,Legally specified config label,Legally specified
-config.application.legallySpecifiedValue,Legally specified config value,Within {onTime} days
-config.application.loginBackgroundLabel,Login Background config label,Login Background
-config.application.loginImageText,Login Image config label,Upload an image and set how you would like it to display in the background
-config.application.marriageDelayedFeeChangeNotification,Message for application marriage delayed fee change notification,Marriage delayed fee updated
-config.application.marriageLegallySpecifiedDialogTitle,Legally specified dialog title for marriage,Legally specified time period for marriage registration
-config.application.marriageOnTimeFeeChangeNotification,Message for application marriage on time fee change notification,Marriage on time fee updated
-config.application.marriageRegTargetChangeNotification,Message for application marriage registration target change notification,Marriage registration target days updated
-config.application.marriageTabTitle,The title for marriage tab,Marriage
-config.application.nameChangeMessage,Message for application name change modal,Choose a name for your CRVS system
-config.application.nidPatternChangeError,Error message for invalid regular expression for NID number,Invalid regular expression for a National ID
-config.application.nidPatternChangeMessage,Unique Identification Number (UIN) config message,Set the regex pattern for your national ID. For guidance please refer to www.regex101.com
-config.application.nidPatternChangeNotification,Message for NID Pattern change modal,Unique Identification Number (UIN) regex pattern updated
-config.application.nidPatternTitle,Unique Identification Number (UIN) config title,Unique Identification Number (UIN) e.g. National ID
-config.application.onTimeFeeDialogTitle,On time fee dialog title,Registration fees within legally specified time
-config.application.pattern,Label for Pattern,Pattern
-config.application.phoneNumberChangeError,Error message for invalid regular expression for phone number number,Invalid regular expression for a phone number
-config.application.phoneNumberChangeMessage,phone number config config message,Set the regex pattern for your country phone number. For guidance please refer to www.regex101.com
-config.application.phoneNumberChangeNotification,Message for phone number  Pattern change modal,Phone regex pattern updated
-config.application.phoneNumberExampleLabel,,example: {example}
-config.application.phoneNumberLabel,Phone number config label,Phone number
-config.application.phoneNumberPatternLabel,,pattern: {pattern}
-config.application.phoneNumberPatternTitle,Phone number config title,Phone number regex
-config.application.registrationFeesGroupTitle,The title for registration fee group,Registration fees
-config.application.registrationTimePeriodsGroupTitle,The title for registration time periods group,Registration time periods
-config.application.settings,Link Text for Config Application Settings,Application
-config.application.testNumber,Label for test number,Test number
-config.application.updatingeMessage,Message for application config updated modal,Updating...
-config.application.validExample,Label for valid example,Valid
 config.application.vitalStatistics,Vital Statistics Export,"Month-{month}-Uganda-{event, select, birth{birth} death{death} other{birth}}-event-statistics.csv {fileSize}"
 config.application.vsExportDownloadFailed,Vital Statistics Export Empty State Text,Sorry! Something went wrong
 config.application.vsexport,VS Export tab,Vital statistics
-config.application.withinLegallySpecifiedTimeLabel,Within legally specified time config label,Within legally specified time
-config.birthDefaultTempDesc,Label for default birth certificate template,Default birth certificate template
-config.birthTemplate,Label for birth certificate template,Birth certificate
-config.birthUpdatedTempDesc,,Updated {birthLongDate}
 config.certTemplate,Label for certificate templates,Certificate Template
-config.certificate.allowPrinting,To allow printing in advanced of issuance,Allow printing in advanced of issuance
-config.certificate.allowPrintingNotification,Message for allowing printing notification,Allow printing in advance of issuance updated
-config.certificate.certificateUpdated,Certificate template change message on success,{eventName} certificate has been updated
-config.certificate.certificateUploading,Certificate template message when uploading SVG,Uploading and validating {eventName} certificate.
-config.certificate.certificateValidationError,Certificate template error message on failed,Unable to read SVG. Please check
 config.certificate.options,Show options,Options
-config.certificate.printDescription,Allowing printing,Records printed off in advance of collections will be added to the ready to issue work-queue
-config.certificate.template,Template for certificates,Template
-config.certificate.uploadCertificateDialogCancel,Cancel new certificate template upload button,Cancel
-config.certificate.uploadCertificateDialogConfirm,Confirm new certificate template upload button,Upload
-config.certificate.uploadCertificateDialogDescription,The description for the dialog when upload new certificate template,This will replace the current certificate template. We recommend downloading the existing certificate template as a reference.
-config.certificate.uploadCertificateDialogTitle,Upload certificate template modal title,Upload new certificate?
-config.certificateConfiguration,Link Text for Config Declaration Settings,Certificate configuration
-config.deathDefaultTempDesc,Label for default death certificate template,Default death certificate template
-config.deathTemplate,Label for death certificate template,Death certificate
-config.deathUpdatedTempDesc,,Updated {deathLongDate}
-config.downloadTemplate,Download action in certificate config action menu,Download
 config.emailAllUsers.modal.supportingCopy,Label for send email all users confirmation supporting copy,User will receive emails over the next 24 hours
 config.emailAllUsers.modal.title,Label for send email all users confirmation title,Send email to all users?
 config.emailAllUsers.subtitle,Subtitle for email all users,This email will be sent to all users you are active. Emails will be sent over the next 24 hours. Only one email can be sent per day
 config.emailAllUsers.title,Title for email all users,Email all users
-config.eventUpdatedTempDesc,Label for updated birth certificate template,"Updated {lastModified, date, ::dd MMMM yyyy}"
-config.form.settings.time,,Time input
-config.form.tools.input.customSelectWithDynamicOptions,,Custom select with dynamic options
-config.informantNotification.declarationSMS,Title for informant declarationSMS notification,Declaration sent for review
-config.informantNotification.inProgressSMS,Title for informant inProgressSMS notification,Notification sent to Office
-config.informantNotification.registrationSMS,Title for informant registrationSMS notification,Declaration registered
-config.informantNotification.rejectionSMS,Title for informant rejectionSMS notification,Declaration rejected
-config.informantNotification.subtitle,Subtile for informant sms notification,Select the notifications to send to the notifier to keep them informed of the progress to their declaration. Your system is configured to send {communicationType}.
-config.informantNotification.success,Notification for informant update success,Notifier notifications updated
-config.informantNotification.title,The title for Informant notifications,Notifier notifications
-config.integrations,,Integrations
-config.listDetails,Details for certificates templates list,To learn how to edit an SVG and upload a certificate to suite your country requirements please refer to this detailed guide.
-config.listDetailsQsn,Details question for certificates templates list,How to configure a certificate?
-config.listTitle,Title for certificates templates list,Certification
-config.marriageDefaultTempDesc,Label for default marriage certificate template,Default marriage certificate template
-config.marriageTemplate,Label for marriage certificate template,Marriage certificate
-config.previewTemplate,,Preview
-config.printTemplate,Print action in certificate config action menu,Print
-config.uploadTemplate,Upload action in certificate config action menu,Upload
-config.userRoles.role,ListViewSimplified header for role,ROLE
+config.userRoles.language,Language name,"{language, select, en {English} other {{language}}}"
 config.userRoles.roleUpdateInstruction,Instruction for adding/updating role in role management modal,Add the roles to be assigned the system role of {systemRole}
-config.userRoles.subtitle,Subtile for informant sms notification,Map user roles to each system role so that specific permissions and privileges are correctly assigned. To learn more about the different system roles see ... {link}
-config.userRoles.systemRoleSuccessMsg,Label for System role updated success message,System role updated successfully
-config.userRoles.systemRoles,ListViewSimplified header for system roles,SYSTEM ROLES
-config.userRoles.title,The title for user roles,User roles
 conflicts.modal.assign.description,Description for modal when assign,Please note you will have sole access to this record. Please make any updates promptly otherwise unassign the record.
 conflicts.modal.assign.title,Title for modal when assign,Assign record?
 conflicts.modal.assigned.description,Description for modal when record already assigned,{name} at {officeName} has sole editable access to this record
@@ -905,6 +795,7 @@ form.field.SearchField.modalTitle,,"{fieldName, select, registrationOffice {Assi
 form.field.SearchField.officeLocationId,,Id: {locationId}
 form.field.SearchField.placeHolderText,,Search
 form.field.dateRangepicker.checkbox.dateLabel,,{rangeStart} to {rangeEnd}
+form.field.helpertext.nid,Helper text for nid input field,The National ID can only be numeric and must be 10 digits long
 form.field.hideLabel,Button to hide section,Hide
 form.field.label.NID,,NID
 form.field.label.NIDNetErr,,The request to the NID system was unsuccessful. Please try again with a better connection.
@@ -966,7 +857,6 @@ form.field.label.caregiver.other,,Other caregiver
 form.field.label.caregiver.parents,,Mother and father
 form.field.label.causeOfDeathEstablished,,Medically certified cause of death has been established
 form.field.label.causeOfDeathMethod,,Source of cause of death
-form.field.label.causeOfDeathProof,,Proof of cause of death
 form.field.label.certificatePrintInAdvance,,Print in advance
 form.field.label.childFamilyName,,Last name
 form.field.label.childFirstNames,,First name(s)
@@ -986,7 +876,6 @@ form.field.label.deathDescription,,Description
 form.field.label.deathPlace,,Place of Occurrence of Death
 form.field.label.deceasedCurAddSamePerm,,Is deceased's current address the same as their permanent address?
 form.field.label.deceasedDeathNotification,,Notification of death
-form.field.label.deceasedDeathProof,,Proof of death
 form.field.label.deceasedDoBProof,,Proof of date of birth of deceased
 form.field.label.deceasedDocumentParagraph,,The following documents are required
 form.field.label.deceasedFamilyName,,Last Name(s) in default character set other than English
@@ -1281,6 +1170,7 @@ form.field.label.someoneElse,Other Label,Someone else
 form.field.label.someoneElseCollector,,Print and issue to someone else
 form.field.label.spouseDetailsExist,,Spouse's details are not available
 form.field.label.state,Label for State,Region
+form.field.label.totalFees,Label for input Reason for Change,
 form.field.label.typeOfDocument,,Choose type of supporting document
 form.field.label.typeOfId,,Type of ID
 form.field.label.typeOfMarriage,,Type of marriage
@@ -1304,6 +1194,7 @@ form.field.label.whatDocToUpload,,Which document type are you uploading?
 form.field.nidNotVerified,,Authenticate
 form.field.nidNotVerifiedReviewSection,,Unauthenticated
 form.field.nidOffline,,National ID authentication is currently not available offline.
+form.field.nidVerificationOngoing,Label for indicating offline status for the user. NID verification is not currently available offline.,National ID authentication is currently not available offline.
 form.field.nidVerified,,Authenticated
 form.field.previewGroups.primaryAddress,,Usual place of residence
 form.field.previewGroups.secondaryAddress,,Secondary address
@@ -1416,16 +1307,11 @@ home.header.typeName,Search menu name type,Name
 home.header.typePhone,Search menu phone no type,Phone no.
 home.header.typeRN,Search menu brn drn type,Registration no.
 imageUploadOption.upload.documentType,Show error message if the document type is not selected,Please select the type of document first
-imageUploadOption.upload.error,Show error messages while uploading,File format not supported. Please upload a .png or .jpg (max 5mb)
 imageUploadOption.upload.error,Show error messages while uploading,File format not supported. Please upload a .png or .jpg (max {maxSize}mb)
-imageUploadOption.upload.imageFormat,Show error message if the selected image type is not supported,File format not supported. Please upload a .png or .jpg (max 5mb)
 imageUploadOption.upload.imageFormat,Show error message if the selected image type is not supported,File format not supported. Please upload a .png or .jpg (max {maxSize}mb)
-imageUploadOption.upload.overSized,Error message for Attachment size greater than 5mb.,File is too large. Please upload a file less than 5mb
 imageUploadOption.upload.overSized,Error message for Attachment size greater than defined max size.,File is too large. Please upload a file less than {maxSize}mb
 informant.name,Informant section name,Notifier
-informant.name,Informant section name,Informant
 informant.title,Informant section title,Notifier type
-informant.title,Informant section title,Informant type
 integrations.activate,Label for activate option,Activate
 integrations.activate.client,Label for activate client option,Activate client?
 integrations.activate.status,Label for activate client,Client activated
@@ -1553,6 +1439,7 @@ navigation.sentForUpdates,,Sent for updates
 navigation.team,Team label in navigation,Team
 navigation.userroles,User roles label in navigation,User roles
 navigation.waitingValidation,Waiting for validation label in navigation,In external validation
+number.twelve,Minimum length password,12
 password.cases,Password validation,At least one upper and lower case character
 password.label.confirm,Confirm password label,Confirm password
 password.label.current,Current password label,Current password
@@ -1625,7 +1512,7 @@ performance.stats.header,Title for perforamce stats,Stats
 performance.values.labels.birth.healthFacility,Label text for display showing health facility births,Health facility birth
 performance.values.labels.birth.home,Label text for display showing private home births,Community birth
 performance.values.labels.death.healthFacility,Label text for display showing health facility deaths,Health facility death
-performance.values.labels.death.home,Label text for display showing private home deaths,Home death
+performance.values.labels.death.home,Label text for display showing private home deaths,Community death
 performance.values.labels.delayed,Label text for display showing delayed registrations,Delayed registrations
 performance.values.labels.female,Label text for displays showing the number of females,Female
 performance.values.labels.late,Label text for display showing late registrations,Late registrations
@@ -1634,10 +1521,12 @@ performance.values.labels.total,Label text for displays showing totals,Total
 performance.values.labels.within1Year,Label text for displays showing registered within 1 year,Within 1 year
 performance.values.labels.within5Years,Label text for displays showing registered within 5 years,Within 5 years
 performance.values.labels.withinTargetDays,Label text for displays showing registered within target days,"{withPrefix, select, true {Registered within} other {Within}} {target} days"
+phone.digit,,10
 phone.label.changeEmail,Change email address label,What is your new email?
 phone.label.changeNumber,Change phone number label,Enter new number
 phone.label.confirmation,Confirmation phone number message,A verification code has been sent to {num}
 phone.label.verify,Verify phone number label,Enter 6 digit verification code
+phone.start,Should starts with,0(4|5)
 print.cert.coll.id.actions.cancel,The for the dialog when details of the collector not verified,Cancel
 print.cert.coll.id.actions.send,The for the dialog when details of the collector not verified,Confirm
 print.cert.coll.id.description,The description for the dialog when details of the collector not verified,"Please be aware that if you proceed, you will be responsible for issuing a certificate without the necessary proof of ID from the collector"
@@ -1734,10 +1623,12 @@ recordAudit.regAction.corrected,,Record corrected
 recordAudit.regAction.downloaded,,Retrieved
 recordAudit.regAction.flaggedAsPotentialDuplicate,,Flagged as potential duplicate
 recordAudit.regAction.markedAsDuplicate,,Marked as a duplicate
+recordAudit.regAction.markedAsNotDuplicate,Marked not a duplicate status message for record audit,Marked not a duplicate
 recordAudit.regAction.reinstated,,"Reinstated to {regStatus, select, validated{ready for review} in_progress{in progress} declared{ready for review} rejected{requires updates} other{}}"
 recordAudit.regAction.rejectedCorrection,,Correction rejected
 recordAudit.regAction.requestedCorrection,,Correction requested
 recordAudit.regAction.unassigned,,Unassigned
+recordAudit.regAction.verified,Verified action,Certificate verified
 recordAudit.regAction.viewed,,Viewed
 recordAudit.regStatus.archived,,Archived
 recordAudit.regStatus.certified,,Certified
@@ -1949,6 +1840,7 @@ search.locationNotFound,Label for location not found,Location Not Found
 search.noDeclarations,The text when there is no declaration to review,No declarations to review
 search.noResultFor,The no result text,No results for ”{param}”
 search.noResults,Text to display if the search return no results for the current filters,No result to display
+search.placeholder,Placeholder text of search input,Name of query
 search.removeBbookmarkAdvancedSearchModalBody,Modal body for remove bookmark advacnced search,This advanced search bookmark will be removed from the side bar shortcut
 search.removeBookmarkAdvancedSearchModalTitle,Modal title for remove bookmark advacnced search,Remove search query?
 search.results,Results label at the top of the data table component,Results

@@ -35,9 +35,7 @@ import {
 import { formMessageDescriptors } from '../common/messages'
 import { Event, ISerializedForm } from '../types/types'
 import {
-  informantBirthDateConditionals,
   informantFamilyNameConditionals,
-  ageOfIndividualValidators,
   ageOfDeceasedConditionals,
   informantFirstNameConditionals,
   exactDateOfBirthUnknownConditional,
@@ -89,7 +87,8 @@ import {
   timeOfDeath,
   relationshipToDeceased,
   otherRelationshipToDeceased,
-  meansOfKnowledgeOfDeath
+  meansOfKnowledgeOfDeath,
+  otherMeansOfKnowledgeOfDeath
 } from './custom-fields'
 //import { getSectionMapping } from '@countryconfig/utils/mapping/section/death/mapping-utils'
 
@@ -282,6 +281,7 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             relationshipToDeceased(),
             otherRelationshipToDeceased(),
             meansOfKnowledgeOfDeath(),
+            otherMeansOfKnowledgeOfDeath(),
             getFirstNameField(
               'informantNameInEnglish',
               informantFirstNameConditionals,
@@ -297,27 +297,6 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
               informantFamilyNameConditionals,
               certificateHandlebars.informantFamilyName
             ), // Required field.
-            getBirthDate(
-              'informantBirthDate',
-              informantBirthDateConditionals,
-              [
-                {
-                  operation: 'dateFormatIsCorrect',
-                  parameters: []
-                },
-                {
-                  operation: 'dateInPast',
-                  parameters: []
-                }
-              ],
-              certificateHandlebars.informantBirthDate
-            ), // Required field.
-            exactDateOfBirthUnknown([]),
-            getAgeOfIndividualInYears(
-              formMessageDescriptors.ageOfInformant,
-              exactDateOfBirthUnknownConditional,
-              ageOfIndividualValidators
-            ),
             getNationality(certificateHandlebars.informantNationality, []),
             getIDType('death', 'informant', hideIfNidIntegrationEnabled, true),
             ...getIdNumberFields(
@@ -393,8 +372,6 @@ export const deathForm = (addressHierarchy: string[]): ISerializedForm => ({
             ),
             getIDType('death', 'spouse', detailsExist, true),
             ...getIDNumberFields('spouse', detailsExist, true),
-            // preceding field of address fields
-            divider('spouse-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('spouse-address-separator')
           ],

@@ -54,7 +54,6 @@ import {
   informantNotMotherOrFather,
   detailsExistConditional,
   ageOfParentsConditionals,
-  ageOfIndividualValidators,
   birthLateRegistrationReason,
   certificateNotFree,
   certificateCostLate,
@@ -64,7 +63,6 @@ import {
 import {
   informantFirstNameConditionals,
   informantFamilyNameConditionals,
-  informantBirthDateConditionals,
   exactDateOfBirthUnknownConditional
 } from '../common/default-validation-conditionals'
 import {
@@ -254,31 +252,6 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               ),
               certificateHandlebars.informantFamilyName
             ), // Required field.
-            getBirthDate(
-              'informantBirthDate',
-              informantBirthDateConditionals.concat(
-                hideIfInformantMotherOrFather
-              ),
-              [
-                {
-                  operation: 'dateFormatIsCorrect',
-                  parameters: []
-                },
-                {
-                  operation: 'dateInPast',
-                  parameters: []
-                }
-              ],
-              certificateHandlebars.informantBirthDate
-            ), // Required field.
-            exactDateOfBirthUnknown(hideIfInformantMotherOrFather),
-            getAgeOfIndividualInYears(
-              formMessageDescriptors.ageOfInformant,
-              exactDateOfBirthUnknownConditional.concat(
-                hideIfInformantMotherOrFather
-              ),
-              ageOfIndividualValidators
-            ),
             getNationality(
               certificateHandlebars.informantNationality,
               hideIfInformantMotherOrFather
@@ -294,13 +267,6 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(hideIfInformantMotherOrFather),
               true
             ),
-            // preceding field of address fields
-            divider('informant-nid-seperator', [
-              {
-                action: 'hide',
-                expression: informantNotMotherOrFather
-              }
-            ]),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-seperator', [
               {
@@ -383,8 +349,6 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
             ),
-            // preceding field of address fields
-            divider('mother-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('mother-address-seperator', detailsExist),
             getOccupation(
@@ -468,8 +432,6 @@ export const birthForm = (addressHierarchy: string[]): ISerializedForm => ({
               hideIfNidIntegrationEnabled.concat(detailsExistConditional),
               true
             ),
-            // preceding field of address fields
-            divider('father-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('father-address-seperator', detailsExist),
             getOccupation(

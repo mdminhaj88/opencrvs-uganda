@@ -8,7 +8,12 @@
  *
  * Copyright (C) The OpenCRVS Authors located at https://github.com/opencrvs/opencrvs-core/blob/master/AUTHORS.
  */
-import { Conditional } from '../types/types'
+import {
+  Conditional,
+  IFormData,
+  IFormSectionData,
+  ISelectOption
+} from '../types/types'
 import { IntegratingSystemType } from '../types/types'
 import { Validator } from '../types/validators'
 
@@ -590,3 +595,23 @@ export const detailsDontExist = '!values.detailsExist'
 // primary address same as other primary
 export const primaryAddressSameAsOtherPrimaryAddress =
   'values.primaryAddressSameAsOtherPrimary'
+
+export const uploadDocConditionalForInformant = ({
+  field,
+  values,
+  declaration
+}: {
+  field: ISelectOption
+  values: IFormSectionData
+  declaration: IFormData
+}) => {
+  if (
+    ['ALIEN_ID', 'REFUGEE_ID', 'REFUGEE_ATTESTATION_ID'].includes(field.value)
+  ) {
+    return declaration.informant.nationality !== 'UGA'
+  }
+  if (field.value === 'NATIONAL_ID') {
+    return declaration.informant.nationality === 'UGA'
+  }
+  return true
+}
