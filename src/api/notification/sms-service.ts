@@ -59,7 +59,7 @@ export async function sendSMS(
 
   let response
   try {
-    response = await fetch(new URL('api/v1/sms', SMS_GATEWAY_ENDPOINT), {
+    response = await fetch(new URL('api/v1/sms/', SMS_GATEWAY_ENDPOINT), {
       method: 'POST',
       body,
       headers
