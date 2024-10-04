@@ -26,7 +26,7 @@ type Token = {
 
 async function refreshToken(token: string): Promise<string> {
   const response = await fetch(
-    new URL('v1/refresh-jwt-token', SMS_GATEWAY_ENDPOINT),
+    new URL('api/v1/refresh-jwt-token', SMS_GATEWAY_ENDPOINT),
     {
       method: 'POST',
       body: JSON.stringify({ token }),
@@ -45,7 +45,7 @@ async function refreshToken(token: string): Promise<string> {
 export async function getToken(): Promise<string> {
   if (!token) {
     const response = await fetch(
-      new URL('v1/get-jwt-token', SMS_GATEWAY_ENDPOINT),
+      new URL('api/v1/get-jwt-token', SMS_GATEWAY_ENDPOINT),
       {
         method: 'POST',
         body: JSON.stringify({
