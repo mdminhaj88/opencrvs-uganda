@@ -49,7 +49,7 @@ export async function getToken(): Promise<string> {
       {
         method: 'POST',
         body: JSON.stringify({
-          userId: SMS_USER_ID,
+          userid: SMS_USER_ID,
           password: SMS_PASSWORD,
           email: SMS_EMAIL
         }),
