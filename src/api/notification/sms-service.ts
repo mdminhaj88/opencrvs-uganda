@@ -8,16 +8,14 @@
  *
  * Copyright (C) The OpenCRVS Authors located at https://github.com/opencrvs/opencrvs-core/blob/master/AUTHORS.
  */
-import {
-  INFOBIP_API_KEY,
-  INFOBIP_GATEWAY_ENDPOINT,
-  INFOBIP_SENDER_ID
-} from './constant'
+import { SMS_GATEWAY_ENDPOINT, SMS_SENDER } from './constant'
 import { logger } from '@countryconfig/logger'
 import fetch from 'node-fetch'
 import * as Handlebars from 'handlebars'
 import { internal } from '@hapi/boom'
 import { getLanguages } from '../content/service'
+import { getToken } from './sms-gateway-jwt'
+import { URL } from 'url'
 
 export const informantTemplates = {
   birthInProgressNotification: 'birthInProgressNotification',
@@ -50,26 +48,18 @@ export async function sendSMS(
 ) {
   const message = await compileMessages(type, variables, locale)
   const body = JSON.stringify({
-    messages: [
-      {
-        destinations: [
-          {
-            recipient
-          }
-        ],
-        from: INFOBIP_SENDER_ID,
-        text: message
-      }
-    ]
+    sender: SMS_SENDER,
+    receiver: recipient,
+    text: message
   })
   const headers = {
-    Authorization: `App ${INFOBIP_API_KEY}`,
+    Authorization: `JWT ${await getToken()}`,
     'Content-Type': 'application/json'
   }
 
   let response
   try {
-    response = await fetch(INFOBIP_GATEWAY_ENDPOINT, {
+    response = await fetch(new URL('api/v1/sms/', SMS_GATEWAY_ENDPOINT), {
       method: 'POST',
       body,
       headers
