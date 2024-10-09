@@ -11,7 +11,7 @@
 import { logger } from '@countryconfig/logger'
 import * as Hapi from '@hapi/hapi'
 import * as Joi from 'joi'
-import { IApplicationConfig, getApplicationConfig } from '../../utils'
+import { getApplicationConfig } from '../../utils'
 import { COUNTRY_LOGO_URL, LOGIN_URL, SENDER_EMAIL_ADDRESS } from './constant'
 import { sendEmail } from './email-service'
 import { SMSTemplateType, sendSMS } from './sms-service'
@@ -23,46 +23,21 @@ import {
   renderTemplate
 } from './email-templates'
 
-function isEmailPayload(
-  applicationConfig: IApplicationConfig,
-  notificationPayload: NotificationPayload
-): notificationPayload is EmailNotificationPayload {
-  const recipientType = notificationPayload.type
-  const notificationMethod =
-    recipientType == 'user'
-      ? applicationConfig.USER_NOTIFICATION_DELIVERY_METHOD
-      : applicationConfig.INFORMANT_NOTIFICATION_DELIVERY_METHOD
-  return notificationMethod === 'email'
-}
-
-type EmailNotificationPayload = {
+type NotificationPayload = {
   templateName: {
     email: EmailTemplateType
+    sms: SMSTemplateType
   }
   recipient: {
     email?: string
     bcc?: string[]
+    sms?: string
   }
   type: 'user' | 'informant'
   locale: string
   variables: TemplateVariables
   convertUnicode?: boolean
 }
-
-type SMSNotificationPayload = {
-  templateName: {
-    sms: SMSTemplateType
-  }
-  recipient: {
-    sms: string
-  }
-  type: 'user' | 'informant'
-  locale: string
-  variables: TemplateVariables
-  convertUnicode?: boolean
-}
-
-type NotificationPayload = SMSNotificationPayload | EmailNotificationPayload
 
 export const notificationSchema = Joi.object({
   templateName: Joi.object({
@@ -101,43 +76,38 @@ export async function notificationHandler(
     return h.response().code(200)
   }
 
-  if (isEmailPayload(applicationConfig, payload)) {
-    const { templateName, variables, recipient } = payload
-    if (!recipient.email) {
-      logger.info(`Skipping notification as no recipient found`)
-      return h.response().code(200)
-    }
-    logger.info(`Notification method is email and recipient ${recipient.email}`)
+  const { templateName, variables, recipient, locale } = payload
 
-    const template = getTemplate(templateName.email)
-    const emailSubject =
-      template.type === 'allUserNotification'
-        ? (variables as AllUserNotificationVariables).subject
-        : template.subject
+  const template = getTemplate(templateName.email)
+  const emailSubject =
+    template.type === 'allUserNotification'
+      ? (variables as AllUserNotificationVariables).subject
+      : template.subject
 
-    const emailBody = renderTemplate(template, {
-      ...variables,
-      applicationName,
-      countryLogo: COUNTRY_LOGO_URL,
-      loginURL: LOGIN_URL
-    })
+  const emailBody = renderTemplate(template, {
+    ...variables,
+    applicationName,
+    countryLogo: COUNTRY_LOGO_URL,
+    loginURL: LOGIN_URL
+  })
 
-    await sendEmail({
-      subject: emailSubject,
-      html: emailBody,
-      from: SENDER_EMAIL_ADDRESS,
-      to: recipient.email,
-      bcc: recipient.bcc
-    })
-  } else {
-    const { templateName, variables, recipient, locale } = payload
-    await sendSMS(
-      templateName.sms,
-      { ...variables, applicationName, countryLogo: COUNTRY_LOGO_URL },
-      recipient.sms,
-      locale
-    )
-  }
+  await Promise.all([
+    recipient.email &&
+      (await sendEmail({
+        subject: emailSubject,
+        html: emailBody,
+        from: SENDER_EMAIL_ADDRESS,
+        to: recipient.email,
+        bcc: recipient.bcc
+      })),
+    recipient.sms &&
+      (await sendSMS(
+        templateName.sms,
+        { ...variables, applicationName, countryLogo: COUNTRY_LOGO_URL },
+        recipient.sms,
+        locale
+      ))
+  ])
 
   return h.response().code(200)
 }
