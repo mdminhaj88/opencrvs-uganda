@@ -16,7 +16,8 @@
       "esnext.asynciterable",
       "es6",
       "es2017",
-      "es2019"
+      "es2019",
+      "es2020"
     ],
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,

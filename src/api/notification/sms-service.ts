@@ -76,7 +76,7 @@ export async function sendSMS(
       `Failed to send notification to ${recipient}. Reason: ${responseBody}`
     )
   }
-  logger.info(`Response from Infobip: ${JSON.stringify(responseBody)}`)
+  logger.info(`Response from sms gateway: ${JSON.stringify(responseBody)}`)
 }
 
 const compileMessages = async (
