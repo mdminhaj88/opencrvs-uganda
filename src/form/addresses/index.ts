@@ -59,7 +59,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   {
     // INFORMANT ADDRESS FIELDS
     precedingFieldId:
-      'birth.informant.informant-view-group.informantBirthRegistrationNumber',
+      'birth.informant.informant-view-group.informantRefugeeAttestationId',
     configurations: [
       {
         config: AddressSubsections.PRIMARY_ADDRESS_SUBSECTION,
@@ -91,7 +91,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   {
     // MOTHER ADDRESS FIELDS
     precedingFieldId:
-      'birth.mother.mother-view-group.motherBirthRegistrationNumber',
+      'birth.mother.mother-view-group.motherRefugeeAttestationId',
     configurations: [
       {
         config: AddressSubsections.PRIMARY_ADDRESS_SUBSECTION,
@@ -116,7 +116,7 @@ export const defaultAddressConfiguration: IAddressConfiguration[] = [
   {
     // FATHER ADDRESS FIELDS
     precedingFieldId:
-      'birth.father.father-view-group.fatherBirthRegistrationNumber',
+      'birth.father.father-view-group.fatherRefugeeAttestationId',
     configurations: [
       {
         config: AddressSubsections.PRIMARY_ADDRESS_SUBSECTION,
