@@ -91,7 +91,7 @@ export async function notificationHandler(
     loginURL: LOGIN_URL
   })
 
-  await Promise.all([
+  await Promise.allSettled([
     recipient.email &&
       (await sendEmail({
         subject: emailSubject,
