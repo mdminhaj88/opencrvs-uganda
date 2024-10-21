@@ -15,6 +15,13 @@ export const SMTP_USERNAME = process.env.SMTP_USERNAME
 export const SMTP_PASSWORD = process.env.SMTP_PASSWORD
 export const SMTP_SECURE = process.env.SMTP_SECURE === 'true'
 
+/* UConnect MSDG */
+export const SMS_GATEWAY_ENDPOINT = process.env.SMS_GATEWAY_ENDPOINT
+export const SMS_USER_ID = process.env.SMS_USER_ID
+export const SMS_PASSWORD = process.env.SMS_PASSWORD
+export const SMS_EMAIL = process.env.SMS_EMAIL
+export const SMS_SENDER = process.env.SMS_SENDER
+
 /* Infobip */
 export const INFOBIP_GATEWAY_ENDPOINT = process.env.INFOBIP_GATEWAY_ENDPOINT
   ? process.env.INFOBIP_GATEWAY_ENDPOINT
