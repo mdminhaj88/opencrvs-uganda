@@ -578,12 +578,9 @@ export const spouseFamilyNameConditionals = [
   }
 ]
 
-export const FATHER_DETAILS_DONT_EXIST =
-  '(draftData?.father && !draftData?.father.detailsExist) || !values.detailsExist'
-export const MOTHER_DETAILS_DONT_EXIST =
-  '(draftData?.mother && !draftData?.mother.detailsExist) || !values.detailsExist'
-export const SPOUSE_DETAILS_DONT_EXIST =
-  '(draftData?.spouse && !draftData?.spouse.detailsExist) || !values.detailsExist'
+export const FATHER_DETAILS_DONT_EXIST = '!values.detailsExist'
+export const MOTHER_DETAILS_DONT_EXIST = '!values.detailsExist'
+export const SPOUSE_DETAILS_DONT_EXIST = '!values.detailsExist'
 
 // if mothers details do not exist on other page
 export const mothersDetailsDontExistOnOtherPage =
