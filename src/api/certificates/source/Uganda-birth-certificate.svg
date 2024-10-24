@@ -95,7 +95,7 @@
       <tspan x="0.274" y="6.427" style="font-size: 9px; word-spacing: 0px;">{{uppercase (shortenMonth eventDate)}}</tspan>
     </text>
     <text transform="translate(70.0197 182.59) rotate(-90)" fill="black" style="white-space: pre" font-family="Arimo" font-size="9" font-weight="bold" letter-spacing="0em">
-      <tspan x="0.0415039" y="6.42676">23:12</tspan>
+      <tspan x="0.0415039" y="6.42676">{{birthChildTimeOfBirth}}</tspan>
     </text>
   </g>
   <image width="36" height="36" x="645.841" y="17.798" xlink:href="{{qrCode}}"></image>
