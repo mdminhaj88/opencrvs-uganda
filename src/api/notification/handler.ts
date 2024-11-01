@@ -93,20 +93,20 @@ export async function notificationHandler(
 
   await Promise.allSettled([
     recipient.email &&
-      (await sendEmail({
+      sendEmail({
         subject: emailSubject,
         html: emailBody,
         from: SENDER_EMAIL_ADDRESS,
         to: recipient.email,
         bcc: recipient.bcc
-      })),
+      }),
     recipient.sms &&
-      (await sendSMS(
+      sendSMS(
         templateName.sms,
         { ...variables, applicationName, countryLogo: COUNTRY_LOGO_URL },
         recipient.sms,
         locale
-      ))
+      )
   ])
 
   return h.response().code(200)
