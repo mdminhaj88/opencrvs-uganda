@@ -91,7 +91,7 @@ export async function notificationHandler(
     loginURL: LOGIN_URL
   })
 
-  await Promise.allSettled([
+  const results = await Promise.allSettled([
     recipient.email &&
       sendEmail({
         subject: emailSubject,
@@ -108,6 +108,11 @@ export async function notificationHandler(
         locale
       )
   ])
+  for (const result of results) {
+    if (result.status === 'rejected') {
+      logger.error(result.reason)
+    }
+  }
 
   return h.response().code(200)
 }
