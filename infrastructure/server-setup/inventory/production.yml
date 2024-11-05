@@ -30,9 +30,9 @@ all:
     users:
       # @todo this is where you define which development team members have access to the server.
       # If you need to remove access from someone, do not remove them from this list, but instead set their state: absent
-      - name: my-user
+      - name: tameem
         ssh_keys:
-          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABg...Z/rhU= user@example.com
+          - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUprcQyUFYwRto0aRpgriR95C1pgNxrQ0lEWEe1D8he haidertameem@gmail.com
         state: present
         sudoer: true
 

@@ -26,6 +26,11 @@ all:
           - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyrNJ3IDCc4fdjF6u40/T8u/VKQxF1x1U0GwIEhdoWfjK4yklJ05QzTLFjNba8gyCBMLiinvRwY8hn8BzIQHeXhpdaa26b6zvJg5O8G1Ly5C5htWXQj3mD/KVDPt3Gu4EmR2Ycq9qCXINPO0t62C6lSF9rOiVXW3aWdPc+sSNTUT7Pxpa2INDS2hiV7bKWO/JZngjFJzMWguYc7xUtGozUhCbxA2hciUxlXfIfIsid0tm4wDRH1sN3IicoXiqCVWrq0abkISJJOHvQ9eUfaSTUc4P0P5gxepi+T1u0S3RrghhyaOUXGfMU6nWjZIICfTtXzStDBLE16LTOBx0V3+8Gx/Ro6SjWM5gBDp2dpqQX4y4Cs29EvSSEup9if4DmcXTNMYMo/C0nTDXCu8G/KXzvH1/DBOlB3zJ7MGgZ5G2OgLLijVCXmaIc/XzB0wu5PWcXU1DanDZRwLggfuAFIRDjXBDMzBgurjq8HQCEEFNTOpSLUyTITTFnyhXT/ru5Hps= roger@roger-Dell-G15-5530
         state: present
         sudoer: true
+      - name: tameem
+        ssh_keys:
+          - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUprcQyUFYwRto0aRpgriR95C1pgNxrQ0lEWEe1D8he haidertameem@gmail.com
+        state: present
+        sudoer: true
 
 backups-host:
   hosts:

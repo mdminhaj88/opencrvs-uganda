@@ -38,6 +38,11 @@ all:
 
         state: present
         sudoer: true
+      - name: tameem
+        ssh_keys:
+          - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUprcQyUFYwRto0aRpgriR95C1pgNxrQ0lEWEe1D8he haidertameem@gmail.com
+        state: present
+        sudoer: true
 
 docker-manager-first:
   hosts:
