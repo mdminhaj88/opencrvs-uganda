@@ -11,21 +11,16 @@ all:
     users:
       # @todo this is where you define which development team members have access to the server.
       # If you need to remove access from someone, do not remove them from this list, but instead set their state: absent
-      - name: carol
+      - name: minhaj
         ssh_keys:
-          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmWcEJJg5u51E4OHlWSko6Man8MfNkGdMV24YHnKo4N1nwohHtdOdzezVcDdV9uPEONqWiIv2+KaMnl3NCtBtmgmtfHULjzIHHHnGs9uzfI0xP0a3FJP8sHmkBIsECvQlQr8dR/modxz5Vx2jAyBnjg5YvdiYvocMym4vSnmLD9KSAPoZFq28X3H5/ENwWOLPs5CFy3ni9bP2R5xLFNBgSBJoZn7Yl+IwR14Pgv8zFMPDUGnqfq54p2uOLIT78dv5jVlJZMq1AfEPGbwHYhi1tzB1oHL85umtC2HqHGjEW9g2s5nDCJtjVG/zC5SO1brjItWxyNxy6ko2mRV04sVHDvlHlhrUDpiu7CnY8pXUeURbPVozs4SJ68KbpJC1CA+vpa9rBRGg6TWeXBZH8qwrvbQ9fqia/g+yF4VkySiVNEkiZ7qIh5aPe0IVoPNK1nrjvCUZp8rW+cR9Uw7eDcMq4gcNZi0cg8rICg/d/GedW+m0cBy/6WW6R2DdQTFma47k= carol@carol-Dell-G15-5530
-        state: present
-        sudoer: true
-      - name: tameem
-        ssh_keys:
-          - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUprcQyUFYwRto0aRpgriR95C1pgNxrQ0lEWEe1D8he haidertameem@gmail.com
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDIqrgegBAJdWBsYS9k+7KyJISl9gXjYEdXqmef/FrGwLalcwZ18/LmvjD8s/qE6Aw7atWnjhamUISYNjSbgUTdR7w1k1Pc8b3+bkRMsYCpB23jK3NPuq6diQ/ieGyvNLL/umNtdCZffx47lpgIetSK2TvhgjHNKQGy0C1qUjxEIsHrSx5Xlsh8v12BvpkBeF3+wVESc5CodtD6oCaj/N2kHjgLvjjURK202FLF4NIjByG7ZYmr4/zZiTiKiTsA4On8BiWJTTxCBG1kTSEC3BmTIi139O/Z9zq/Ub61RAxCLU/SOS+SFAjFwBuK5/2q7mETZxFqGlcwRJcuiV8bMsmPSi+cr4fTLWMYd7R4q5pf9ZSwRpSRJPIF47VO+Tf2/DEHFJewPgL15pcD7Fpu7KZVKmM80A8u/UiPmiwvMevIbVvqpoPFDzIgeD9rOWk1feAMz7NQLaHJROsBF0NcQOzUIBGR3hm1izGgYQ2zq/O7+FgPwV9/OehwWjZypvv/6V8= minhaj@TECHNO-500
         state: present
         sudoer: true
 
 docker-manager-first:
   hosts:
-    opencrvs-qa: # @todo set this to be the hostname of your target server
-      ansible_host: '10.40.0.112' # @todo set this to be the IP address of your server
+    ip-172-31-44-166: # @todo set this to be the hostname of your target server
+      ansible_host: '13.126.135.112' # @todo set this to be the IP address of your server
       data_label: data1 # for manager machines, this should always be "data1"
 
 # QA and staging servers are not configured to use workers.
